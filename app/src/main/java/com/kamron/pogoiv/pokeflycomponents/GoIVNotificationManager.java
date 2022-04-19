@@ -56,17 +56,22 @@ public class GoIVNotificationManager {
         RemoteViews contentBigView =
                 new RemoteViews(pokefly.getPackageName(), R.layout.notification_pokefly_paused_expanded);
 
+        int updateCurrentImmutable = PendingIntent.FLAG_UPDATE_CURRENT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            updateCurrentImmutable = updateCurrentImmutable | PendingIntent.FLAG_IMMUTABLE;
+        }
+
         // Open app action
         Intent openAppIntent = new Intent(pokefly, MainActivity.class);
         PendingIntent openAppPendingIntent = PendingIntent.getActivity(
-                pokefly, 0, openAppIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                pokefly, 0, openAppIntent, updateCurrentImmutable);
         contentView.setOnClickPendingIntent(R.id.root, openAppPendingIntent);
         contentBigView.setOnClickPendingIntent(R.id.root, openAppPendingIntent);
 
         // Open settings action
         Intent startSettingAppIntent = new Intent(pokefly, SettingsActivity.class);
         PendingIntent startSettingsPendingIntent = PendingIntent.getActivity(
-                pokefly, 0, startSettingAppIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                pokefly, 0, startSettingAppIntent, updateCurrentImmutable);
         contentView.setOnClickPendingIntent(R.id.settings, startSettingsPendingIntent);
         contentBigView.setOnClickPendingIntent(R.id.settings, startSettingsPendingIntent);
 
@@ -74,7 +79,7 @@ public class GoIVNotificationManager {
         Intent startServiceIntent = new Intent(pokefly, MainActivity.class)
                 .setAction(MainActivity.ACTION_START_POKEFLY);
         PendingIntent startServicePendingIntent = PendingIntent.getActivity(
-                pokefly, 0, startServiceIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                pokefly, 0, startServiceIntent, updateCurrentImmutable);
         contentView.setOnClickPendingIntent(R.id.start, startServicePendingIntent);
         contentBigView.setOnClickPendingIntent(R.id.start, startServicePendingIntent);
 
@@ -113,10 +118,15 @@ public class GoIVNotificationManager {
         contentBigView.setTextViewText(R.id.notification_title,
                 pokefly.getString(R.string.notification_title, pokefly.getTrainerLevel()));
 
+        int updateCurrentImmutable = PendingIntent.FLAG_UPDATE_CURRENT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            updateCurrentImmutable = updateCurrentImmutable | PendingIntent.FLAG_IMMUTABLE;
+        }
+
         // Open app action
         Intent openAppIntent = new Intent(pokefly, MainActivity.class);
         PendingIntent openAppPendingIntent = PendingIntent.getActivity(
-                pokefly, 0, openAppIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                pokefly, 0, openAppIntent, updateCurrentImmutable);
         contentView.setOnClickPendingIntent(R.id.root, openAppPendingIntent);
         contentBigView.setOnClickPendingIntent(R.id.root, openAppPendingIntent);
 
@@ -124,14 +134,14 @@ public class GoIVNotificationManager {
         Intent recalibrateScreenScanningIntent = new Intent(pokefly, NotificationActionService.class)
                 .setAction(ACTION_RECALIBRATE_SCANAREA);
         PendingIntent recalibrateScreenScanningPendingIntent = PendingIntent.getService(
-                pokefly, 0, recalibrateScreenScanningIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                pokefly, 0, recalibrateScreenScanningIntent, updateCurrentImmutable);
         contentView.setOnClickPendingIntent(R.id.recalibrate, recalibrateScreenScanningPendingIntent);
         contentBigView.setOnClickPendingIntent(R.id.recalibrate, recalibrateScreenScanningPendingIntent);
 
         // Stop service action
         Intent stopServiceIntent = Pokefly.createStopIntent(pokefly);
         PendingIntent stopServicePendingIntent = PendingIntent.getService(
-                pokefly, 0, stopServiceIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                pokefly, 0, stopServiceIntent, updateCurrentImmutable);
         contentView.setOnClickPendingIntent(R.id.pause, stopServicePendingIntent);
         contentBigView.setOnClickPendingIntent(R.id.pause, stopServicePendingIntent);
 
