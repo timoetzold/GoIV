@@ -2,7 +2,6 @@
  * Apply plugins and other Gradle scripts
  */
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
 apply from: '../checkstyle/checkstyle.gradle'
@@ -87,6 +86,8 @@ android {
         }
 
         online {
+            apply plugin: 'com.google.gms.google-services'
+
             signingConfig signingConfigs.githubConfig
             applicationId "com.swanberg.pogoiv"
             buildConfigField "boolean", "INTERNET_AVAILABLE", "true"
@@ -97,6 +98,8 @@ android {
         }
 
         playstore {
+            apply plugin: 'com.google.gms.google-services'
+
             signingConfig signingConfigs.playstoreConfig
             applicationId = "org.opensource.goiv"
             buildConfigField "boolean", "INTERNET_AVAILABLE", "true"
