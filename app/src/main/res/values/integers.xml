@@ -899,6 +899,12 @@
  <item>246</item> <!-- Glastrier -->
  <item>273</item> <!-- Spectrier -->
  <item>162</item> <!-- Calyrex -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>259</item> <!-- Sneasler -->
+ <item>222</item> <!-- Overqwil -->
 </integer-array>
 <integer-array name="defense">
  <item>111</item> <!-- Bulbasaur -->
@@ -1799,6 +1805,12 @@
  <item>223</item> <!-- Glastrier -->
  <item>146</item> <!-- Spectrier -->
  <item>162</item> <!-- Calyrex -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>158</item> <!-- Sneasler -->
+ <item>171</item> <!-- Overqwil -->
 </integer-array>
 <integer-array name="stamina">
  <item>128</item> <!-- Bulbasaur -->
@@ -2699,6 +2711,12 @@
  <item>225</item> <!-- Glastrier -->
  <item>205</item> <!-- Spectrier -->
  <item>225</item> <!-- Calyrex -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>190</item> <!-- Sneasler -->
+ <item>198</item> <!-- Overqwil -->
 </integer-array>
 <integer-array name="devolutionNumber">
  <item>-1</item> <!-- Bulbasaur -->
@@ -3599,6 +3617,12 @@
  <item>-1</item> <!-- Glastrier -->
  <item>-1</item> <!-- Spectrier -->
  <item>-1</item> <!-- Calyrex -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>214</item> <!-- Sneasler -->
+ <item>210</item> <!-- Overqwil -->
 </integer-array>
 <integer-array name="evolutionCandyCost">
  <item>25</item> <!-- Bulbasaur -->
@@ -4499,6 +4523,12 @@
  <item>-1</item> <!-- Glastrier -->
  <item>-1</item> <!-- Spectrier -->
  <item>-1</item> <!-- Calyrex -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Sneasler -->
+ <item>-1</item> <!-- Overqwil -->
 </integer-array>
 <integer-array name="candyNames">
  <item>0</item> <!-- Bulbasaur -->
@@ -5399,6 +5429,12 @@
  <item>895</item> <!-- Glastrier -->
  <item>896</item> <!-- Spectrier -->
  <item>897</item> <!-- Calyrex -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>214</item> <!-- Sneasler -->
+ <item>210</item> <!-- Overqwil -->
 </integer-array>
 <integer-array name="formsCountIndex">
  <item>-1</item> <!-- Bulbasaur -->
@@ -5458,8 +5494,8 @@
  <item>-1</item> <!-- Golduck -->
  <item>-1</item> <!-- Mankey -->
  <item>-1</item> <!-- Primeape -->
- <item>-1</item> <!-- Growlithe -->
- <item>-1</item> <!-- Arcanine -->
+ <item>12</item> <!-- Growlithe -->
+ <item>13</item> <!-- Arcanine -->
  <item>-1</item> <!-- Poliwag -->
  <item>-1</item> <!-- Poliwhirl -->
  <item>-1</item> <!-- Poliwrath -->
@@ -5474,43 +5510,43 @@
  <item>-1</item> <!-- Victreebel -->
  <item>-1</item> <!-- Tentacool -->
  <item>-1</item> <!-- Tentacruel -->
- <item>12</item> <!-- Geodude -->
- <item>13</item> <!-- Graveler -->
- <item>14</item> <!-- Golem -->
- <item>15</item> <!-- Ponyta -->
- <item>16</item> <!-- Rapidash -->
- <item>17</item> <!-- Slowpoke -->
- <item>18</item> <!-- Slowbro -->
+ <item>14</item> <!-- Geodude -->
+ <item>15</item> <!-- Graveler -->
+ <item>16</item> <!-- Golem -->
+ <item>17</item> <!-- Ponyta -->
+ <item>18</item> <!-- Rapidash -->
+ <item>19</item> <!-- Slowpoke -->
+ <item>20</item> <!-- Slowbro -->
  <item>-1</item> <!-- Magnemite -->
  <item>-1</item> <!-- Magneton -->
- <item>19</item> <!-- Farfetchd -->
+ <item>21</item> <!-- Farfetchd -->
  <item>-1</item> <!-- Doduo -->
  <item>-1</item> <!-- Dodrio -->
  <item>-1</item> <!-- Seel -->
  <item>-1</item> <!-- Dewgong -->
- <item>20</item> <!-- Grimer -->
- <item>21</item> <!-- Muk -->
+ <item>22</item> <!-- Grimer -->
+ <item>23</item> <!-- Muk -->
  <item>-1</item> <!-- Shellder -->
  <item>-1</item> <!-- Cloyster -->
  <item>-1</item> <!-- Gastly -->
  <item>-1</item> <!-- Haunter -->
- <item>22</item> <!-- Gengar -->
+ <item>24</item> <!-- Gengar -->
  <item>-1</item> <!-- Onix -->
  <item>-1</item> <!-- Drowzee -->
  <item>-1</item> <!-- Hypno -->
  <item>-1</item> <!-- Krabby -->
  <item>-1</item> <!-- Kingler -->
- <item>23</item> <!-- Voltorb -->
- <item>24</item> <!-- Electrode -->
+ <item>25</item> <!-- Voltorb -->
+ <item>26</item> <!-- Electrode -->
  <item>-1</item> <!-- Exeggcute -->
- <item>25</item> <!-- Exeggutor -->
+ <item>27</item> <!-- Exeggutor -->
  <item>-1</item> <!-- Cubone -->
- <item>26</item> <!-- Marowak -->
+ <item>28</item> <!-- Marowak -->
  <item>-1</item> <!-- Hitmonlee -->
  <item>-1</item> <!-- Hitmonchan -->
  <item>-1</item> <!-- Lickitung -->
  <item>-1</item> <!-- Koffing -->
- <item>27</item> <!-- Weezing -->
+ <item>29</item> <!-- Weezing -->
  <item>-1</item> <!-- Rhyhorn -->
  <item>-1</item> <!-- Rhydon -->
  <item>-1</item> <!-- Chansey -->
@@ -5522,7 +5558,7 @@
  <item>-1</item> <!-- Seaking -->
  <item>-1</item> <!-- Staryu -->
  <item>-1</item> <!-- Starmie -->
- <item>28</item> <!-- Mr Mime -->
+ <item>30</item> <!-- Mr Mime -->
  <item>-1</item> <!-- Scyther -->
  <item>-1</item> <!-- Jynx -->
  <item>-1</item> <!-- Electabuzz -->
@@ -5531,7 +5567,7 @@
  <item>-1</item> <!-- Tauros -->
  <item>-1</item> <!-- Magikarp -->
  <item>-1</item> <!-- Gyarados -->
- <item>29</item> <!-- Lapras -->
+ <item>31</item> <!-- Lapras -->
  <item>-1</item> <!-- Ditto -->
  <item>-1</item> <!-- Eevee -->
  <item>-1</item> <!-- Vaporeon -->
@@ -5544,13 +5580,13 @@
  <item>-1</item> <!-- Kabutops -->
  <item>-1</item> <!-- Aerodactyl -->
  <item>-1</item> <!-- Snorlax -->
- <item>-1</item> <!-- Articuno -->
- <item>-1</item> <!-- Zapdos -->
- <item>-1</item> <!-- Moltres -->
+ <item>32</item> <!-- Articuno -->
+ <item>33</item> <!-- Zapdos -->
+ <item>34</item> <!-- Moltres -->
  <item>-1</item> <!-- Dratini -->
  <item>-1</item> <!-- Dragonair -->
  <item>-1</item> <!-- Dragonite -->
- <item>30</item> <!-- Mewtwo -->
+ <item>35</item> <!-- Mewtwo -->
  <item>-1</item> <!-- Mew -->
  <item>-1</item> <!-- Chikorita -->
  <item>-1</item> <!-- Bayleef -->
@@ -5599,9 +5635,9 @@
  <item>-1</item> <!-- Espeon -->
  <item>-1</item> <!-- Umbreon -->
  <item>-1</item> <!-- Murkrow -->
- <item>31</item> <!-- Slowking -->
+ <item>36</item> <!-- Slowking -->
  <item>-1</item> <!-- Misdreavus -->
- <item>32</item> <!-- Unown -->
+ <item>37</item> <!-- Unown -->
  <item>-1</item> <!-- Wobbuffet -->
  <item>-1</item> <!-- Girafarig -->
  <item>-1</item> <!-- Pineco -->
@@ -5611,11 +5647,11 @@
  <item>-1</item> <!-- Steelix -->
  <item>-1</item> <!-- Snubbull -->
  <item>-1</item> <!-- Granbull -->
- <item>-1</item> <!-- Qwilfish -->
+ <item>38</item> <!-- Qwilfish -->
  <item>-1</item> <!-- Scizor -->
  <item>-1</item> <!-- Shuckle -->
  <item>-1</item> <!-- Heracross -->
- <item>-1</item> <!-- Sneasel -->
+ <item>39</item> <!-- Sneasel -->
  <item>-1</item> <!-- Teddiursa -->
  <item>-1</item> <!-- Ursaring -->
  <item>-1</item> <!-- Slugma -->
@@ -5625,7 +5661,7 @@
  <item>-1</item> <!-- Corsola -->
  <item>-1</item> <!-- Remoraid -->
  <item>-1</item> <!-- Octillery -->
- <item>33</item> <!-- Delibird -->
+ <item>40</item> <!-- Delibird -->
  <item>-1</item> <!-- Mantine -->
  <item>-1</item> <!-- Skarmory -->
  <item>-1</item> <!-- Houndour -->
@@ -5643,14 +5679,14 @@
  <item>-1</item> <!-- Magby -->
  <item>-1</item> <!-- Miltank -->
  <item>-1</item> <!-- Blissey -->
- <item>34</item> <!-- Raikou -->
- <item>35</item> <!-- Entei -->
- <item>36</item> <!-- Suicune -->
+ <item>41</item> <!-- Raikou -->
+ <item>42</item> <!-- Entei -->
+ <item>43</item> <!-- Suicune -->
  <item>-1</item> <!-- Larvitar -->
  <item>-1</item> <!-- Pupitar -->
  <item>-1</item> <!-- Tyranitar -->
- <item>37</item> <!-- Lugia -->
- <item>38</item> <!-- Ho Oh -->
+ <item>44</item> <!-- Lugia -->
+ <item>45</item> <!-- Ho Oh -->
  <item>-1</item> <!-- Celebi -->
  <item>-1</item> <!-- Treecko -->
  <item>-1</item> <!-- Grovyle -->
@@ -5663,8 +5699,8 @@
  <item>-1</item> <!-- Swampert -->
  <item>-1</item> <!-- Poochyena -->
  <item>-1</item> <!-- Mightyena -->
- <item>39</item> <!-- Zigzagoon -->
- <item>40</item> <!-- Linoone -->
+ <item>46</item> <!-- Zigzagoon -->
+ <item>47</item> <!-- Linoone -->
  <item>-1</item> <!-- Wurmple -->
  <item>-1</item> <!-- Silcoon -->
  <item>-1</item> <!-- Beautifly -->
@@ -5702,7 +5738,7 @@
  <item>-1</item> <!-- Nosepass -->
  <item>-1</item> <!-- Skitty -->
  <item>-1</item> <!-- Delcatty -->
- <item>41</item> <!-- Sableye -->
+ <item>48</item> <!-- Sableye -->
  <item>-1</item> <!-- Mawile -->
  <item>-1</item> <!-- Aron -->
  <item>-1</item> <!-- Lairon -->
@@ -5727,7 +5763,7 @@
  <item>-1</item> <!-- Torkoal -->
  <item>-1</item> <!-- Spoink -->
  <item>-1</item> <!-- Grumpig -->
- <item>42</item> <!-- Spinda -->
+ <item>49</item> <!-- Spinda -->
  <item>-1</item> <!-- Trapinch -->
  <item>-1</item> <!-- Vibrava -->
  <item>-1</item> <!-- Flygon -->
@@ -5751,7 +5787,7 @@
  <item>-1</item> <!-- Armaldo -->
  <item>-1</item> <!-- Feebas -->
  <item>-1</item> <!-- Milotic -->
- <item>43</item> <!-- Castform -->
+ <item>50</item> <!-- Castform -->
  <item>-1</item> <!-- Kecleon -->
  <item>-1</item> <!-- Shuppet -->
  <item>-1</item> <!-- Banette -->
@@ -5786,7 +5822,7 @@
  <item>-1</item> <!-- Groudon -->
  <item>-1</item> <!-- Rayquaza -->
  <item>-1</item> <!-- Jirachi -->
- <item>44</item> <!-- Deoxys -->
+ <item>51</item> <!-- Deoxys -->
  <item>-1</item> <!-- Turtwig -->
  <item>-1</item> <!-- Grotle -->
  <item>-1</item> <!-- Torterra -->
@@ -5812,8 +5848,8 @@
  <item>-1</item> <!-- Rampardos -->
  <item>-1</item> <!-- Shieldon -->
  <item>-1</item> <!-- Bastiodon -->
- <item>45</item> <!-- Burmy -->
- <item>46</item> <!-- Wormadam -->
+ <item>52</item> <!-- Burmy -->
+ <item>53</item> <!-- Wormadam -->
  <item>-1</item> <!-- Mothim -->
  <item>-1</item> <!-- Combee -->
  <item>-1</item> <!-- Vespiquen -->
@@ -5821,9 +5857,9 @@
  <item>-1</item> <!-- Buizel -->
  <item>-1</item> <!-- Floatzel -->
  <item>-1</item> <!-- Cherubi -->
- <item>47</item> <!-- Cherrim -->
- <item>48</item> <!-- Shellos -->
- <item>49</item> <!-- Gastrodon -->
+ <item>54</item> <!-- Cherrim -->
+ <item>55</item> <!-- Shellos -->
+ <item>56</item> <!-- Gastrodon -->
  <item>-1</item> <!-- Ambipom -->
  <item>-1</item> <!-- Drifloon -->
  <item>-1</item> <!-- Drifblim -->
@@ -5879,7 +5915,7 @@
  <item>-1</item> <!-- Probopass -->
  <item>-1</item> <!-- Dusknoir -->
  <item>-1</item> <!-- Froslass -->
- <item>50</item> <!-- Rotom -->
+ <item>57</item> <!-- Rotom -->
  <item>-1</item> <!-- Uxie -->
  <item>-1</item> <!-- Mesprit -->
  <item>-1</item> <!-- Azelf -->
@@ -5887,13 +5923,13 @@
  <item>-1</item> <!-- Palkia -->
  <item>-1</item> <!-- Heatran -->
  <item>-1</item> <!-- Regigigas -->
- <item>51</item> <!-- Giratina -->
+ <item>58</item> <!-- Giratina -->
  <item>-1</item> <!-- Cresselia -->
  <item>-1</item> <!-- Phione -->
  <item>-1</item> <!-- Manaphy -->
  <item>-1</item> <!-- Darkrai -->
- <item>52</item> <!-- Shaymin -->
- <item>53</item> <!-- Arceus -->
+ <item>59</item> <!-- Shaymin -->
+ <item>60</item> <!-- Arceus -->
  <item>-1</item> <!-- Victini -->
  <item>-1</item> <!-- Snivy -->
  <item>-1</item> <!-- Servine -->
@@ -5950,19 +5986,19 @@
  <item>-1</item> <!-- Whimsicott -->
  <item>-1</item> <!-- Petilil -->
  <item>-1</item> <!-- Lilligant -->
- <item>54</item> <!-- Basculin -->
+ <item>61</item> <!-- Basculin -->
  <item>-1</item> <!-- Sandile -->
  <item>-1</item> <!-- Krokorok -->
  <item>-1</item> <!-- Krookodile -->
- <item>55</item> <!-- Darumaka -->
- <item>56</item> <!-- Darmanitan -->
+ <item>62</item> <!-- Darumaka -->
+ <item>63</item> <!-- Darmanitan -->
  <item>-1</item> <!-- Maractus -->
  <item>-1</item> <!-- Dwebble -->
  <item>-1</item> <!-- Crustle -->
  <item>-1</item> <!-- Scraggy -->
  <item>-1</item> <!-- Scrafty -->
  <item>-1</item> <!-- Sigilyph -->
- <item>57</item> <!-- Yamask -->
+ <item>64</item> <!-- Yamask -->
  <item>-1</item> <!-- Cofagrigus -->
  <item>-1</item> <!-- Tirtouga -->
  <item>-1</item> <!-- Carracosta -->
@@ -5985,15 +6021,15 @@
  <item>-1</item> <!-- Vanillite -->
  <item>-1</item> <!-- Vanillish -->
  <item>-1</item> <!-- Vanilluxe -->
- <item>58</item> <!-- Deerling -->
- <item>59</item> <!-- Sawsbuck -->
+ <item>65</item> <!-- Deerling -->
+ <item>66</item> <!-- Sawsbuck -->
  <item>-1</item> <!-- Emolga -->
  <item>-1</item> <!-- Karrablast -->
  <item>-1</item> <!-- Escavalier -->
  <item>-1</item> <!-- Foongus -->
  <item>-1</item> <!-- Amoonguss -->
- <item>60</item> <!-- Frillish -->
- <item>61</item> <!-- Jellicent -->
+ <item>67</item> <!-- Frillish -->
+ <item>68</item> <!-- Jellicent -->
  <item>-1</item> <!-- Alomomola -->
  <item>-1</item> <!-- Joltik -->
  <item>-1</item> <!-- Galvantula -->
@@ -6013,12 +6049,12 @@
  <item>-1</item> <!-- Axew -->
  <item>-1</item> <!-- Fraxure -->
  <item>-1</item> <!-- Haxorus -->
- <item>62</item> <!-- Cubchoo -->
+ <item>69</item> <!-- Cubchoo -->
  <item>-1</item> <!-- Beartic -->
  <item>-1</item> <!-- Cryogonal -->
  <item>-1</item> <!-- Shelmet -->
  <item>-1</item> <!-- Accelgor -->
- <item>63</item> <!-- Stunfisk -->
+ <item>70</item> <!-- Stunfisk -->
  <item>-1</item> <!-- Mienfoo -->
  <item>-1</item> <!-- Mienshao -->
  <item>-1</item> <!-- Druddigon -->
@@ -6028,7 +6064,7 @@
  <item>-1</item> <!-- Bisharp -->
  <item>-1</item> <!-- Bouffalant -->
  <item>-1</item> <!-- Rufflet -->
- <item>-1</item> <!-- Braviary -->
+ <item>71</item> <!-- Braviary -->
  <item>-1</item> <!-- Vullaby -->
  <item>-1</item> <!-- Mandibuzz -->
  <item>-1</item> <!-- Heatmor -->
@@ -6041,15 +6077,15 @@
  <item>-1</item> <!-- Cobalion -->
  <item>-1</item> <!-- Terrakion -->
  <item>-1</item> <!-- Virizion -->
- <item>64</item> <!-- Tornadus -->
- <item>65</item> <!-- Thundurus -->
+ <item>72</item> <!-- Tornadus -->
+ <item>73</item> <!-- Thundurus -->
  <item>-1</item> <!-- Reshiram -->
  <item>-1</item> <!-- Zekrom -->
- <item>66</item> <!-- Landorus -->
- <item>67</item> <!-- Kyurem -->
- <item>68</item> <!-- Keldeo -->
- <item>69</item> <!-- Meloetta -->
- <item>70</item> <!-- Genesect -->
+ <item>74</item> <!-- Landorus -->
+ <item>75</item> <!-- Kyurem -->
+ <item>76</item> <!-- Keldeo -->
+ <item>77</item> <!-- Meloetta -->
+ <item>78</item> <!-- Genesect -->
  <item>-1</item> <!-- Chespin -->
  <item>-1</item> <!-- Quilladin -->
  <item>-1</item> <!-- Chesnaught -->
@@ -6068,17 +6104,17 @@
  <item>-1</item> <!-- Spewpa -->
  <item>-1</item> <!-- Vivillon -->
  <item>-1</item> <!-- Litleo -->
- <item>71</item> <!-- Pyroar -->
- <item>72</item> <!-- Flabebe -->
- <item>73</item> <!-- Floette -->
- <item>74</item> <!-- Florges -->
+ <item>79</item> <!-- Pyroar -->
+ <item>80</item> <!-- Flabebe -->
+ <item>81</item> <!-- Floette -->
+ <item>82</item> <!-- Florges -->
  <item>-1</item> <!-- Skiddo -->
  <item>-1</item> <!-- Gogoat -->
  <item>-1</item> <!-- Pancham -->
  <item>-1</item> <!-- Pangoro -->
- <item>75</item> <!-- Furfrou -->
+ <item>83</item> <!-- Furfrou -->
  <item>-1</item> <!-- Espurr -->
- <item>76</item> <!-- Meowstic -->
+ <item>84</item> <!-- Meowstic -->
  <item>-1</item> <!-- Placeholder -->
  <item>-1</item> <!-- Placeholder -->
  <item>-1</item> <!-- Placeholder -->
@@ -6110,8 +6146,8 @@
  <item>-1</item> <!-- Klefki -->
  <item>-1</item> <!-- Phantump -->
  <item>-1</item> <!-- Trevenant -->
- <item>77</item> <!-- Pumpkaboo -->
- <item>78</item> <!-- Gourgeist -->
+ <item>85</item> <!-- Pumpkaboo -->
+ <item>86</item> <!-- Gourgeist -->
  <item>-1</item> <!-- Bergmite -->
  <item>-1</item> <!-- Avalugg -->
  <item>-1</item> <!-- Noibat -->
@@ -6120,7 +6156,7 @@
  <item>-1</item> <!-- Yveltal -->
  <item>-1</item> <!-- Placeholder -->
  <item>-1</item> <!-- Diancie -->
- <item>79</item> <!-- Hoopa -->
+ <item>87</item> <!-- Hoopa -->
  <item>-1</item> <!-- Volcanion -->
  <item>-1</item> <!-- Rowlet -->
  <item>-1</item> <!-- Dartrix -->
@@ -6141,12 +6177,12 @@
  <item>-1</item> <!-- Vikavolt -->
  <item>-1</item> <!-- Crabrawler -->
  <item>-1</item> <!-- Crabominable -->
- <item>80</item> <!-- Oricorio -->
+ <item>88</item> <!-- Oricorio -->
  <item>-1</item> <!-- Cutiefly -->
  <item>-1</item> <!-- Ribombee -->
  <item>-1</item> <!-- Rockruff -->
- <item>81</item> <!-- Lycanroc -->
- <item>82</item> <!-- Wishiwashi -->
+ <item>89</item> <!-- Lycanroc -->
+ <item>90</item> <!-- Wishiwashi -->
  <item>-1</item> <!-- Mareanie -->
  <item>-1</item> <!-- Toxapex -->
  <item>-1</item> <!-- Mudbray -->
@@ -6173,12 +6209,12 @@
  <item>-1</item> <!-- Palossand -->
  <item>-1</item> <!-- Pyukumuku -->
  <item>-1</item> <!-- Type Null -->
- <item>83</item> <!-- Silvally -->
- <item>84</item> <!-- Minior -->
+ <item>91</item> <!-- Silvally -->
+ <item>92</item> <!-- Minior -->
  <item>-1</item> <!-- Komala -->
  <item>-1</item> <!-- Turtonator -->
  <item>-1</item> <!-- Togedemaru -->
- <item>85</item> <!-- Mimikyu -->
+ <item>93</item> <!-- Mimikyu -->
  <item>-1</item> <!-- Bruxish -->
  <item>-1</item> <!-- Drampa -->
  <item>-1</item> <!-- Dhelmise -->
@@ -6200,8 +6236,8 @@
  <item>-1</item> <!-- Celesteela -->
  <item>-1</item> <!-- Kartana -->
  <item>-1</item> <!-- Guzzlord -->
- <item>86</item> <!-- Necrozma -->
- <item>87</item> <!-- Magearna -->
+ <item>94</item> <!-- Necrozma -->
+ <item>95</item> <!-- Magearna -->
  <item>-1</item> <!-- Marshadow -->
  <item>-1</item> <!-- Poipole -->
  <item>-1</item> <!-- Naganadel -->
@@ -6249,13 +6285,13 @@
  <item>-1</item> <!-- Arrokuda -->
  <item>-1</item> <!-- Barraskewda -->
  <item>-1</item> <!-- Toxel -->
- <item>88</item> <!-- Toxtricity -->
+ <item>96</item> <!-- Toxtricity -->
  <item>-1</item> <!-- Sizzlipede -->
  <item>-1</item> <!-- Centiskorch -->
  <item>-1</item> <!-- Clobbopus -->
  <item>-1</item> <!-- Grapploct -->
- <item>89</item> <!-- Sinistea -->
- <item>90</item> <!-- Polteageist -->
+ <item>97</item> <!-- Sinistea -->
+ <item>98</item> <!-- Polteageist -->
  <item>-1</item> <!-- Hatenna -->
  <item>-1</item> <!-- Hattrem -->
  <item>-1</item> <!-- Hatterene -->
@@ -6275,9 +6311,9 @@
  <item>-1</item> <!-- Snom -->
  <item>-1</item> <!-- Frosmoth -->
  <item>-1</item> <!-- Stonjourner -->
- <item>91</item> <!-- Eiscue -->
- <item>92</item> <!-- Indeedee -->
- <item>93</item> <!-- Morpeko -->
+ <item>99</item> <!-- Eiscue -->
+ <item>100</item> <!-- Indeedee -->
+ <item>101</item> <!-- Morpeko -->
  <item>-1</item> <!-- Cufant -->
  <item>-1</item> <!-- Copperajah -->
  <item>-1</item> <!-- Dracozolt -->
@@ -6288,16 +6324,22 @@
  <item>-1</item> <!-- Dreepy -->
  <item>-1</item> <!-- Drakloak -->
  <item>-1</item> <!-- Dragapult -->
- <item>94</item> <!-- Zacian -->
- <item>95</item> <!-- Zamazenta -->
- <item>96</item> <!-- Eternatus -->
+ <item>102</item> <!-- Zacian -->
+ <item>103</item> <!-- Zamazenta -->
+ <item>104</item> <!-- Eternatus -->
  <item>-1</item> <!-- Kubfu -->
- <item>97</item> <!-- Urshifu -->
+ <item>105</item> <!-- Urshifu -->
  <item>-1</item> <!-- Zarude -->
  <item>-1</item> <!-- Regieleki -->
  <item>-1</item> <!-- Regidrago -->
  <item>-1</item> <!-- Glastrier -->
  <item>-1</item> <!-- Spectrier -->
- <item>98</item> <!-- Calyrex -->
+ <item>106</item> <!-- Calyrex -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Placeholder -->
+ <item>-1</item> <!-- Sneasler -->
+ <item>-1</item> <!-- Overqwil -->
 </integer-array>
 </resources>

@@ -13,6 +13,8 @@
  <item>2</item> <!-- Dugtrio -->
  <item>3</item> <!-- Meowth -->
  <item>2</item> <!-- Persian -->
+ <item>2</item> <!-- Growlithe -->
+ <item>2</item> <!-- Arcanine -->
  <item>2</item> <!-- Geodude -->
  <item>2</item> <!-- Graveler -->
  <item>2</item> <!-- Golem -->
@@ -31,9 +33,14 @@
  <item>2</item> <!-- Weezing -->
  <item>2</item> <!-- Mr Mime -->
  <item>2</item> <!-- Lapras -->
+ <item>2</item> <!-- Articuno -->
+ <item>2</item> <!-- Zapdos -->
+ <item>2</item> <!-- Moltres -->
  <item>2</item> <!-- Mewtwo -->
  <item>3</item> <!-- Slowking -->
  <item>28</item> <!-- Unown -->
+ <item>2</item> <!-- Qwilfish -->
+ <item>2</item> <!-- Sneasel -->
  <item>2</item> <!-- Delibird -->
  <item>2</item> <!-- Raikou -->
  <item>2</item> <!-- Entei -->
@@ -65,6 +72,7 @@
  <item>2</item> <!-- Jellicent -->
  <item>2</item> <!-- Cubchoo -->
  <item>2</item> <!-- Stunfisk -->
+ <item>2</item> <!-- Braviary -->
  <item>2</item> <!-- Tornadus -->
  <item>2</item> <!-- Thundurus -->
  <item>2</item> <!-- Landorus -->
@@ -114,6 +122,8 @@
  <item>Normal Form</item> <item>Alola Form</item> <!-- Dugtrio -->
  <item>Normal Form</item> <item>Alola Form</item> <item>Galarian Form</item> <!-- Meowth -->
  <item>Normal Form</item> <item>Alola Form</item> <!-- Persian -->
+ <item>Normal Form</item> <item>Hisuian Form</item> <!-- Growlithe -->
+ <item>Normal Form</item> <item>Hisuian Form</item> <!-- Arcanine -->
  <item>Normal Form</item> <item>Alola Form</item> <!-- Geodude -->
  <item>Normal Form</item> <item>Alola Form</item> <!-- Graveler -->
  <item>Normal Form</item> <item>Alola Form</item> <!-- Golem -->
@@ -132,9 +142,14 @@
  <item>Normal Form</item> <item>Galarian Form</item> <!-- Weezing -->
  <item>Normal Form</item> <item>Galarian Form</item> <!-- Mr Mime -->
  <item>Normal Form</item> <item>Costume 2020 Form</item> <!-- Lapras -->
+ <item>Normal Form</item> <item>Galarian Form</item> <!-- Articuno -->
+ <item>Normal Form</item> <item>Galarian Form</item> <!-- Zapdos -->
+ <item>Normal Form</item> <item>Galarian Form</item> <!-- Moltres -->
  <item>Normal Form</item> <item>Armored Form</item> <!-- Mewtwo -->
  <item>Normal Form</item> <item>Galarian Form</item> <item>2022 Form</item> <!-- Slowking -->
  <item>F Form</item> <item>A Form</item> <item>B Form</item> <item>C Form</item> <item>D Form</item> <item>E Form</item> <item>G Form</item> <item>H Form</item> <item>I Form</item> <item>J Form</item> <item>K Form</item> <item>L Form</item> <item>M Form</item> <item>N Form</item> <item>O Form</item> <item>P Form</item> <item>Q Form</item> <item>R Form</item> <item>S Form</item> <item>T Form</item> <item>U Form</item> <item>V Form</item> <item>W Form</item> <item>X Form</item> <item>Y Form</item> <item>Z Form</item> <item>Exclamation Point Form</item> <item>Question Mark Form</item> <!-- Unown -->
+ <item>Normal Form</item> <item>Hisuian Form</item> <!-- Qwilfish -->
+ <item>Normal Form</item> <item>Hisuian Form</item> <!-- Sneasel -->
  <item>Normal Form</item> <item>Winter 2020 Form</item> <!-- Delibird -->
  <item>Normal Form</item> <item>S Form</item> <!-- Raikou -->
  <item>Normal Form</item> <item>S Form</item> <!-- Entei -->
@@ -166,6 +181,7 @@
  <item>Normal Form</item> <item>Female Form</item> <!-- Jellicent -->
  <item>Normal Form</item> <item>Winter 2020 Form</item> <!-- Cubchoo -->
  <item>Normal Form</item> <item>Galarian Form</item> <!-- Stunfisk -->
+ <item>Normal Form</item> <item>Hisuian Form</item> <!-- Braviary -->
  <item>Incarnate Form</item> <item>Therian Form</item> <!-- Tornadus -->
  <item>Incarnate Form</item> <item>Therian Form</item> <!-- Thundurus -->
  <item>Incarnate Form</item> <item>Therian Form</item> <!-- Landorus -->
@@ -247,6 +263,12 @@
  <!-- Persian -->
  <item>150</item> <!-- Normal Form -->
  <item>158</item> <!-- Alola Form -->
+ <!-- Growlithe -->
+ <item>136</item> <!-- Normal Form -->
+ <item>142</item> <!-- Hisuian Form -->
+ <!-- Arcanine -->
+ <item>227</item> <!-- Normal Form -->
+ <item>232</item> <!-- Hisuian Form -->
  <!-- Geodude -->
  <item>132</item> <!-- Normal Form -->
  <item>132</item> <!-- Alola Form -->
@@ -303,6 +325,15 @@
  <!-- Lapras -->
  <item>165</item> <!-- Normal Form -->
  <item>165</item> <!-- Costume 2020 Form -->
+ <!-- Articuno -->
+ <item>192</item> <!-- Normal Form -->
+ <item>250</item> <!-- Galarian Form -->
+ <!-- Zapdos -->
+ <item>253</item> <!-- Normal Form -->
+ <item>252</item> <!-- Galarian Form -->
+ <!-- Moltres -->
+ <item>251</item> <!-- Normal Form -->
+ <item>202</item> <!-- Galarian Form -->
  <!-- Mewtwo -->
  <item>300</item> <!-- Normal Form -->
  <item>182</item> <!-- Armored Form -->
@@ -339,6 +370,12 @@
  <item>136</item> <!-- Z Form -->
  <item>136</item> <!-- Exclamation Point Form -->
  <item>136</item> <!-- Question Mark Form -->
+ <!-- Qwilfish -->
+ <item>184</item> <!-- Normal Form -->
+ <item>184</item> <!-- Hisuian Form -->
+ <!-- Sneasel -->
+ <item>189</item> <!-- Normal Form -->
+ <item>189</item> <!-- Hisuian Form -->
  <!-- Delibird -->
  <item>128</item> <!-- Normal Form -->
  <item>128</item> <!-- Winter 2020 Form -->
@@ -482,6 +519,9 @@
  <!-- Stunfisk -->
  <item>144</item> <!-- Normal Form -->
  <item>144</item> <!-- Galarian Form -->
+ <!-- Braviary -->
+ <item>232</item> <!-- Normal Form -->
+ <item>213</item> <!-- Hisuian Form -->
  <!-- Tornadus -->
  <item>266</item> <!-- Incarnate Form -->
  <item>238</item> <!-- Therian Form -->
@@ -685,6 +725,12 @@
  <!-- Persian -->
  <item>136</item> <!-- Normal Form -->
  <item>136</item> <!-- Alola Form -->
+ <!-- Growlithe -->
+ <item>93</item> <!-- Normal Form -->
+ <item>92</item> <!-- Hisuian Form -->
+ <!-- Arcanine -->
+ <item>166</item> <!-- Normal Form -->
+ <item>165</item> <!-- Hisuian Form -->
  <!-- Geodude -->
  <item>132</item> <!-- Normal Form -->
  <item>132</item> <!-- Alola Form -->
@@ -741,6 +787,15 @@
  <!-- Lapras -->
  <item>174</item> <!-- Normal Form -->
  <item>174</item> <!-- Costume 2020 Form -->
+ <!-- Articuno -->
+ <item>236</item> <!-- Normal Form -->
+ <item>197</item> <!-- Galarian Form -->
+ <!-- Zapdos -->
+ <item>185</item> <!-- Normal Form -->
+ <item>189</item> <!-- Galarian Form -->
+ <!-- Moltres -->
+ <item>181</item> <!-- Normal Form -->
+ <item>231</item> <!-- Galarian Form -->
  <!-- Mewtwo -->
  <item>182</item> <!-- Normal Form -->
  <item>278</item> <!-- Armored Form -->
@@ -777,6 +832,12 @@
  <item>91</item> <!-- Z Form -->
  <item>91</item> <!-- Exclamation Point Form -->
  <item>91</item> <!-- Question Mark Form -->
+ <!-- Qwilfish -->
+ <item>138</item> <!-- Normal Form -->
+ <item>151</item> <!-- Hisuian Form -->
+ <!-- Sneasel -->
+ <item>146</item> <!-- Normal Form -->
+ <item>146</item> <!-- Hisuian Form -->
  <!-- Delibird -->
  <item>90</item> <!-- Normal Form -->
  <item>90</item> <!-- Winter 2020 Form -->
@@ -920,6 +981,9 @@
  <!-- Stunfisk -->
  <item>171</item> <!-- Normal Form -->
  <item>171</item> <!-- Galarian Form -->
+ <!-- Braviary -->
+ <item>152</item> <!-- Normal Form -->
+ <item>137</item> <!-- Hisuian Form -->
  <!-- Tornadus -->
  <item>164</item> <!-- Incarnate Form -->
  <item>189</item> <!-- Therian Form -->
@@ -1123,6 +1187,12 @@
  <!-- Persian -->
  <item>163</item> <!-- Normal Form -->
  <item>163</item> <!-- Alola Form -->
+ <!-- Growlithe -->
+ <item>146</item> <!-- Normal Form -->
+ <item>155</item> <!-- Hisuian Form -->
+ <!-- Arcanine -->
+ <item>207</item> <!-- Normal Form -->
+ <item>216</item> <!-- Hisuian Form -->
  <!-- Geodude -->
  <item>120</item> <!-- Normal Form -->
  <item>120</item> <!-- Alola Form -->
@@ -1179,6 +1249,15 @@
  <!-- Lapras -->
  <item>277</item> <!-- Normal Form -->
  <item>277</item> <!-- Costume 2020 Form -->
+ <!-- Articuno -->
+ <item>207</item> <!-- Normal Form -->
+ <item>207</item> <!-- Galarian Form -->
+ <!-- Zapdos -->
+ <item>207</item> <!-- Normal Form -->
+ <item>207</item> <!-- Galarian Form -->
+ <!-- Moltres -->
+ <item>207</item> <!-- Normal Form -->
+ <item>207</item> <!-- Galarian Form -->
  <!-- Mewtwo -->
  <item>214</item> <!-- Normal Form -->
  <item>214</item> <!-- Armored Form -->
@@ -1215,6 +1294,12 @@
  <item>134</item> <!-- Z Form -->
  <item>134</item> <!-- Exclamation Point Form -->
  <item>134</item> <!-- Question Mark Form -->
+ <!-- Qwilfish -->
+ <item>163</item> <!-- Normal Form -->
+ <item>163</item> <!-- Hisuian Form -->
+ <!-- Sneasel -->
+ <item>146</item> <!-- Normal Form -->
+ <item>146</item> <!-- Hisuian Form -->
  <!-- Delibird -->
  <item>128</item> <!-- Normal Form -->
  <item>128</item> <!-- Winter 2020 Form -->
@@ -1358,6 +1443,9 @@
  <!-- Stunfisk -->
  <item>240</item> <!-- Normal Form -->
  <item>240</item> <!-- Galarian Form -->
+ <!-- Braviary -->
+ <item>225</item> <!-- Normal Form -->
+ <item>242</item> <!-- Hisuian Form -->
  <!-- Tornadus -->
  <item>188</item> <!-- Incarnate Form -->
  <item>188</item> <!-- Therian Form -->
