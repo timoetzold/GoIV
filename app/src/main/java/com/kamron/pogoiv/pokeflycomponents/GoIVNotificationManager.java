@@ -42,7 +42,7 @@ public class GoIVNotificationManager {
     public static final String ACTION_RECALIBRATE_SCANAREA = "com.kamron.pogoiv.ACTION_RECALIBRATE_SCANAREA";
 
     public GoIVNotificationManager(Pokefly pokefly) {
-        this.pokefly = pokefly;
+        GoIVNotificationManager.pokefly = pokefly;
     }
 
 
@@ -56,10 +56,7 @@ public class GoIVNotificationManager {
         RemoteViews contentBigView =
                 new RemoteViews(pokefly.getPackageName(), R.layout.notification_pokefly_paused_expanded);
 
-        int updateCurrentImmutable = PendingIntent.FLAG_UPDATE_CURRENT;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            updateCurrentImmutable = updateCurrentImmutable | PendingIntent.FLAG_IMMUTABLE;
-        }
+        int updateCurrentImmutable = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
 
         // Open app action
         Intent openAppIntent = new Intent(pokefly, MainActivity.class);
@@ -118,10 +115,7 @@ public class GoIVNotificationManager {
         contentBigView.setTextViewText(R.id.notification_title,
                 pokefly.getString(R.string.notification_title, pokefly.getTrainerLevel()));
 
-        int updateCurrentImmutable = PendingIntent.FLAG_UPDATE_CURRENT;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            updateCurrentImmutable = updateCurrentImmutable | PendingIntent.FLAG_IMMUTABLE;
-        }
+        int updateCurrentImmutable = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
 
         // Open app action
         Intent openAppIntent = new Intent(pokefly, MainActivity.class);
