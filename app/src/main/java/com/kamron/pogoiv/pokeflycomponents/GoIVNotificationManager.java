@@ -51,10 +51,16 @@ public class GoIVNotificationManager {
      */
     public void showPausedNotification() {
         // Prepare views
-        RemoteViews contentView =
-                new RemoteViews(pokefly.getPackageName(), R.layout.notification_pokefly_paused);
-        RemoteViews contentBigView =
-                new RemoteViews(pokefly.getPackageName(), R.layout.notification_pokefly_paused_expanded);
+        RemoteViews contentView;
+        RemoteViews contentBigView;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            contentView = new RemoteViews(pokefly.getPackageName(), R.layout.notification_pokefly_paused_31);
+            contentBigView = new RemoteViews(pokefly.getPackageName(),
+                    R.layout.notification_pokefly_paused_expanded_31);
+        } else {
+            contentView = new RemoteViews(pokefly.getPackageName(), R.layout.notification_pokefly_paused);
+            contentBigView = new RemoteViews(pokefly.getPackageName(), R.layout.notification_pokefly_paused_expanded);
+        }
 
         int updateCurrentImmutable = PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE;
 
@@ -106,10 +112,16 @@ public class GoIVNotificationManager {
      */
     public void showRunningNotification() {
         // Prepare views
-        RemoteViews contentView =
-                new RemoteViews(pokefly.getPackageName(), R.layout.notification_pokefly_started);
-        RemoteViews contentBigView =
-                new RemoteViews(pokefly.getPackageName(), R.layout.notification_pokefly_started_expanded);
+        RemoteViews contentView;
+        RemoteViews contentBigView;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            contentView = new RemoteViews(pokefly.getPackageName(), R.layout.notification_pokefly_started_31);
+            contentBigView = new RemoteViews(pokefly.getPackageName(),
+                    R.layout.notification_pokefly_started_expanded_31);
+        } else {
+            contentView = new RemoteViews(pokefly.getPackageName(), R.layout.notification_pokefly_started);
+            contentBigView = new RemoteViews(pokefly.getPackageName(), R.layout.notification_pokefly_started_expanded);
+        }
         contentView.setTextViewText(R.id.notification_title,
                 pokefly.getString(R.string.notification_title_short, pokefly.getTrainerLevel()));
         contentBigView.setTextViewText(R.id.notification_title,
