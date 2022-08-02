@@ -209,17 +209,11 @@ public class GoIVNotificationManager {
                 Handler mainThreadHandler = new Handler(Looper.getMainLooper());
 
                 if (GoIVSettings.getInstance(this).isManualScreenshotModeEnabled()) {
-                    // Close the notification shade
-                    sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
                     // Tell the user that the next screenshot will be used to recalibrate GoIV
                     ScreenShotHelper.sShouldRecalibrateWithNextScreenshot = true;
                     mainThreadHandler.post(() -> Toast.makeText(NotificationActionService.this,
                             R.string.ocr_calibration_screenshot_mode, Toast.LENGTH_LONG).show());
-
                 } else { // Start calibration!
-                    // Close the notification shade so we can screenshot pogo
-                    sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
-
                     mainThreadHandler.post(() -> {
                         if (pokefly != null
                                 && pokefly.getScreenWatcher() != null
