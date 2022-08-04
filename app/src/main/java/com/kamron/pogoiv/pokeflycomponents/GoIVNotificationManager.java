@@ -23,6 +23,7 @@ import com.kamron.pogoiv.activities.MainActivity;
 import com.kamron.pogoiv.activities.OcrCalibrationResultActivity;
 import com.kamron.pogoiv.activities.SettingsActivity;
 
+import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
 import static android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION;
 
 /**
@@ -207,6 +208,14 @@ public class GoIVNotificationManager {
             String action = intent.getAction();
             if (ACTION_RECALIBRATE_SCANAREA.equals(action)) {
                 Handler mainThreadHandler = new Handler(Looper.getMainLooper());
+
+                mainThreadHandler.post(() -> {
+                    Intent i = getPackageManager().getLaunchIntentForPackage("com.nianticlabs.pokemongo");
+                    if (i != null) {
+                        i.addFlags(FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(i);
+                    }
+                });
 
                 if (GoIVSettings.getInstance(this).isManualScreenshotModeEnabled()) {
                     // Tell the user that the next screenshot will be used to recalibrate GoIV
