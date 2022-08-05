@@ -51,7 +51,7 @@
         <service
             android:name=".updater.DownloadUpdateService"
             android:exported="false"/>
-        <service android:name=".pokeflycomponents.GoIVNotificationManager$NotificationActionService"/>
+        <service android:name=".pokeflycomponents.StartRecalibrationService"/>
 
         <activity
             android:name=".activities.CreditsActivity"

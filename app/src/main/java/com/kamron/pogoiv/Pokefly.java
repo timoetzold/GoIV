@@ -39,6 +39,7 @@ import com.kamron.pogoiv.pokeflycomponents.GoIVNotificationManager;
 import com.kamron.pogoiv.pokeflycomponents.IVPopupButton;
 import com.kamron.pogoiv.pokeflycomponents.IVPreviewPrinter;
 import com.kamron.pogoiv.pokeflycomponents.MovesetsManager;
+import com.kamron.pogoiv.pokeflycomponents.StartRecalibrationService;
 import com.kamron.pogoiv.pokeflycomponents.ScreenWatcher;
 import com.kamron.pogoiv.pokeflycomponents.fractions.AppraisalFraction;
 import com.kamron.pogoiv.pokeflycomponents.fractions.IVCombinationsFraction;
@@ -310,6 +311,7 @@ public class Pokefly extends Service {
 
         running = true;
         GoIVNotificationManager goIVNotificationManager = new GoIVNotificationManager(this);
+        StartRecalibrationService.setPokefly(this);
         ivPreviewPrinter = new IVPreviewPrinter(this);
         clipboardTokenHandler = new ClipboardTokenHandler(this);
 

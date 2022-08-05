@@ -51,6 +51,7 @@ import com.kamron.pogoiv.GoIVSettings;
 import com.kamron.pogoiv.Pokefly;
 import com.kamron.pogoiv.R;
 import com.kamron.pogoiv.ScreenGrabber;
+import com.kamron.pogoiv.pokeflycomponents.StartRecalibrationService;
 import com.kamron.pogoiv.updater.AppUpdate;
 import com.kamron.pogoiv.updater.AppUpdateUtil;
 import com.kamron.pogoiv.widgets.behaviors.DisableableAppBarLayoutBehavior;
@@ -486,8 +487,14 @@ public class MainActivity extends AppCompatActivity {
      */
     private void runActionOnIntent(Intent intent) {
         if (intent != null) {
-            if (ACTION_START_POKEFLY.equals(intent.getAction()) && !Pokefly.isRunning()) {
+            String action = intent.getAction();
+            if (ACTION_START_POKEFLY.equals(action) && !Pokefly.isRunning()) {
                 runStartButtonLogic();
+            }
+            if (StartRecalibrationService.ACTION_START_RECALIBRATION.equals(action)) {
+                Intent startRecalibration = new Intent(this, StartRecalibrationService.class)
+                        .setAction(StartRecalibrationService.ACTION_START_RECALIBRATION);
+                startService(startRecalibration);
             }
         }
     }
