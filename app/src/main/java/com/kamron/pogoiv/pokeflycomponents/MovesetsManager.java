@@ -168,7 +168,6 @@ public class MovesetsManager {
                     continue;
                 }
 
-                //noinspection SuspiciousMethodCalls
                 MovesetData movesetData = new MovesetData(
                         (String) jsonMoveset.get("fast"),
                         (String) jsonMoveset.get("charge"),
@@ -242,7 +241,6 @@ public class MovesetsManager {
                 //noinspection unchecked
                 LinkedTreeMap<String, Object> moves = (LinkedTreeMap<String, Object>) translations.get(attributeName);
                 for (String move : moves.keySet()) {
-                    //noinspection ConstantConditions
                     result.first.put(move, (String) moves.get(move));
                 }
 
@@ -250,7 +248,6 @@ public class MovesetsManager {
                 //noinspection unchecked
                 LinkedTreeMap<String, Object> types = (LinkedTreeMap<String, Object>) translations.get(attributeName);
                 for (String type : types.keySet()) {
-                    //noinspection ConstantConditions
                     result.second.put(type, (String) types.get(type));
                 }
             }

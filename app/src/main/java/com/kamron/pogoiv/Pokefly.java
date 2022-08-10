@@ -153,8 +153,6 @@ public class Pokefly extends Service {
     @BindView(R.id.fractionContainer)
     FrameLayout fractionContainer;
 
-
-    @SuppressWarnings("deprecation")
     private final WindowManager.LayoutParams arcParams = new WindowManager.LayoutParams(
             WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.WRAP_CONTENT,
@@ -164,7 +162,6 @@ public class Pokefly extends Service {
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             PixelFormat.TRANSLUCENT);
 
-    @SuppressWarnings("deprecation")
     private final WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT,
@@ -174,7 +171,6 @@ public class Pokefly extends Service {
             WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN,
             PixelFormat.TRANSPARENT);
 
-    @SuppressWarnings("deprecation")
     private static final WindowManager.LayoutParams sizeDetectorParams = new WindowManager.LayoutParams(
             0,
             0,
@@ -566,7 +562,6 @@ public class Pokefly extends Service {
 
         deleteScreenShotIfRequired();
 
-        //noinspection ConstantConditions
         scanResult = new ScanResult(nameCorrector, scanData);
 
         pokeInfoCalculator.getIVPossibilities(scanResult);
@@ -871,7 +866,7 @@ public class Pokefly extends Service {
                             (Optional<Integer>) intent.getSerializableExtra(KEY_SEND_INFO_CP);
                     @SuppressWarnings("unchecked") Optional<Integer> pokemonHP =
                             (Optional<Integer>) intent.getSerializableExtra(KEY_SEND_INFO_HP);
-                    @SuppressWarnings("unchecked") Pokemon.Gender pokemonGender =
+                    Pokemon.Gender pokemonGender =
                             (Pokemon.Gender) intent.getSerializableExtra(KEY_SEND_INFO_GENDER);
                     @SuppressWarnings("unchecked") Optional<Integer> candyAmount =
                             (Optional<Integer>) intent.getSerializableExtra(KEY_SEND_INFO_CANDY_AMOUNT);
@@ -881,9 +876,9 @@ public class Pokefly extends Service {
                             (Optional<Integer>) intent.getSerializableExtra(KEY_SEND_POWERUP_CANDYCOST);
                     @SuppressWarnings("unchecked") Optional<Integer> powerUpStardustCost =
                             (Optional<Integer>) intent.getSerializableExtra(KEY_SEND_POWERUP_STARTDUST_COST);
-                    @SuppressWarnings("unchecked") boolean isLucky =
+                    boolean isLucky =
                             (boolean) intent.getSerializableExtra(KEY_SEND_IS_LUCKY);
-                    @SuppressWarnings("unchecked") String uniqueID =
+                    String uniqueID =
                             (String) intent.getSerializableExtra(KEY_SEND_UNIQUE_ID);
 
                     if (lScreenShotFile.isPresent()) {
