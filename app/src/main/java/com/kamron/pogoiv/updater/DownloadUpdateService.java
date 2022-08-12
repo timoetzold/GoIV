@@ -60,22 +60,12 @@ public class DownloadUpdateService extends Service {
                             int status = cursor.getInt(columnIndex);
 
                             if (status == DownloadManager.STATUS_SUCCESSFUL) {
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                                    Uri apkUri = FileProvider.getUriForFile(ctxt, BuildConfig.APPLICATION_ID
-                                            + ".provider", newApkFile);
-                                    Intent startIntent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
-                                    startIntent.setData(apkUri);
-                                    startIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                                    ctxt.startActivity(startIntent);
-                                } else {
-                                    Uri apkUri = Uri.fromFile(newApkFile);
-                                    Intent startIntent = new Intent(Intent.ACTION_VIEW);
-                                    startIntent.setDataAndType(apkUri, "application/vnd.android.package-archive");
-                                    startIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    ctxt.startActivity(startIntent);
-                                }
-
-
+                                Uri apkUri = FileProvider.getUriForFile(ctxt, BuildConfig.APPLICATION_ID
+                                        + ".provider", newApkFile);
+                                Intent startIntent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
+                                startIntent.setData(apkUri);
+                                startIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                                ctxt.startActivity(startIntent);
                             } else if (status == DownloadManager.STATUS_FAILED) {
                                 if (newApkFile.exists()) {
                                     newApkFile.delete();

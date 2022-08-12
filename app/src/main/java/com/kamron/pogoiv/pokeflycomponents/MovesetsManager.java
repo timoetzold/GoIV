@@ -258,12 +258,8 @@ public class MovesetsManager {
 
     private static @NonNull String getLanguage(@NonNull Resources res) {
         if (!res.getBoolean(R.bool.use_default_pokemonsname_as_ocrstring)) {
-            Locale originalLocale; // Save original locale
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                originalLocale = res.getConfiguration().getLocales().get(0);
-            } else {
-                originalLocale = res.getConfiguration().locale;
-            }
+            // Save original locale
+            Locale originalLocale = res.getConfiguration().getLocales().get(0);
             return originalLocale.getLanguage();
         } else {
             return Locale.ENGLISH.getLanguage();
