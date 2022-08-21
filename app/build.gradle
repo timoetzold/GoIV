@@ -67,6 +67,13 @@ android {
     }
 
     /**
+     * Enable default ViewBinding which replaces butterknife
+     */
+    buildFeatures {
+        viewBinding true
+    }
+
+    /**
      * Product flavors
      * Offline - No Internet permission and disable Crashlytics
      * Online - Internet permission and enable Crashlytics
@@ -114,7 +121,7 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro',
-                    'proguard-guava.pro', 'proguard-butterknife.pro', 'proguard-okhttp3.pro'
+                    'proguard-guava.pro', 'proguard-okhttp3.pro'
             lintOptions {
                 disable 'MissingTranslation'
             }
@@ -153,8 +160,6 @@ dependencies {
     //noinspection AnnotationProcessorOnCompilePath
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
-    implementation 'com.jakewharton:butterknife:10.2.3'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'androidx.preference:preference:1.2.0'

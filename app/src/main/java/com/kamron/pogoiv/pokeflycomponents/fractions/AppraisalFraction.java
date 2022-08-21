@@ -3,74 +3,32 @@ package com.kamron.pogoiv.pokeflycomponents.fractions;
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
+
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
+import android.view.ViewGroup;
 import android.widget.SeekBar;
 
-import android.widget.TextView;
-import butterknife.OnCheckedChanged;
 import com.kamron.pogoiv.Pokefly;
 import com.kamron.pogoiv.R;
+import com.kamron.pogoiv.databinding.FractionAppraisalBinding;
 import com.kamron.pogoiv.pokeflycomponents.AppraisalManager;
 import com.kamron.pogoiv.utils.GUIColorFromPokeType;
 import com.kamron.pogoiv.utils.ReactiveColorListener;
 import com.kamron.pogoiv.utils.fractions.MovableFraction;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.OnTouch;
-
 import static com.kamron.pogoiv.GoIVSettings.APPRAISAL_WINDOW_POSITION;
-
 
 public class AppraisalFraction extends MovableFraction implements AppraisalManager.OnAppraisalEventListener,
         ReactiveColorListener {
 
-    @BindView(R.id.btnCheckIv)
-    Button btnCheckIv;
-    @BindView(R.id.statsButton)
-    Button statsButton;
-    @BindView(R.id.pbScanning)
-    ProgressBar pbScanning;
-    @BindView(R.id.btnRetry)
-    ImageView btnRetry;
+    private final Pokefly pokefly;
+    private final AppraisalManager appraisalManager;
 
-    @BindView(R.id.headerAppraisal)
-    LinearLayout headerAppraisal;
+    private FractionAppraisalBinding binding;
 
-    @BindView(R.id.valueLayout)
-    ConstraintLayout spinnerLayout;
-
-    @BindView(R.id.atkEnabled)
-    CheckBox atkEnabled;
-    @BindView(R.id.atkSeek)
-    SeekBar atkSeek;
-    @BindView(R.id.atkValue)
-    TextView atkValue;
-    @BindView(R.id.defEnabled)
-    CheckBox defEnabled;
-    @BindView(R.id.defSeek)
-    SeekBar defSeek;
-    @BindView(R.id.defValue)
-    TextView defValue;
-    @BindView(R.id.staEnabled)
-    CheckBox staEnabled;
-    @BindView(R.id.staSeek)
-    SeekBar staSeek;
-    @BindView(R.id.staValue)
-    TextView staValue;
-
-
-    private Pokefly pokefly;
-    private AppraisalManager appraisalManager;
     private boolean insideUpdate = false;
 
 
@@ -83,35 +41,31 @@ public class AppraisalFraction extends MovableFraction implements AppraisalManag
     }
 
     @Override
-    protected @Nullable String getVerticalOffsetSharedPreferencesKey() {
+    @Nullable
+    protected String getVerticalOffsetSharedPreferencesKey() {
         return APPRAISAL_WINDOW_POSITION;
     }
 
     @Override
-    public int getLayoutResId() {
-        return R.layout.fraction_appraisal;
-    }
-
-    @Override
-    public void onCreate(@NonNull View rootView) {
-        ButterKnife.bind(this, rootView);
+    public void onCreate(LayoutInflater inflater, ViewGroup parent, boolean attachToParent) {
+        binding = FractionAppraisalBinding.inflate(inflater, parent, attachToParent);
 
         SeekBar.OnSeekBarChangeListener listener = new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (!insideUpdate) {
-                    if (appraisalManager.attack != atkSeek.getProgress()) {
+                    if (appraisalManager.attack != binding.atkSeek.getProgress()) {
                         appraisalManager.attackValid = true;
                     }
-                    appraisalManager.attack = atkSeek.getProgress();
-                    if (appraisalManager.defense != defSeek.getProgress()) {
+                    appraisalManager.attack = binding.atkSeek.getProgress();
+                    if (appraisalManager.defense != binding.defSeek.getProgress()) {
                         appraisalManager.defenseValid = true;
                     }
-                    appraisalManager.defense = defSeek.getProgress();
-                    if (appraisalManager.stamina != staSeek.getProgress()) {
+                    appraisalManager.defense = binding.defSeek.getProgress();
+                    if (appraisalManager.stamina != binding.staSeek.getProgress()) {
                         appraisalManager.staminaValid = true;
                     }
-                    appraisalManager.stamina = staSeek.getProgress();
+                    appraisalManager.stamina = binding.staSeek.getProgress();
                     updateValueTexts();
                 }
             }
@@ -127,14 +81,26 @@ public class AppraisalFraction extends MovableFraction implements AppraisalManag
             }
         };
 
-        atkSeek.setOnSeekBarChangeListener(listener);
-        defSeek.setOnSeekBarChangeListener(listener);
-        staSeek.setOnSeekBarChangeListener(listener);
+        binding.atkSeek.setOnSeekBarChangeListener(listener);
+        binding.defSeek.setOnSeekBarChangeListener(listener);
+        binding.staSeek.setOnSeekBarChangeListener(listener);
         setSpinnerSelection();
 
         // Listen for new appraisal info
         appraisalManager.addOnAppraisalEventListener(this);
-        btnRetry.setImageResource(R.drawable.ic_play_circle_outline_24px);
+        binding.btnRetry.setImageResource(R.drawable.ic_play_circle_outline_24px);
+
+        binding.atkEnabled.setOnCheckedChangeListener((compoundButton, b) -> onEnabled());
+        binding.defEnabled.setOnCheckedChangeListener((compoundButton, b) -> onEnabled());
+        binding.staEnabled.setOnCheckedChangeListener((compoundButton, b) -> onEnabled());
+
+        binding.positionHandler.setOnTouchListener((view, motionEvent) -> positionHandlerTouchEvent(view, motionEvent));
+        binding.additionalRefiningHeader.setOnTouchListener((view, motionEvent) -> positionHandlerTouchEvent(view, motionEvent));
+
+        binding.statsButton.setOnClickListener(view -> onStats());
+        binding.btnClose.setOnClickListener(view -> onClose());
+        binding.btnCheckIv.setOnClickListener(view -> checkIv());
+        binding.btnRetry.setOnClickListener(view -> onRetryClick());
 
         GUIColorFromPokeType.getInstance().setListenTo(this);
         updateGuiColors();
@@ -144,6 +110,7 @@ public class AppraisalFraction extends MovableFraction implements AppraisalManag
     public void onDestroy() {
         appraisalManager.removeOnAppraisalEventListener(this);
         GUIColorFromPokeType.getInstance().removeListener(this);
+        binding = null;
     }
 
     @Override
@@ -161,9 +128,9 @@ public class AppraisalFraction extends MovableFraction implements AppraisalManag
      */
     @Override
     public void highlightActiveUserInterface() {
-        spinnerLayout.setBackgroundResource(R.drawable.highlight_rectangle);
-        pbScanning.setVisibility(View.VISIBLE);
-        btnRetry.setVisibility(View.INVISIBLE);
+        binding.valueLayout.setBackgroundResource(R.drawable.highlight_rectangle);
+        binding.pbScanning.setVisibility(View.VISIBLE);
+        binding.btnRetry.setVisibility(View.INVISIBLE);
     }
 
 
@@ -171,15 +138,14 @@ public class AppraisalFraction extends MovableFraction implements AppraisalManag
      * Update the text on the 'next' button to indicate quick IV overview
      */
     private void updateIVPreviewInButton() {
-        InputFraction.updateIVPreview(pokefly, btnCheckIv);
+        InputFraction.updateIVPreview(pokefly, binding.btnCheckIv);
     }
 
-    @OnCheckedChanged({R.id.atkEnabled, R.id.defEnabled, R.id.staEnabled})
     public void onEnabled() {
         if (!insideUpdate) {
-            appraisalManager.attackValid = atkEnabled.isChecked();
-            appraisalManager.defenseValid = defEnabled.isChecked();
-            appraisalManager.staminaValid = staEnabled.isChecked();
+            appraisalManager.attackValid = binding.atkEnabled.isChecked();
+            appraisalManager.defenseValid = binding.defEnabled.isChecked();
+            appraisalManager.staminaValid = binding.staEnabled.isChecked();
             updateIVPreviewInButton();
         }
     }
@@ -187,21 +153,21 @@ public class AppraisalFraction extends MovableFraction implements AppraisalManag
     @Override
     public void refreshSelection() {
         setSpinnerSelection();
-        spinnerLayout.setBackground(null);
-        pbScanning.setVisibility(View.INVISIBLE);
-        btnRetry.setVisibility(View.VISIBLE);
+        binding.valueLayout.setBackground(null);
+        binding.pbScanning.setVisibility(View.INVISIBLE);
+        binding.btnRetry.setVisibility(View.VISIBLE);
     }
 
     /**
      * Updates the checkboxes, labels and IV preview in the button.
      */
     private void updateValueTexts() {
-        atkValue.setText(String.valueOf(appraisalManager.attack));
-        defValue.setText(String.valueOf(appraisalManager.defense));
-        staValue.setText(String.valueOf(appraisalManager.stamina));
-        atkEnabled.setChecked(appraisalManager.attackValid);
-        defEnabled.setChecked(appraisalManager.defenseValid);
-        staEnabled.setChecked(appraisalManager.staminaValid);
+        binding.atkValue.setText(String.valueOf(appraisalManager.attack));
+        binding.defValue.setText(String.valueOf(appraisalManager.defense));
+        binding.staValue.setText(String.valueOf(appraisalManager.stamina));
+        binding.atkEnabled.setChecked(appraisalManager.attackValid);
+        binding.defEnabled.setChecked(appraisalManager.defenseValid);
+        binding.staEnabled.setChecked(appraisalManager.staminaValid);
         updateIVPreviewInButton();
     }
 
@@ -211,33 +177,28 @@ public class AppraisalFraction extends MovableFraction implements AppraisalManag
     private void setSpinnerSelection() {
         insideUpdate = true;
         updateValueTexts();
-        atkSeek.setProgress(appraisalManager.attack);
-        defSeek.setProgress(appraisalManager.defense);
-        staSeek.setProgress(appraisalManager.stamina);
+        binding.atkSeek.setProgress(appraisalManager.attack);
+        binding.defSeek.setProgress(appraisalManager.defense);
+        binding.staSeek.setProgress(appraisalManager.stamina);
         insideUpdate = false;
     }
 
-    @OnTouch({R.id.positionHandler, R.id.additionalRefiningHeader})
     boolean positionHandlerTouchEvent(View v, MotionEvent event) {
         return super.onTouch(v, event);
     }
 
-    @OnClick({R.id.statsButton})
     void onStats() {
         pokefly.navigateToInputFraction();
     }
 
-    @OnClick(R.id.btnClose)
     void onClose() {
         pokefly.closeInfoDialog();
     }
 
-    @OnClick(R.id.btnCheckIv)
     void checkIv() {
         pokefly.computeIv();
     }
 
-    @OnClick(R.id.btnRetry)
     void onRetryClick() {
         if (appraisalManager.isRunning()) {
             appraisalManager.stop();
@@ -246,11 +207,11 @@ public class AppraisalFraction extends MovableFraction implements AppraisalManag
         }
     }
 
-    @Override public void updateGuiColors() {
-
+    @Override
+    public void updateGuiColors() {
         int c = GUIColorFromPokeType.getInstance().getColor();
-        btnCheckIv.setBackgroundColor(c);
-        statsButton.setBackgroundColor(c);
-        headerAppraisal.setBackgroundColor(c);
+        binding.btnCheckIv.setBackgroundColor(c);
+        binding.statsButton.setBackgroundColor(c);
+        binding.headerAppraisal.setBackgroundColor(c);
     }
 }

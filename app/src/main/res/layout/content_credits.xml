@@ -59,14 +59,6 @@
             android:text="Lombok - For keeping the codebase cleaner \nhttps://projectlombok.org/ \n"
             tools:ignore="HardcodedText"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:autoLink="web"
-            android:linksClickable="true"
-            android:text="Butterknife - For keeping the UI element codebase cleaner \nhttp://jakewharton.github.io/butterknife \n"
-            tools:ignore="HardcodedText"/>
-
     </LinearLayout>
 
 </ScrollView>

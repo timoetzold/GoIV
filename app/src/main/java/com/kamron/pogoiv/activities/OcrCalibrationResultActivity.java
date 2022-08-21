@@ -25,10 +25,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.common.base.Strings;
@@ -36,6 +32,7 @@ import com.kamron.pogoiv.BuildConfig;
 import com.kamron.pogoiv.GoIVSettings;
 import com.kamron.pogoiv.Pokefly;
 import com.kamron.pogoiv.R;
+import com.kamron.pogoiv.databinding.ActivityOcrCalibrationResultBinding;
 import com.kamron.pogoiv.pokeflycomponents.ocrhelper.ScanArea;
 import com.kamron.pogoiv.pokeflycomponents.ocrhelper.ScanFieldAutomaticLocator;
 import com.kamron.pogoiv.pokeflycomponents.ocrhelper.ScanFieldResults;
@@ -46,9 +43,6 @@ import com.kamron.pogoiv.utils.MediaStoreUtils;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import timber.log.Timber;
 
 import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
@@ -64,31 +58,9 @@ public class OcrCalibrationResultActivity extends AppCompatActivity {
     private static int sStatusBarHeight;
     private static int sNavigationBarHeight;
 
-
     private ScanFieldResults results;
 
-    @BindView(R.id.ocr_calibration_title)
-    TextView ocr_calibration_title;
-    @BindView(R.id.errorListTextView)
-    TextView errorListTextView;
-    @BindView(R.id.ocr_calibration_description)
-    TextView ocr_calibration_description;
-    @BindView(R.id.ocr_calibration_check)
-    TextView ocr_calibration_check;
-    @BindView(R.id.saveCalibrationButton)
-    Button saveCalibrationButton;
-    @BindView(R.id.ocr_result_image)
-    ImageView resultImageView;
-    @BindView(R.id.backButton)
-    Button backButton;
-    @BindView(R.id.errorField)
-    LinearLayout errorLayout;
-    @BindView(R.id.emailErrorButton)
-    Button emailErrorButton;
-
-
-    @BindView(R.id.manualAdjustButton)
-    Button manualAdjustButton;
+    private ActivityOcrCalibrationResultBinding binding;
 
     public static void startCalibration(@NonNull Context context,
                                         @Nullable Bitmap bitmap,
@@ -124,12 +96,11 @@ public class OcrCalibrationResultActivity extends AppCompatActivity {
         context.startActivity(startCalibration);
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ocr_calibration_result);
-        ButterKnife.bind(this);
+        binding = ActivityOcrCalibrationResultBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         if (sCalibrationImage == null) {
             finish(); // We don't have a screenshot: terminate here
@@ -139,8 +110,8 @@ public class OcrCalibrationResultActivity extends AppCompatActivity {
             new Thread(new RecalibrateRunnable(this, dialog)).start();
         }
 
-        saveCalibrationButton.setOnClickListener(v -> {
-            saveCalibrationButton.setVisibility(View.GONE);
+        binding.saveCalibrationButton.setOnClickListener(v -> {
+            binding.saveCalibrationButton.setVisibility(View.GONE);
             if (results != null && results.isCompleteCalibration()) {
                 GoIVSettings settings = GoIVSettings.getInstance(OcrCalibrationResultActivity.this);
                 settings.saveScreenCalibrationResults(results);
@@ -153,6 +124,10 @@ public class OcrCalibrationResultActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        binding.backButton.setOnClickListener(view -> goToPoGO());
+        binding.manualAdjustButton.setOnClickListener(view -> goToManualAdjustment());
+        binding.emailErrorButton.setOnClickListener(view -> sendErrorEmail());
     }
 
     private static class RecalibrateRunnable implements Runnable {
@@ -220,7 +195,6 @@ public class OcrCalibrationResultActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick(R.id.backButton)
     void goToPoGO() {
         Intent i = getPackageManager().getLaunchIntentForPackage("com.nianticlabs.pokemongo");
         if (i != null) {
@@ -229,10 +203,6 @@ public class OcrCalibrationResultActivity extends AppCompatActivity {
         }
     }
 
-
-
-
-    @OnClick(R.id.manualAdjustButton)
     void goToManualAdjustment() {
         Intent intent = new Intent(this, OcrManualCalibrationActivity.class);
         OcrManualCalibrationActivity.screenshotTransferTemp = sCalibrationImageUnaltered;
@@ -240,7 +210,6 @@ public class OcrCalibrationResultActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @OnClick(R.id.emailErrorButton)
     void sendErrorEmail() {
         // On Android 23+ WRITE_EXTERNAL_STORAGE requires an explicit request
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -387,10 +356,10 @@ public class OcrCalibrationResultActivity extends AppCompatActivity {
             dialog.setMessage(activity.getText(R.string.done));
             dialog.dismiss();
             if (results.isCompleteCalibration()) {
-                activity.saveCalibrationButton.setEnabled(true);
-                activity.errorListTextView.setVisibility(View.GONE);
-                activity.ocr_calibration_description.setVisibility(View.VISIBLE);
-                activity.ocr_calibration_check.setVisibility(View.VISIBLE);
+                activity.binding.saveCalibrationButton.setEnabled(true);
+                activity.binding.errorListTextView.setVisibility(View.GONE);
+                activity.binding.ocrCalibrationDescription.setVisibility(View.VISIBLE);
+                activity.binding.ocrCalibrationCheck.setVisibility(View.VISIBLE);
             } else {
                 StringBuilder sb = new StringBuilder();
                 if (results.pokemonNameArea == null) {
@@ -442,19 +411,19 @@ public class OcrCalibrationResultActivity extends AppCompatActivity {
                     sb.append(activity.getText(R.string.ocr_error_pick_pixel_green));
                 }
                 sEmailErrorText = sb.toString();
-                activity.errorLayout.setVisibility(View.VISIBLE);
+                activity.binding.errorField.setVisibility(View.VISIBLE);
                 sb.append(activity.getText(R.string.ocr_msg_verify));
-                activity.errorListTextView.setText(sb);
-                activity.ocr_calibration_title.setText(R.string.title_activity_ocr_calibration_error);
-                activity.ocr_calibration_description.setVisibility(View.GONE);
-                activity.ocr_calibration_check.setVisibility(View.GONE);
-                activity.saveCalibrationButton.setVisibility(View.GONE);
-                activity.backButton.setVisibility(View.VISIBLE);
+                activity.binding.errorListTextView.setText(sb);
+                activity.binding.ocrCalibrationTitle.setText(R.string.title_activity_ocr_calibration_error);
+                activity.binding.ocrCalibrationDescription.setVisibility(View.GONE);
+                activity.binding.ocrCalibrationCheck.setVisibility(View.GONE);
+                activity.binding.saveCalibrationButton.setVisibility(View.GONE);
+                activity.binding.backButton.setVisibility(View.VISIBLE);
             }
 
             // Draw results on a copy of the original screenshot
             activity.drawResultIndicator(sCalibrationImage, ContextCompat.getColor(activity, R.color.colorAccent));
-            activity.resultImageView.setImageBitmap(sCalibrationImage);
+            activity.binding.ocrResultImage.setImageBitmap(sCalibrationImage);
         }
     }
 

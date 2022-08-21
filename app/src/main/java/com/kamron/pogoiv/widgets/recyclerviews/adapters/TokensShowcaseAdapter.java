@@ -1,11 +1,17 @@
 package com.kamron.pogoiv.widgets.recyclerviews.adapters;
 
 import android.content.Context;
+
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.kamron.pogoiv.clipboardlogic.ClipboardToken;
 import com.kamron.pogoiv.clipboardlogic.ClipboardTokenCollection;
+import com.kamron.pogoiv.databinding.LayoutTokenHeaderBinding;
+import com.kamron.pogoiv.databinding.LayoutTokenPreviewBinding;
 import com.kamron.pogoiv.widgets.recyclerviews.adapters.viewholders.TokenHeaderViewHolder;
 import com.kamron.pogoiv.widgets.recyclerviews.adapters.viewholders.TokenViewHolder;
 
@@ -65,18 +71,25 @@ public class TokensShowcaseAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }
     }
 
-    @Override public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @NonNull
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         switch (viewType) {
             case VIEW_TYPE_HEADER:
-                return new TokenHeaderViewHolder(parent);
+                LayoutTokenHeaderBinding headerBinding = LayoutTokenHeaderBinding.inflate(LayoutInflater.from(parent.getContext()),
+                        parent, false);
+                return new TokenHeaderViewHolder(headerBinding);
             case VIEW_TYPE_TOKEN:
-                return new TokenViewHolder(parent, this, null, true, false);
+                LayoutTokenPreviewBinding previewBinding = LayoutTokenPreviewBinding.inflate(LayoutInflater.from(parent.getContext()),
+                        parent, false);
+                return new TokenViewHolder(previewBinding, this, null, true, false);
             default:
                 throw new IllegalArgumentException();
         }
     }
 
-    @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    @Override
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof TokenHeaderViewHolder) {
             ((TokenHeaderViewHolder) holder).bind(getCategory(position));
         } else if (holder instanceof TokenViewHolder) {

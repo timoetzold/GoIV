@@ -28,12 +28,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.common.base.Optional;
 import com.kamron.pogoiv.clipboardlogic.ClipboardTokenHandler;
+import com.kamron.pogoiv.databinding.DialogInfoWindowBinding;
 import com.kamron.pogoiv.pokeflycomponents.AppraisalManager;
 import com.kamron.pogoiv.pokeflycomponents.GoIVNotificationManager;
 import com.kamron.pogoiv.pokeflycomponents.IVPopupButton;
@@ -65,9 +65,6 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Currently, the central service in Pokemon Go, dealing with everything except
@@ -147,11 +144,7 @@ public class Pokefly extends Service {
     private View sizeDetector1;
     private View sizeDetector2;
 
-
-    @BindView(R.id.infoLayout)
-    FrameLayout infoLayout;
-    @BindView(R.id.fractionContainer)
-    FrameLayout fractionContainer;
+    private DialogInfoWindowBinding dialogInfoWindowBinding;
 
     private final WindowManager.LayoutParams arcParams = new WindowManager.LayoutParams(
             WindowManager.LayoutParams.WRAP_CONTENT,
@@ -391,27 +384,27 @@ public class Pokefly extends Service {
         createArcPointer();
 
         fractionManager = new FractionManager(
-                this, R.style.AppTheme_Dialog, layoutParams, infoLayout, fractionContainer);
+                this, R.style.AppTheme_Dialog, layoutParams, dialogInfoWindowBinding.infoLayout, dialogInfoWindowBinding.fractionContainer);
     }
 
 
     private boolean infoLayoutArcPointerVisible = false;
 
     private void showInfoLayoutArcPointerAndCard() {
-        if (!infoLayoutArcPointerVisible && arcPointer != null && infoLayout != null) {
+        if (!infoLayoutArcPointerVisible && arcPointer != null && dialogInfoWindowBinding != null) {
             infoLayoutArcPointerVisible = true;
             windowManager.addView(arcPointer, arcParams);
 
-            infoLayout.setVisibility(View.VISIBLE);
-            //infoLayout.animate().translationY(infoLayout.getHeight()*2).setDuration(0);
-            windowManager.addView(infoLayout, layoutParams);
-            infoLayout.animate().translationY(infoLayout.getHeight()*2).setDuration(5).withEndAction(() -> {
-                infoLayout.setVisibility(View.VISIBLE);
-                infoLayout.animate().translationY(0).setDuration(300);
+            dialogInfoWindowBinding.infoLayout.setVisibility(View.VISIBLE);
+            //dialogInfoWindowBinding.infoLayout.animate().translationY(dialogInfoWindowBinding.infoLayout.getHeight()*2).setDuration(0);
+            windowManager.addView(dialogInfoWindowBinding.infoLayout, layoutParams);
+            dialogInfoWindowBinding.infoLayout.animate().translationY(dialogInfoWindowBinding.infoLayout.getHeight()*2).setDuration(5).withEndAction(() -> {
+                dialogInfoWindowBinding.infoLayout.setVisibility(View.VISIBLE);
+                dialogInfoWindowBinding.infoLayout.animate().translationY(0).setDuration(300);
             });
-            //infoLayout.animate().translationY(infoLayout.getHeight()*3).setDuration(1);
-            //infoLayout.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up));
-            //infoLayout.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up));
+            //dialogInfoWindowBinding.infoLayout.animate().translationY(dialogInfoWindowBinding.infoLayout.getHeight()*3).setDuration(1);
+            //dialogInfoWindowBinding.infoLayout.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up));
+            //dialogInfoWindowBinding.infoLayout.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up));
 
         }
     }
@@ -419,15 +412,15 @@ public class Pokefly extends Service {
     private void hideInfoLayoutArcPointerAndCard() {
         if (infoLayoutArcPointerVisible) {
 
-            infoLayout.animate().translationY(infoLayout.getHeight()*2).setDuration(300).withEndAction(() -> {
-                infoLayout.setVisibility(View.GONE);
+            dialogInfoWindowBinding.infoLayout.animate().translationY(dialogInfoWindowBinding.infoLayout.getHeight()*2).setDuration(300).withEndAction(() -> {
+                dialogInfoWindowBinding.infoLayout.setVisibility(View.GONE);
                 if (fractionManager != null) {
                     fractionManager.remove();
                 }
                 //for some reason, animation looks bugged without this 0 time animation line below.
-                infoLayout.animate().translationY(infoLayout.getHeight()*2).setDuration(0);
+                dialogInfoWindowBinding.infoLayout.animate().translationY(dialogInfoWindowBinding.infoLayout.getHeight()*2).setDuration(0);
                 windowManager.removeView(arcPointer);
-                windowManager.removeView(infoLayout);
+                windowManager.removeView(dialogInfoWindowBinding.infoLayout);
                 infoLayoutArcPointerVisible = false;
             });
 
@@ -515,9 +508,8 @@ public class Pokefly extends Service {
      */
     private void createInfoLayout() {
         Context themedContext = new ContextThemeWrapper(this, R.style.AppTheme_Dialog);
-        View v = LayoutInflater.from(themedContext).inflate(R.layout.dialog_info_window, null);
+        dialogInfoWindowBinding = DialogInfoWindowBinding.inflate(LayoutInflater.from(themedContext), null, false);
         layoutParams.gravity = Gravity.CENTER | Gravity.BOTTOM;
-        ButterKnife.bind(this, v);
     }
 
     /**
@@ -528,9 +520,9 @@ public class Pokefly extends Service {
     private void closeKeyboard() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         //Get a list of all views inside the infoLayout
-        for (int i = 0; i < infoLayout.getChildCount(); i++) {
+        for (int i = 0; i < dialogInfoWindowBinding.infoLayout.getChildCount(); i++) {
             //Tell each view inside infoLayout to close the keyboard if they currently have focus.
-            imm.hideSoftInputFromWindow(infoLayout.getChildAt(i).getWindowToken(), 0);
+            imm.hideSoftInputFromWindow(dialogInfoWindowBinding.infoLayout.getChildAt(i).getWindowToken(), 0);
         }
     }
 
@@ -767,7 +759,7 @@ public class Pokefly extends Service {
                 }
                 Pokefly pokefly = pokeflyRef.get();
                 if (pokefly != null) {
-                    pokefly.scanPokemon(bmp, Optional.<String>absent());
+                    pokefly.scanPokemon(bmp, Optional.absent());
                 }
             }
         }

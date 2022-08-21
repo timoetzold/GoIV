@@ -20,21 +20,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.NumberPicker;
-import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.kamron.pogoiv.GoIVSettings;
 import com.kamron.pogoiv.NpTrainerLevelPickerListener;
 import com.kamron.pogoiv.Pokefly;
 import com.kamron.pogoiv.R;
+import com.kamron.pogoiv.databinding.FragmentMainBinding;
 import com.kamron.pogoiv.scanlogic.Data;
 import com.kamron.pogoiv.widgets.PlayerTeamAdapter;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import timber.log.Timber;
 
 public class MainFragment extends Fragment {
@@ -43,36 +37,15 @@ public class MainFragment extends Fragment {
     private static final String EXTRA_BUTTON_TEXT_RES_ID = "btn_txt_res_id";
     private static final String EXTRA_BUTTON_ENABLED = "btn_enabled";
 
-
-    @BindView(R.id.startButton)
-    Button startButton;
-
-    @BindView(R.id.trainerLevelPicker)
-    NumberPicker trainerLevelPicker;
-
-    @BindView(R.id.teamPickerSpinner)
-    Spinner teamPickerSpinner;
-
-    @BindView(R.id.versionNumber)
-    TextView versionNumber;
-
-    @BindView(R.id.githubButton)
-    ImageButton githubButton;
-
-    @BindView(R.id.redditButton)
-    ImageButton redditButton;
-
-    @BindView(R.id.helpButton)
-    Button helpButton;
-
+    private FragmentMainBinding binding;
 
     private final BroadcastReceiver launchButtonChange = new BroadcastReceiver() {
         @Override public void onReceive(Context context, Intent intent) {
             if (intent.hasExtra(EXTRA_BUTTON_TEXT_RES_ID)) {
-                startButton.setText(intent.getIntExtra(EXTRA_BUTTON_TEXT_RES_ID, 0));
+                binding.startButton.setText(intent.getIntExtra(EXTRA_BUTTON_TEXT_RES_ID, 0));
             }
             if (intent.hasExtra(EXTRA_BUTTON_ENABLED)) {
-                startButton.setEnabled(intent.getBooleanExtra(EXTRA_BUTTON_ENABLED, true));
+                binding.startButton.setEnabled(intent.getBooleanExtra(EXTRA_BUTTON_ENABLED, true));
             }
         }
     };
@@ -99,9 +72,14 @@ public class MainFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
-        ButterKnife.bind(this, view);
-        return view;
+        binding = FragmentMainBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 
     @Override
@@ -141,7 +119,7 @@ public class MainFragment extends Fragment {
      * Initiates all the gui components.
      */
     private void initiateGui() {
-        versionNumber.setText(String.format("v%s", getVersionName()));
+        binding.versionNumber.setText(String.format("v%s", getVersionName()));
         initiateLevelPicker();
         initiateTeamPickerSpinner();
         initiateHelpButton();
@@ -154,9 +132,9 @@ public class MainFragment extends Fragment {
      */
     private void initiateTeamPickerSpinner() {
         PlayerTeamAdapter adapter = new PlayerTeamAdapter(getContext());
-        teamPickerSpinner.setAdapter(adapter);
+        binding.teamPickerSpinner.setAdapter(adapter);
 
-        teamPickerSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        binding.teamPickerSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 GoIVSettings.getInstance(getContext()).setPlayerTeam(position);
@@ -167,20 +145,20 @@ public class MainFragment extends Fragment {
             }
 
         });
-        teamPickerSpinner.setSelection(GoIVSettings.getInstance(getContext()).playerTeam());
+        binding.teamPickerSpinner.setSelection(GoIVSettings.getInstance(getContext()).playerTeam());
     }
 
     /**
      * Initiates the links to reddit and github.
      */
     private void initiateCommunityButtons() {
-        redditButton.setOnClickListener(v -> {
+        binding.redditButton.setOnClickListener(v -> {
             Uri uriUrl = Uri.parse("https://www.reddit.com/r/GoIV/");
             Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
             startActivity(launchBrowser);
         });
 
-        githubButton.setOnClickListener(v -> {
+        binding.githubButton.setOnClickListener(v -> {
             Uri uriUrl = Uri.parse("https://github.com/GoIV-Devs/GoIV");
             Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
             startActivity(launchBrowser);
@@ -192,7 +170,7 @@ public class MainFragment extends Fragment {
         if (context == null) {
             return;
         }
-        helpButton.setOnClickListener(v -> new AlertDialog.Builder(context)
+        binding.helpButton.setOnClickListener(v -> new AlertDialog.Builder(context)
                 .setTitle(R.string.instructions_title)
                 .setMessage(R.string.instructions_message)
                 .setPositiveButton(android.R.string.ok, null)
@@ -203,8 +181,8 @@ public class MainFragment extends Fragment {
      * Configures the logic for the start button.
      */
     private void initiateStartButton() {
-        ViewCompat.setBackgroundTintList(startButton, null);
-        startButton.setOnClickListener(v -> {
+        ViewCompat.setBackgroundTintList(binding.startButton, null);
+        binding.startButton.setOnClickListener(v -> {
             Activity activity = getActivity();
             if (activity instanceof MainActivity) {
                 // This call to clearFocus will accept whatever input the user pressed, without
@@ -213,8 +191,8 @@ public class MainFragment extends Fragment {
                 // - the user presses Start before closing the keyboard, or
                 // - the user closes the keyboard with the back button (note that does not cancel
                 //   the typed text).
-                trainerLevelPicker.clearFocus();
-                GoIVSettings.getInstance(activity).setLevel(trainerLevelPicker.getValue());
+                binding.trainerLevelPicker.clearFocus();
+                GoIVSettings.getInstance(activity).setLevel(binding.trainerLevelPicker.getValue());
                 ((MainActivity) activity).runStartButtonLogic();
             }
         });
@@ -224,13 +202,13 @@ public class MainFragment extends Fragment {
      * Initiates the scrollable level picker.
      */
     private void initiateLevelPicker() {
-        trainerLevelPicker.setMinValue(Data.MINIMUM_TRAINER_LEVEL);
-        trainerLevelPicker.setMaxValue(Data.MAXIMUM_TRAINER_LEVEL);
-        trainerLevelPicker.setWrapSelectorWheel(false);
-        trainerLevelPicker.setValue(GoIVSettings.getInstance(getContext()).getLevel());
+        binding.trainerLevelPicker.setMinValue(Data.MINIMUM_TRAINER_LEVEL);
+        binding.trainerLevelPicker.setMaxValue(Data.MAXIMUM_TRAINER_LEVEL);
+        binding.trainerLevelPicker.setWrapSelectorWheel(false);
+        binding.trainerLevelPicker.setValue(GoIVSettings.getInstance(getContext()).getLevel());
         NpTrainerLevelPickerListener listener = new NpTrainerLevelPickerListener(getContext());
-        trainerLevelPicker.setOnScrollListener(listener);
-        trainerLevelPicker.setOnValueChangedListener(listener);
+        binding.trainerLevelPicker.setOnScrollListener(listener);
+        binding.trainerLevelPicker.setOnValueChangedListener(listener);
     }
 
     private String getVersionName() {
