@@ -3,7 +3,6 @@ package com.kamron.pogoiv.pokeflycomponents;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.AsyncTask;
-import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.util.Pair;

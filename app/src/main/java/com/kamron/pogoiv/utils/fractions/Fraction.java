@@ -2,7 +2,6 @@ package com.kamron.pogoiv.utils.fractions;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.viewbinding.ViewBinding;
 
 import android.util.DisplayMetrics;
 import android.view.Gravity;
