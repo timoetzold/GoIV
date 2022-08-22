@@ -32,8 +32,7 @@ public class PokeDexNumberToken  extends ClipboardToken{
     @Override
     public String getValue(ScanResult scanResult, PokeInfoCalculator pokeInfoCalculator) {
         Pokemon poke = getRightPokemon(scanResult.pokemon, pokeInfoCalculator);
-        String dexNumber = poke.number+1+"";
-        return dexNumber;
+        return String.valueOf(poke.number + 1);
     }
 
     @Override

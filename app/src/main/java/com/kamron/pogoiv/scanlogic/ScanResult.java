@@ -191,8 +191,7 @@ public class ScanResult {
             if (compareDef != 0) {
                 return compareDef;
             }
-            int compareSta = o1.sta - o2.sta;
-            return compareSta;
+            return o1.sta - o2.sta;
         });
     }
 
