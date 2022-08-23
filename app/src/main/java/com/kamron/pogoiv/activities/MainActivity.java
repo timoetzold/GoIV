@@ -179,17 +179,12 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean showSection(final @IdRes int sectionId) {
         final Class<? extends Fragment> newSectionClass;
-        switch (sectionId) {
-            case R.id.menu_recalibrate:
-                newSectionClass = RecalibrateFragment.class;
-                break;
-            default:
-            case R.id.menu_home:
-                newSectionClass = MainFragment.class;
-                break;
-            case R.id.menu_clipboard:
-                newSectionClass = ClipboardModifierParentFragment.class;
-                break;
+        if (sectionId == R.id.menu_recalibrate) {
+            newSectionClass = RecalibrateFragment.class;
+        } else if (sectionId == R.id.menu_clipboard) {
+            newSectionClass = ClipboardModifierParentFragment.class;
+        } else {
+            newSectionClass = MainFragment.class;
         }
 
         Fragment currentFragment = getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT_CONTENT);
@@ -347,14 +342,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.settings:
-                Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(settingsIntent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.settings) {
+            Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(settingsIntent);
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
