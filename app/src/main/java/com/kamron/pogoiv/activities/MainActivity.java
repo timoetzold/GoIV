@@ -442,6 +442,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    @SuppressLint("MissingSuperCall")
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         if (requestCode == WRITE_STORAGE_REQ_CODE) {
