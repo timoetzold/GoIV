@@ -313,9 +313,7 @@ public class Pokefly extends Service {
 
         switch (intent.getAction()) {
             case ACTION_STOP:
-                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    stopForeground(STOP_FOREGROUND_DETACH);
-                }
+                stopForeground(STOP_FOREGROUND_DETACH);
                 stopSelf();
                 goIVNotificationManager.showPausedNotification();
                 break;
@@ -345,9 +343,7 @@ public class Pokefly extends Service {
                 } catch (Exception e) {
                     // If for some reason MainActivity failed to make the ScreenGrabber, stop the service.
                     // In this case we delete the notification to pretend it was never there in the first place.
-                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        stopForeground(STOP_FOREGROUND_REMOVE);
-                    }
+                    stopForeground(STOP_FOREGROUND_REMOVE);
                     stopSelf();
                 }
                 appraisalManager = new AppraisalManager(screen, this);

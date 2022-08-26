@@ -133,16 +133,13 @@ public class PokeInfoCalculator {
         if (res.getBoolean(R.bool.use_default_pokemonsname_as_ocrstring)) {
             // If flag ON, force to use English strings as pokemon name for OCR.
             Configuration conf = res.getConfiguration();
-            Locale originalLocale; // Save original locale
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                originalLocale = conf.getLocales().get(0);
-            } else {
-                originalLocale = conf.locale;
-            }
+            // Save original locale
+            Locale originalLocale = conf.getLocales().get(0);
             conf.setLocale(Locale.ENGLISH);
             res.updateConfiguration(conf, null);
             String[] rtn = res.getStringArray(R.array.pokemon);
-            conf.setLocale(originalLocale); // Restore to original locale
+            // Restore to original locale
+            conf.setLocale(originalLocale);
             res.updateConfiguration(conf, null);
             return rtn;
         }
