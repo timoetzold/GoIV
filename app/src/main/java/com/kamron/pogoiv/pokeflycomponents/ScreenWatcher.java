@@ -108,7 +108,6 @@ public class ScreenWatcher {
         screenScanRunnable = new ScreenScan();
 
         touchView = new LinearLayout(pokefly);
-        //noinspection deprecation
         touchViewParams = new WindowManager.LayoutParams(
                 1,
                 1,

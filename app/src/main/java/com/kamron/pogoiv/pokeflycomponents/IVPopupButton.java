@@ -21,8 +21,6 @@ import com.kamron.pogoiv.R;
 import com.kamron.pogoiv.scanlogic.IVCombination;
 import com.kamron.pogoiv.scanlogic.ScanResult;
 
-import static com.kamron.pogoiv.pokeflycomponents.GoIVNotificationManager.ACTION_RECALIBRATE_SCANAREA;
-
 /**
  * Created by johan on 2017-07-06.
  * <p>
@@ -260,8 +258,8 @@ public class IVPopupButton extends androidx.appcompat.widget.AppCompatButton {
             if (event.getAction() == MotionEvent.ACTION_UP) {
                 if (shouldRecalibrate) {
                     shouldRecalibrate = false;
-                    pokefly.startService(new Intent(pokefly, GoIVNotificationManager.NotificationActionService.class)
-                            .setAction(ACTION_RECALIBRATE_SCANAREA));
+                    pokefly.startService(new Intent(pokefly, StartRecalibrationService.class)
+                            .setAction(StartRecalibrationService.ACTION_START_RECALIBRATION));
                 } else {
                     setVisibility(GONE);
                     pokefly.requestScan();

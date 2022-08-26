@@ -368,9 +368,7 @@ public class ScanFieldAutomaticLocator {
     private void findGreenPixelPokemonScreen(ScanFieldResults results) {
         final boolean debugExecution = false; // Activate this flag to display the onscreen debug graphics
 
-        //noinspection UnusedAssignment
         Canvas c = null;
-        //noinspection UnusedAssignment
         Paint p = null;
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
@@ -393,7 +391,6 @@ public class ScanFieldAutomaticLocator {
 
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
-            //noinspection ConstantConditions
             p.setColor(Color.YELLOW);
             debugPrintRectList(candidates, c, p);
         }
@@ -405,7 +402,6 @@ public class ScanFieldAutomaticLocator {
 
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
-            //noinspection ConstantConditions
             p.setColor(Color.GREEN);
             debugPrintRectList(candidates, c, p);
         }
@@ -454,9 +450,7 @@ public class ScanFieldAutomaticLocator {
     private void findArcValues(ScanFieldResults results) {
         final boolean debugExecution = false; // Activate this flag to display the onscreen debug graphics
 
-        //noinspection UnusedAssignment
         Canvas c = null;
-        //noinspection UnusedAssignment
         Paint p = null;
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
@@ -495,7 +489,6 @@ public class ScanFieldAutomaticLocator {
 
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
-            //noinspection ConstantConditions
             p.setColor(Color.GREEN);
             debugPrintRect(maxBoundingRect, c, p);
         }
@@ -858,9 +851,7 @@ public class ScanFieldAutomaticLocator {
     private void findPokemonCPScanArea(ScanFieldResults results) {
         final boolean debugExecution = false; // Activate this flag to display the onscreen debug graphics
 
-        //noinspection UnusedAssignment
         Canvas c = null;
-        //noinspection UnusedAssignment
         Paint p = null;
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
@@ -891,7 +882,6 @@ public class ScanFieldAutomaticLocator {
 
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
-            //noinspection ConstantConditions
             p.setColor(Color.GREEN);
             debugPrintRectList(candidates, c, p);
         }
@@ -923,9 +913,7 @@ public class ScanFieldAutomaticLocator {
     private void findPokemonHPArea(ScanFieldResults results) {
         final boolean debugExecution = false; // Activate this flag to display the onscreen debug graphics
 
-        //noinspection UnusedAssignment
         Canvas c = null;
-        //noinspection UnusedAssignment
         Paint p = null;
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
@@ -948,7 +936,6 @@ public class ScanFieldAutomaticLocator {
 
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
-            //noinspection ConstantConditions
             p.setColor(Color.RED);
             debugPrintRectList(candidates, c, p);
         }
@@ -960,7 +947,6 @@ public class ScanFieldAutomaticLocator {
 
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
-            //noinspection ConstantConditions
             p.setColor(Color.YELLOW);
             debugPrintRectList(candidates, c, p);
         }
@@ -972,7 +958,6 @@ public class ScanFieldAutomaticLocator {
 
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
-            //noinspection ConstantConditions
             p.setColor(Color.GREEN);
             debugPrintRectList(candidates, c, p);
         }
@@ -1284,9 +1269,7 @@ public class ScanFieldAutomaticLocator {
     private void findPokemonGenderArea(ScanFieldResults results) {
         final boolean debugExecution = false; // Activate this flag to display the onscreen debug graphics
 
-        //noinspection UnusedAssignment
         Canvas c = null;
-        //noinspection UnusedAssignment
         Paint p = null;
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
@@ -1310,7 +1293,6 @@ public class ScanFieldAutomaticLocator {
 
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
-            //noinspection ConstantConditions
             p.setColor(Color.YELLOW);
             debugPrintRectList(candidates, c, p);
         }
@@ -1322,7 +1304,6 @@ public class ScanFieldAutomaticLocator {
 
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
-            //noinspection ConstantConditions
             p.setColor(Color.GREEN);
             debugPrintRectList(candidates, c, p);
         }
@@ -1353,9 +1334,7 @@ public class ScanFieldAutomaticLocator {
     private void findPokemonNameArea(ScanFieldResults results) {
         final boolean debugExecution = false; // Activate this flag to display the onscreen debug graphics
 
-        //noinspection UnusedAssignment
         Canvas c = null;
-        //noinspection UnusedAssignment
         Paint p = null;
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
@@ -1378,7 +1357,6 @@ public class ScanFieldAutomaticLocator {
 
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
-            //noinspection ConstantConditions
             p.setColor(Color.YELLOW);
             debugPrintRectList(candidates, c, p);
         }
@@ -1390,7 +1368,6 @@ public class ScanFieldAutomaticLocator {
 
         //noinspection PointlessBooleanExpression
         if (BuildConfig.DEBUG && debugExecution) {
-            //noinspection ConstantConditions
             p.setColor(Color.GREEN);
             debugPrintRectList(candidates, c, p);
         }

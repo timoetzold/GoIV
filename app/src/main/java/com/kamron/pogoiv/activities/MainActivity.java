@@ -6,7 +6,6 @@ import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +14,6 @@ import android.content.pm.PackageManager;
 import android.media.projection.MediaProjection;
 import android.media.projection.MediaProjectionManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 
@@ -53,6 +51,7 @@ import com.kamron.pogoiv.GoIVSettings;
 import com.kamron.pogoiv.Pokefly;
 import com.kamron.pogoiv.R;
 import com.kamron.pogoiv.ScreenGrabber;
+import com.kamron.pogoiv.pokeflycomponents.StartRecalibrationService;
 import com.kamron.pogoiv.updater.AppUpdate;
 import com.kamron.pogoiv.updater.AppUpdateUtil;
 import com.kamron.pogoiv.widgets.behaviors.DisableableAppBarLayoutBehavior;
@@ -488,8 +487,14 @@ public class MainActivity extends AppCompatActivity {
      */
     private void runActionOnIntent(Intent intent) {
         if (intent != null) {
-            if (ACTION_START_POKEFLY.equals(intent.getAction()) && !Pokefly.isRunning()) {
+            String action = intent.getAction();
+            if (ACTION_START_POKEFLY.equals(action) && !Pokefly.isRunning()) {
                 runStartButtonLogic();
+            }
+            if (StartRecalibrationService.ACTION_START_RECALIBRATION.equals(action)) {
+                Intent startRecalibration = new Intent(this, StartRecalibrationService.class)
+                        .setAction(StartRecalibrationService.ACTION_START_RECALIBRATION);
+                startService(startRecalibration);
             }
         }
     }
