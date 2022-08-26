@@ -25,9 +25,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
-import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.appbar.CollapsingToolbarLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
@@ -35,7 +33,6 @@ import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Display;
@@ -51,13 +48,12 @@ import com.kamron.pogoiv.GoIVSettings;
 import com.kamron.pogoiv.Pokefly;
 import com.kamron.pogoiv.R;
 import com.kamron.pogoiv.ScreenGrabber;
+import com.kamron.pogoiv.databinding.ActivityMainBinding;
 import com.kamron.pogoiv.pokeflycomponents.StartRecalibrationService;
 import com.kamron.pogoiv.updater.AppUpdate;
 import com.kamron.pogoiv.updater.AppUpdateUtil;
 import com.kamron.pogoiv.widgets.behaviors.DisableableAppBarLayoutBehavior;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import timber.log.Timber;
 
 import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
@@ -73,17 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int WRITE_STORAGE_REQ_CODE = 1236;
 
-    @BindView(R.id.collapsingToolbarLayout)
-    CollapsingToolbarLayout collapsingToolbarLayout;
-
-    @BindView(R.id.appBarLayout)
-    AppBarLayout appBarLayout;
-
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
-
-    @BindView(R.id.bottomNavigation)
-    BottomNavigationView bottomNavigation;
+    private ActivityMainBinding binding;
 
     private ScreenGrabber screen;
     private DisplayMetrics rawDisplayMetrics;
@@ -154,22 +140,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         Timber.tag(TAG);
 
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.toolbar);
 
         if (savedInstanceState == null) {
-            bottomNavigation.setSelectedItemId(R.id.menu_home);
+            binding.bottomNavigation.setSelectedItemId(R.id.menu_home);
 
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.content, new MainFragment(), TAG_FRAGMENT_CONTENT)
                     .commit();
         }
 
-        bottomNavigation.setOnItemSelectedListener(navigationListener);
+        binding.bottomNavigation.setOnItemSelectedListener(navigationListener);
 
         runAutoUpdateStartupChecks();
         initiateUserScreenSettings();
@@ -192,17 +179,12 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean showSection(final @IdRes int sectionId) {
         final Class<? extends Fragment> newSectionClass;
-        switch (sectionId) {
-            case R.id.menu_recalibrate:
-                newSectionClass = RecalibrateFragment.class;
-                break;
-            default:
-            case R.id.menu_home:
-                newSectionClass = MainFragment.class;
-                break;
-            case R.id.menu_clipboard:
-                newSectionClass = ClipboardModifierParentFragment.class;
-                break;
+        if (sectionId == R.id.menu_recalibrate) {
+            newSectionClass = RecalibrateFragment.class;
+        } else if (sectionId == R.id.menu_clipboard) {
+            newSectionClass = ClipboardModifierParentFragment.class;
+        } else {
+            newSectionClass = MainFragment.class;
         }
 
         Fragment currentFragment = getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT_CONTENT);
@@ -222,9 +204,9 @@ public class MainActivity extends AppCompatActivity {
                             .commitAllowingStateLoss();
                     updateAppBar(newSectionClass);
                     // Remove the listener so this callback won't be fired when setSelectedItemId() is called
-                    bottomNavigation.setOnItemSelectedListener(null);
-                    bottomNavigation.setSelectedItemId(sectionId);
-                    bottomNavigation.setOnItemSelectedListener(navigationListener);
+                    binding.bottomNavigation.setOnItemSelectedListener(null);
+                    binding.bottomNavigation.setSelectedItemId(sectionId);
+                    binding.bottomNavigation.setOnItemSelectedListener(navigationListener);
                 } catch (Exception e) {
                     Timber.e(e);
                 }
@@ -255,11 +237,11 @@ public class MainActivity extends AppCompatActivity {
     private void updateAppBar(Class<? extends Fragment> newSectionClass) {
         if (newSectionClass != MainFragment.class) {
             // Compress AppBar by default outside MainFragment
-            appBarLayout.setExpanded(false, true);
+            binding.appBarLayout.setExpanded(false, true);
         }
         // Disable expandable AppBar on Clipboard section
         CoordinatorLayout.Behavior<?> behavior =
-                ((CoordinatorLayout.LayoutParams) appBarLayout.getLayoutParams()).getBehavior();
+                ((CoordinatorLayout.LayoutParams) binding.appBarLayout.getLayoutParams()).getBehavior();
         if (behavior instanceof  DisableableAppBarLayoutBehavior) {
             ((DisableableAppBarLayoutBehavior) behavior)
                     .setEnabled(newSectionClass != ClipboardModifierParentFragment.class);
@@ -360,14 +342,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.settings:
-                Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(settingsIntent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.settings) {
+            Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(settingsIntent);
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -462,6 +442,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    @SuppressLint("MissingSuperCall")
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         if (requestCode == WRITE_STORAGE_REQ_CODE) {
@@ -547,7 +528,7 @@ public class MainActivity extends AppCompatActivity {
             if (alertBadgeView == null || alertBadgeView.getParent() == null) {
                 // Alert badge view is not attached to the layout, add it
                 BottomNavigationMenuView bottomNavigationMenuView =
-                        (BottomNavigationMenuView) bottomNavigation.getChildAt(0);
+                        (BottomNavigationMenuView) binding.bottomNavigation.getChildAt(0);
                 for (int i = 0; i < bottomNavigationMenuView.getChildCount(); i++) {
                     View itemView = bottomNavigationMenuView.getChildAt(i);
                     if (itemView instanceof BottomNavigationItemView) {

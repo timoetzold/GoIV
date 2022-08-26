@@ -1,24 +1,23 @@
 package com.kamron.pogoiv.pokeflycomponents.fractions;
 
-
 import android.content.Context;
 import android.content.res.ColorStateList;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.core.content.ContextCompat;
+
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.SeekBar;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kamron.pogoiv.GoIVSettings;
 import com.kamron.pogoiv.Pokefly;
 import com.kamron.pogoiv.R;
+import com.kamron.pogoiv.databinding.FractionPowerUpBinding;
 import com.kamron.pogoiv.scanlogic.CPRange;
 import com.kamron.pogoiv.scanlogic.Data;
 import com.kamron.pogoiv.scanlogic.IVCombination;
@@ -35,60 +34,16 @@ import com.kamron.pogoiv.widgets.PokemonSpinnerAdapter;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import io.apptik.widget.MultiSlider;
-
-
 /**
  * A simple {@link Fragment} subclass.
  */
 public class PowerUpFraction extends Fraction implements ReactiveColorListener {
 
-    @BindView(R.id.expandedLevelSeekbar)
-    SeekBar expandedLevelSeekbar;
-    @BindView(R.id.exResLevel)
-    TextView exResLevel;
-    @BindView(R.id.exResultCP)
-    TextView exResultCP;
-    @BindView(R.id.exResultCPPlus)
-    TextView exResultCPPlus;
-    @BindView(R.id.extendedEvolutionSpinner)
-    Spinner extendedEvolutionSpinner;
-    @BindView(R.id.exResultHP)
-    TextView exResultHP;
-    @BindView(R.id.exResultHPPlus)
-    TextView exResultHPPlus;
-    @BindView(R.id.exResultPercentPerfection)
-    TextView exResultPercentPerfection;
-    @BindView(R.id.exResStardust)
-    TextView exResStardust;
-    @BindView(R.id.exResPokeSpam)
-    TextView exResPokeSpam;
-    @BindView(R.id.expandedLevelSeekbarBackground)
-    MultiSlider expandedLevelSeekbarBackground;
+    private final Context context;
+    private final Pokefly pokefly;
 
-    @BindView(R.id.llPokeSpam)
-    LinearLayout pokeSpamView;
-    @BindView(R.id.exResCandy)
-    TextView exResCandy;
-    @BindView(R.id.exResXlCandy)
-    TextView exResXlCandy;
+    private FractionPowerUpBinding binding;
 
-
-
-    @BindView(R.id.powerupHeader)
-    LinearLayout powerupHeader;
-    @BindView(R.id.powerUpButton)
-    Button powerUpButton;
-    @BindView(R.id.ivButton)
-    Button ivButton;
-    @BindView(R.id.movesetButton)
-    Button movesetButton;
-
-    private Context context;
-    private Pokefly pokefly;
     private PokemonSpinnerAdapter extendedEvolutionSpinnerAdapter;
     private ColorStateList exResLevelDefaultColor;
 
@@ -98,14 +53,11 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
         this.pokefly = pokefly;
     }
 
-    @Override public int getLayoutResId() {
-        return R.layout.fraction_power_up;
-    }
+    @Override
+    public void onCreate(LayoutInflater inflater, ViewGroup parent, boolean attachToParent) {
+        binding = FractionPowerUpBinding.inflate(inflater, parent, attachToParent);
 
-    @Override public void onCreate(@NonNull View rootView) {
-        ButterKnife.bind(this, rootView);
-
-        exResLevelDefaultColor = exResLevel.getTextColors();
+        exResLevelDefaultColor = binding.exResLevel.getTextColors();
 
         createExtendedResultLevelSeekbar();
         createExtendedResultEvolutionSpinner();
@@ -114,12 +66,22 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
 
         updateGuiColors();
         GUIColorFromPokeType.getInstance().setListenTo(this);
+
+        binding.ivButton.setOnClickListener(view -> onIV());
+        binding.movesetButton.setOnClickListener(view -> onMoveset());
+        binding.btnBack.setOnClickListener(view -> onBack());
+        binding.btnClose.setOnClickListener(view -> onClose());
+
+        binding.exResultPercentPerfection.setOnClickListener(view -> explainCPPercentageComparedToMaxIV());
+        binding.btnDecrementLevelExpanded.setOnClickListener(view -> decrementLevelExpanded());
+        binding.btnIncrementLevelExpanded.setOnClickListener(view -> incrementLevelExpanded());
     }
 
 
 
     @Override public void onDestroy() {
         GUIColorFromPokeType.getInstance().removeListener(this);
+        binding = null;
     }
 
     @Override
@@ -132,22 +94,18 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
         return 0;
     }
 
-    @OnClick(R.id.ivButton)
     void onIV() {
         pokefly.navigateToIVResultFraction();
     }
 
-    @OnClick(R.id.movesetButton)
     void onMoveset() {
         pokefly.navigateToMovesetFraction();
     }
 
-    @OnClick(R.id.btnBack)
     void onBack() {
         pokefly.navigateToPreferredStartFraction();
     }
 
-    @OnClick(R.id.btnClose)
     void onClose() {
         pokefly.closeInfoDialog();
     }
@@ -157,14 +115,14 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
      * pokemon evolution and level set by the user.
      */
     public void populateAdvancedInformation() {
-        double selectedLevel = seekbarProgressToLevel(expandedLevelSeekbar.getProgress());
+        double selectedLevel = seekbarProgressToLevel(binding.expandedLevelSeekbar.getProgress());
         Pokemon selectedPokemon = initPokemonSpinnerIfNeeded(Pokefly.scanResult.pokemon);
 
         setEstimateCpTextBox(Pokefly.scanResult, selectedLevel, selectedPokemon);
         setEstimateHPTextBox(Pokefly.scanResult, selectedLevel, selectedPokemon);
         setPokemonPerfectionPercentageText(Pokefly.scanResult, selectedLevel, selectedPokemon);
         setEstimateCostTextboxes(Pokefly.scanResult, selectedLevel, selectedPokemon, Pokefly.scanResult.isLucky);
-        exResLevel.setText(String.valueOf(selectedLevel));
+        binding.exResLevel.setText(String.valueOf(selectedLevel));
         setEstimateLevelTextColor(selectedLevel);
 
         setAndCalculatePokeSpamText(Pokefly.scanResult);
@@ -185,7 +143,7 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
         ArrayList<Pokemon> evolutionLine = PokeInfoCalculator.getInstance().getEvolutionLine(scannedPokemon);
         extendedEvolutionSpinnerAdapter.updatePokemonList(evolutionLine);
 
-        int spinnerSelectionIdx = extendedEvolutionSpinner.getSelectedItemPosition();
+        int spinnerSelectionIdx = binding.extendedEvolutionSpinner.getSelectedItemPosition();
 
         if (spinnerSelectionIdx == -1) {
             if (!scannedPokemon.getEvolutions().isEmpty()) {
@@ -201,8 +159,8 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
             }
             //Invariant: evolutionLine.get(spinnerSelectionIdx).number == scannedPokemon.number., hence
             //evolutionLine.get(spinnerSelectionIdx) == scannedPokemon.
-            extendedEvolutionSpinner.setSelection(spinnerSelectionIdx);
-            extendedEvolutionSpinner.setEnabled(evolutionLine.size() > 1);
+            binding.extendedEvolutionSpinner.setSelection(spinnerSelectionIdx);
+            binding.extendedEvolutionSpinner.setEnabled(evolutionLine.size() > 1);
         }
         return extendedEvolutionSpinnerAdapter.getItem(spinnerSelectionIdx);
     }
@@ -221,7 +179,7 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
         int realCP = scanResult.cp;
         int expectedAverage = expectedRange.getAvg();
 
-        exResultCP.setText(String.valueOf(expectedAverage));
+        binding.exResultCP.setText(String.valueOf(expectedAverage));
 
         String exResultCPStrPlus = "";
         int diffCP = expectedAverage - realCP;
@@ -230,7 +188,7 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
         } else {
             exResultCPStrPlus += " (" + diffCP + ")";
         }
-        exResultCPPlus.setText(exResultCPStrPlus);
+        binding.exResultCPPlus.setText(exResultCPStrPlus);
     }
 
     /**
@@ -242,14 +200,14 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
     private void setEstimateHPTextBox(ScanResult scanResult, double selectedLevel, Pokemon selectedPokemon) {
         int newHP = PokeInfoCalculator.getInstance().getHPAtLevel(scanResult, selectedLevel, selectedPokemon);
 
-        exResultHP.setText(String.valueOf(newHP));
+        binding.exResultHP.setText(String.valueOf(newHP));
 
         int oldHP = PokeInfoCalculator.getInstance().getHPAtLevel(
                 scanResult, Pokefly.scanResult.levelRange.min, scanResult.pokemon);
         int hpDiff = newHP - oldHP;
         String sign = (hpDiff >= 0) ? "+" : ""; //add plus in front if positive.
         String hpTextPlus = " (" + sign + hpDiff + ")";
-        exResultHPPlus.setText(hpTextPlus);
+        binding.exResultHPPlus.setText(hpTextPlus);
     }
 
     /**
@@ -275,7 +233,7 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
         }
         String differenceString = "(" + sign + difference + ")";
         String perfectionString = df.format(perfection) + "% " + differenceString;
-        exResultPercentPerfection.setText(perfectionString);
+        binding.exResultPercentPerfection.setText(perfectionString);
     }
 
     /**
@@ -295,11 +253,11 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
         int evolutionCandyCost = PokeInfoCalculator.getInstance()
                 .getCandyCostForEvolution(scanResult.pokemon, selectedPokemon);
         String candyCostText = cost.candy + evolutionCandyCost + "";
-        exResCandy.setText(candyCostText);
+        binding.exResCandy.setText(candyCostText);
         String candyXlCostText = Integer.toString(cost.candyXl);
-        exResXlCandy.setText(candyXlCostText);
+        binding.exResXlCandy.setText(candyXlCostText);
         DecimalFormat formater = new DecimalFormat();
-        exResStardust.setText(formater.format(cost.dust));
+        binding.exResStardust.setText(formater.format(cost.dust));
     }
 
     /**
@@ -313,9 +271,9 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
     private void setEstimateLevelTextColor(double selectedLevel) {
         // If selectedLevel exceeds trainer capabilities then show text in orange
         if (selectedLevel > Data.trainerLevelToMaxPokeLevel(pokefly.getTrainerLevel())) {
-            exResLevel.setTextColor(ContextCompat.getColor(pokefly, R.color.orange));
+            binding.exResLevel.setTextColor(ContextCompat.getColor(pokefly, R.color.orange));
         } else {
-            exResLevel.setTextColor(exResLevelDefaultColor);
+            binding.exResLevel.setTextColor(exResLevelDefaultColor);
         }
     }
 
@@ -330,8 +288,8 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
         if (GoIVSettings.getInstance(pokefly).isPokeSpamEnabled()
                 && scanResult.pokemon != null) {
             if (scanResult.pokemon.candyEvolutionCost < 0) {
-                exResPokeSpam.setText(context.getString(R.string.pokespam_not_available));
-                pokeSpamView.setVisibility(View.VISIBLE);
+                binding.exResPokeSpam.setText(context.getString(R.string.pokespam_not_available));
+                binding.llPokeSpam.setVisibility(View.VISIBLE);
                 return;
             }
 
@@ -355,11 +313,11 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
             } else {
                 text = context.getString(R.string.pokespam_formatted_message, totEvol, evolRow, evolExtra);
             }
-            exResPokeSpam.setText(text);
-            pokeSpamView.setVisibility(View.VISIBLE);
+            binding.exResPokeSpam.setText(text);
+            binding.llPokeSpam.setVisibility(View.VISIBLE);
         } else {
-            exResPokeSpam.setText("");
-            pokeSpamView.setVisibility(View.GONE);
+            binding.exResPokeSpam.setText("");
+            binding.llPokeSpam.setVisibility(View.GONE);
         }
     }
 
@@ -368,7 +326,7 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
      * screen.
      */
     private void createExtendedResultLevelSeekbar() {
-        expandedLevelSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        binding.expandedLevelSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean fromUser) {
                 if (fromUser) {
@@ -395,9 +353,9 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
         //The evolution picker for seeing estimates of how much cp and cost a pokemon will have at a different evolution
         extendedEvolutionSpinnerAdapter = new PokemonSpinnerAdapter(pokefly, R.layout.spinner_pokemon,
                 new ArrayList<>());
-        extendedEvolutionSpinner.setAdapter(extendedEvolutionSpinnerAdapter);
+        binding.extendedEvolutionSpinner.setAdapter(extendedEvolutionSpinnerAdapter);
 
-        extendedEvolutionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        binding.extendedEvolutionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 populateAdvancedInformation();
@@ -421,28 +379,28 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
      */
     private void adjustSeekbarsThumbs() {
         // Set Seekbar max value to max Pokemon level at trainer level 40
-        expandedLevelSeekbar.setMax(levelToSeekbarProgress(Data.MAXIMUM_POKEMON_LEVEL));
+        binding.expandedLevelSeekbar.setMax(levelToSeekbarProgress(Data.MAXIMUM_POKEMON_LEVEL));
 
         // Set Thumb value to current Pokemon level
-        expandedLevelSeekbar.setProgress(
+        binding.expandedLevelSeekbar.setProgress(
                 levelToSeekbarProgress(Pokefly.scanResult.levelRange.min));
 
         // Set Seekbar Background max value to max Pokemon level at trainer level 40
-        expandedLevelSeekbarBackground.setMax(levelToSeekbarProgress(Data.MAXIMUM_POKEMON_LEVEL));
+        binding.expandedLevelSeekbarBackground.setMax(levelToSeekbarProgress(Data.MAXIMUM_POKEMON_LEVEL));
 
         // Set Thumb 1 drawable to an orange marker and value at the max possible Pokemon level at the current
         // trainer level
-        expandedLevelSeekbarBackground.getThumb(0).setThumb(
+        binding.expandedLevelSeekbarBackground.getThumb(0).setThumb(
                 ContextCompat.getDrawable(pokefly, R.drawable.orange_seekbar_thumb_marker));
-        expandedLevelSeekbarBackground.getThumb(0).setValue(
+        binding.expandedLevelSeekbarBackground.getThumb(0).setValue(
                 levelToSeekbarProgress(Data.trainerLevelToMaxPokeLevel(pokefly.getTrainerLevel())));
 
         // Set Thumb 2 to invisible and value at max Pokemon level at trainer level 40
-        expandedLevelSeekbarBackground.getThumb(1).setInvisibleThumb(true);
-        expandedLevelSeekbarBackground.getThumb(1).setValue(levelToSeekbarProgress(Data.MAXIMUM_POKEMON_LEVEL));
+        binding.expandedLevelSeekbarBackground.getThumb(1).setInvisibleThumb(true);
+        binding.expandedLevelSeekbarBackground.getThumb(1).setValue(levelToSeekbarProgress(Data.MAXIMUM_POKEMON_LEVEL));
 
         // Set empty on touch listener to prevent changing values of Thumb 1
-        expandedLevelSeekbarBackground.setOnTouchListener((v, event) -> true);
+        binding.expandedLevelSeekbarBackground.setOnTouchListener((v, event) -> true);
     }
 
 
@@ -456,22 +414,17 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
         return (int) (2 * level - getSeekbarOffset());
     }
 
-    @OnClick(R.id.exResultPercentPerfection)
     public void explainCPPercentageComparedToMaxIV() {
         Toast.makeText(pokefly.getApplicationContext(), R.string.perfection_explainer, Toast.LENGTH_LONG).show();
     }
 
-
-    @OnClick(R.id.btnIncrementLevelExpanded)
     public void incrementLevelExpanded() {
-        expandedLevelSeekbar.setProgress(expandedLevelSeekbar.getProgress() + 1);
+        binding.expandedLevelSeekbar.setProgress(binding.expandedLevelSeekbar.getProgress() + 1);
         populateAdvancedInformation();
     }
 
-
-    @OnClick(R.id.btnDecrementLevelExpanded)
     public void decrementLevelExpanded() {
-        expandedLevelSeekbar.setProgress(expandedLevelSeekbar.getProgress() - 1);
+        binding.expandedLevelSeekbar.setProgress(binding.expandedLevelSeekbar.getProgress() - 1);
         populateAdvancedInformation();
     }
 
@@ -484,10 +437,11 @@ public class PowerUpFraction extends Fraction implements ReactiveColorListener {
         //seekbar only supports integers, so the seekbar works between 2 and 80.
     }
 
-    @Override public void updateGuiColors() {
+    @Override
+    public void updateGuiColors() {
         int c = GUIColorFromPokeType.getInstance().getColor();
-        ivButton.setBackgroundColor(c);
-        movesetButton.setBackgroundColor(c);
-        powerupHeader.setBackgroundColor(c);
+        binding.ivButton.setBackgroundColor(c);
+        binding.movesetButton.setBackgroundColor(c);
+        binding.powerupHeader.setBackgroundColor(c);
     }
 }

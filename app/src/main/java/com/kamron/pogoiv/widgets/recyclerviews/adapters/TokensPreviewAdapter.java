@@ -2,9 +2,12 @@ package com.kamron.pogoiv.widgets.recyclerviews.adapters;
 
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.ItemTouchHelper;
+
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.kamron.pogoiv.clipboardlogic.ClipboardToken;
+import com.kamron.pogoiv.databinding.LayoutTokenPreviewBinding;
 import com.kamron.pogoiv.widgets.recyclerviews.adapters.viewholders.TokenViewHolder;
 
 import java.util.ArrayList;
@@ -59,8 +62,11 @@ public class TokensPreviewAdapter
         notifyItemMoved(fromPosition, toPosition);
     }
 
-    @Override public TokenViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new TokenViewHolder(parent, null, this, false, true);
+    @Override
+    public TokenViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LayoutTokenPreviewBinding binding = LayoutTokenPreviewBinding.inflate(LayoutInflater.from(parent.getContext()),
+                parent, false);
+        return new TokenViewHolder(binding, null, this, false, true);
     }
 
     @Override public void onBindViewHolder(TokenViewHolder holder, int position) {

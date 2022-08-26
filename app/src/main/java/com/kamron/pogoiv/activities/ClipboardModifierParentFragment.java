@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -15,20 +14,16 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.kamron.pogoiv.GoIVSettings;
 import com.kamron.pogoiv.R;
 import com.kamron.pogoiv.clipboardlogic.ClipboardResultMode;
 import com.kamron.pogoiv.clipboardlogic.ClipboardToken;
+import com.kamron.pogoiv.databinding.FragmentClipboardModifierParentBinding;
 
 import java.util.EnumSet;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 import static com.kamron.pogoiv.clipboardlogic.ClipboardResultMode.GENERAL_RESULT;
 import static com.kamron.pogoiv.clipboardlogic.ClipboardResultMode.PERFECT_IV_RESULT;
@@ -36,12 +31,7 @@ import static com.kamron.pogoiv.clipboardlogic.ClipboardResultMode.SINGLE_RESULT
 
 public class ClipboardModifierParentFragment extends Fragment {
 
-    @BindView(R.id.pager)
-    ViewPager2 viewPager;
-    @BindView(R.id.pagerTabStrip)
-    TabLayout pagerTabStrip;
-    @BindView(R.id.clipboardDescription)
-    public TextView clipboardDescription;
+    private FragmentClipboardModifierParentBinding binding;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,12 +41,15 @@ public class ClipboardModifierParentFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_clipboard_modifier_parent, container, false);
-        ButterKnife.bind(this, view);
-        return view;
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentClipboardModifierParentBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 
     @Override
@@ -65,9 +58,9 @@ public class ClipboardModifierParentFragment extends Fragment {
 
         ClipboardResultMode[] resultModesEnabled = getResultModesEnabled();
         ModePagerAdapter pagerAdapter = new ModePagerAdapter(this, resultModesEnabled);
-        viewPager.setAdapter(pagerAdapter);
+        binding.pager.setAdapter(pagerAdapter);
 
-        new TabLayoutMediator(pagerTabStrip, viewPager, (tab, position) ->
+        new TabLayoutMediator(binding.pagerTabStrip, binding.pager, (tab, position) ->
                 tab.setText(getTabTitle(resultModesEnabled, position))
         ).attach();
 
@@ -78,7 +71,7 @@ public class ClipboardModifierParentFragment extends Fragment {
             if (resultModesEnabled.length > 1) {
                 actionBar.setElevation(0);
             } else {
-                pagerTabStrip.setVisibility(View.GONE);
+                binding.pagerTabStrip.setVisibility(View.GONE);
             }
         }
     }
@@ -128,12 +121,12 @@ public class ClipboardModifierParentFragment extends Fragment {
      */
     public void updateTokenDescription(ClipboardToken selectedToken) {
         if (selectedToken == null) {
-            clipboardDescription.setText(R.string.no_token_selected);
+            binding.clipboardDescription.setText(R.string.no_token_selected);
         } else if (selectedToken.maxEv) {
-            clipboardDescription.setText(getResources().getString(R.string.token_max_evolution,
+            binding.clipboardDescription.setText(getResources().getString(R.string.token_max_evolution,
                     selectedToken.getLongDescription(getContext())));
         } else { // Selected token not max evolution
-            clipboardDescription.setText(selectedToken.getLongDescription(getContext()));
+            binding.clipboardDescription.setText(selectedToken.getLongDescription(getContext()));
         }
     }
 

@@ -4,7 +4,6 @@ package com.kamron.pogoiv.scanlogic;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 

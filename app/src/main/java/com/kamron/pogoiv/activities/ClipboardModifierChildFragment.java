@@ -5,7 +5,6 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.fragment.app.Fragment;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AlertDialog;
@@ -17,7 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.common.base.Strings;
@@ -31,15 +29,13 @@ import com.kamron.pogoiv.clipboardlogic.tokens.CustomSeparatorToken;
 import com.kamron.pogoiv.clipboardlogic.tokens.HasBeenAppraisedToken;
 import com.kamron.pogoiv.clipboardlogic.tokens.PokemonNameToken;
 import com.kamron.pogoiv.clipboardlogic.tokens.SeparatorToken;
+import com.kamron.pogoiv.databinding.FragmentClipboardModifierChildBinding;
 import com.kamron.pogoiv.widgets.recyclerviews.adapters.TokensPreviewAdapter;
 import com.kamron.pogoiv.widgets.recyclerviews.adapters.TokensShowcaseAdapter;
 import com.kamron.pogoiv.widgets.recyclerviews.decorators.MarginItemDecorator;
 import com.kamron.pogoiv.widgets.recyclerviews.layoutmanagers.TokenGridLayoutManager;
 
 import java.util.Locale;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 import static androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL;
 
@@ -50,18 +46,7 @@ public class ClipboardModifierChildFragment
 
     private static final String ARG_RESULT_MODE = "a_srm";
 
-
-    @BindView(R.id.clipboardMaxLength)
-    TextView clipboardMaxLength;
-    @BindView(R.id.tokenPreviewRecyclerView)
-    RecyclerView tokenPreviewRecyclerView;
-    @BindView(R.id.tokenShowcaseRecyclerView)
-    RecyclerView tokenShowcaseRecyclerView;
-    @BindView(R.id.btnAdd)
-    FloatingActionButton btnAdd;
-    @BindView(R.id.btnMaxEvolution)
-    FloatingActionButton btnMaxEvolution;
-
+    private FragmentClipboardModifierChildBinding binding;
 
     private ClipboardResultMode resultMode;
     private boolean maxEvolutionVariant = true;
@@ -91,9 +76,14 @@ public class ClipboardModifierChildFragment
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_clipboard_modifier_child, container, false);
-        ButterKnife.bind(this, view);
-        return view;
+        binding = FragmentClipboardModifierChildBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 
     @Override
@@ -104,7 +94,7 @@ public class ClipboardModifierChildFragment
         tokenPreviewAdapter = new TokensPreviewAdapter();
         tokenPreviewAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             private void updateMaxLength() {
-                clipboardMaxLength.setText(String.format(Locale.getDefault(),
+                binding.clipboardMaxLength.setText(String.format(Locale.getDefault(),
                         getString(R.string.token_max_characters), tokenPreviewAdapter.getMaxLength()));
             }
 
@@ -121,36 +111,36 @@ public class ClipboardModifierChildFragment
             }
         });
         tokenPreviewAdapter.setData(cth.getTokens(resultMode));
-        tokenPreviewRecyclerView.setHasFixedSize(false);
-        tokenPreviewRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), HORIZONTAL, false));
-        tokenPreviewRecyclerView.addItemDecoration(new MarginItemDecorator(2, 0, 2, 0));
-        tokenPreviewRecyclerView.setAdapter(tokenPreviewAdapter);
+        binding.tokenPreviewRecyclerView.setHasFixedSize(false);
+        binding.tokenPreviewRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), HORIZONTAL, false));
+        binding.tokenPreviewRecyclerView.addItemDecoration(new MarginItemDecorator(2, 0, 2, 0));
+        binding.tokenPreviewRecyclerView.setAdapter(tokenPreviewAdapter);
         new ItemTouchHelper(new TokensPreviewAdapter.TokenTouchCallback(tokenPreviewAdapter))
-                .attachToRecyclerView(tokenPreviewRecyclerView);
+                .attachToRecyclerView(binding.tokenPreviewRecyclerView);
 
         // Populate the token showcase RecyclerView with all possible tokens. The TokenListAdapter will put them in
         // their respective category while TokenGridLayoutManager will arrange them in a grid with category headers
         // that span the entire RecyclerView width.
         tokenShowcaseAdapter = new TokensShowcaseAdapter(getContext(), maxEvolutionVariant, this);
-        tokenShowcaseRecyclerView.setHasFixedSize(false);
-        tokenShowcaseRecyclerView.setLayoutManager(new TokenGridLayoutManager(getContext(), tokenShowcaseAdapter));
-        tokenShowcaseRecyclerView.addItemDecoration(new MarginItemDecorator(2, 4, 2, 4));
-        tokenShowcaseRecyclerView.setAdapter(tokenShowcaseAdapter);
+        binding.tokenShowcaseRecyclerView.setHasFixedSize(false);
+        binding.tokenShowcaseRecyclerView.setLayoutManager(new TokenGridLayoutManager(getContext(), tokenShowcaseAdapter));
+        binding.tokenShowcaseRecyclerView.addItemDecoration(new MarginItemDecorator(2, 4, 2, 4));
+        binding.tokenShowcaseRecyclerView.setAdapter(tokenShowcaseAdapter);
 
         // Set the drawable here since app:srcCompat attribute in XML isn't working and android:src crashes on API 19
-        btnAdd.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_add_white_24px));
-        btnAdd.setOnClickListener(v -> addToken());
+        binding.btnAdd.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_add_white_24px));
+        binding.btnAdd.setOnClickListener(v -> addToken());
 
         // Set the drawable here since app:srcCompat attribute in XML isn't working and android:src crashes on API 19
-        btnMaxEvolution.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_star_white_18dp));
-        btnMaxEvolution.setOnClickListener(v -> {
+        binding.btnMaxEvolution.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_star_white_18dp));
+        binding.btnMaxEvolution.setOnClickListener(v -> {
             maxEvolutionVariant = !maxEvolutionVariant;
             if (maxEvolutionVariant) {
-                btnMaxEvolution.setImageDrawable(
+                binding.btnMaxEvolution.setImageDrawable(
                         ContextCompat.getDrawable(getContext(), R.drawable.ic_star_white_18dp));
                 Toast.makeText(getContext(), R.string.token_show_max_evo_variant, Toast.LENGTH_SHORT).show();
             } else {
-                btnMaxEvolution.setImageDrawable(
+                binding.btnMaxEvolution.setImageDrawable(
                         ContextCompat.getDrawable(getContext(), R.drawable.ic_star_border_white_18dp));
                 Toast.makeText(getContext(), R.string.token_show_standard, Toast.LENGTH_SHORT).show();
             }
@@ -200,7 +190,7 @@ public class ClipboardModifierChildFragment
                 buildCustomNameToken();
             } else {
                 tokenPreviewAdapter.addItem(selectedToken);
-                tokenPreviewRecyclerView.smoothScrollToPosition(tokenPreviewAdapter.getItemCount() - 1);
+                binding.tokenPreviewRecyclerView.smoothScrollToPosition(tokenPreviewAdapter.getItemCount() - 1);
             }
         } else {
             Toast.makeText(getContext(), R.string.clipboard_no_token_selected, Toast.LENGTH_LONG).show();

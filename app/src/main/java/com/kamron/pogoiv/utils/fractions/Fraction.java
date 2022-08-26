@@ -1,12 +1,12 @@
 package com.kamron.pogoiv.utils.fractions;
 
-import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import android.util.DisplayMetrics;
 import android.view.Gravity;
-import android.view.View;
-
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 
 public abstract class Fraction {
 
@@ -27,9 +27,7 @@ public abstract class Fraction {
         }
     }
 
-    public abstract @LayoutRes int getLayoutResId();
-
-    public abstract void onCreate(@NonNull View rootView);
+    public abstract void onCreate(LayoutInflater inflater, ViewGroup parent, boolean attachToParent);
 
     public abstract void onDestroy();
 

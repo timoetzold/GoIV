@@ -12,22 +12,22 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.viewbinding.ViewBinding;
+
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
+import android.view.ViewGroup;
 import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kamron.pogoiv.Pokefly;
 import com.kamron.pogoiv.R;
+import com.kamron.pogoiv.databinding.FractionMovesetBinding;
+import com.kamron.pogoiv.databinding.TableRowMovesetBinding;
 import com.kamron.pogoiv.pokeflycomponents.MovesetsManager;
 import com.kamron.pogoiv.scanlogic.MovesetData;
 import com.kamron.pogoiv.scanlogic.PokemonShareHandler;
@@ -42,11 +42,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.OnTouch;
-
 import static com.kamron.pogoiv.GoIVSettings.MOVESET_WINDOW_POSITION;
 
 
@@ -55,32 +50,16 @@ public class MovesetFraction extends MovableFraction implements ReactiveColorLis
     private static final String URL_POKEBATTLER_IMPORT = "https://www.pokebattler.com/pokebox/import";
 
 
-    private Pokefly pokefly;
+    private final Pokefly pokefly;
     private ArrayList<MovesetData> movesets;
-    private Comparator<MovesetData> atkComparator = new MovesetData.AtkComparator();
-    private Comparator<MovesetData> reverseAtkComparator = Collections.reverseOrder(new MovesetData.AtkComparator());
-    private Comparator<MovesetData> defComparator = new MovesetData.DefComparator();
-    private Comparator<MovesetData> reverseDefComparator = Collections.reverseOrder(new MovesetData.DefComparator());
+    private final Comparator<MovesetData> atkComparator = new MovesetData.AtkComparator();
+    private final Comparator<MovesetData> reverseAtkComparator = Collections.reverseOrder(new MovesetData.AtkComparator());
+    private final Comparator<MovesetData> defComparator = new MovesetData.DefComparator();
+    private final Comparator<MovesetData> reverseDefComparator = Collections.reverseOrder(new MovesetData.DefComparator());
     private Comparator<MovesetData> currentComparator;
-    private DecimalFormat scoreFormat = new DecimalFormat("###%");
+    private final DecimalFormat scoreFormat = new DecimalFormat("###%");
 
-
-    @BindView(R.id.table_layout)
-    TableLayout tableLayout;
-    @BindView(R.id.header_icon_attack)
-    ImageView headerAttackSortIcon;
-    @BindView(R.id.header_icon_defense)
-    ImageView headerDefenseSortIcon;
-
-
-    @BindView(R.id.top_navigation)
-    LinearLayout top_navigation;
-    @BindView(R.id.powerUpButton)
-    Button powerUpButton;
-    @BindView(R.id.ivButton)
-    Button ivButton;
-    @BindView(R.id.movesetButton)
-    Button movesetButton;
+    private FractionMovesetBinding binding;
 
     public MovesetFraction(@NonNull Pokefly pokefly, @NonNull SharedPreferences sharedPrefs) {
         super(sharedPrefs);
@@ -92,12 +71,9 @@ public class MovesetFraction extends MovableFraction implements ReactiveColorLis
         return MOVESET_WINDOW_POSITION;
     }
 
-    @Override public int getLayoutResId() {
-        return R.layout.fraction_moveset;
-    }
-
-    @Override public void onCreate(@NonNull View rootView) {
-        ButterKnife.bind(this, rootView);
+    @Override
+    public void onCreate(LayoutInflater inflater, ViewGroup parent, boolean attachToParent) {
+        binding = FractionMovesetBinding.inflate(inflater, parent, attachToParent);
 
         // Load moveset data
         Collection<MovesetData> m = MovesetsManager.getMovesetsForDexNumber(Pokefly.scanResult.pokemon.number);
@@ -113,6 +89,21 @@ public class MovesetFraction extends MovableFraction implements ReactiveColorLis
         }
         updateGuiColors();
         GUIColorFromPokeType.getInstance().setListenTo(this);
+
+        binding.positionHandler.setOnTouchListener(this::positionHandlerTouchEvent);
+        binding.movesetHeader.setOnTouchListener(this::positionHandlerTouchEvent);
+
+        binding.powerUpButton.setOnClickListener(view -> onPowerUp());
+        binding.ivButton.setOnClickListener(view -> onMoveset());
+        binding.btnBack.setOnClickListener(view -> onBack());
+        binding.btnClose.setOnClickListener(view -> onClose());
+        binding.headerAttack.setOnClickListener(view -> sortAttack());
+        binding.headerDefense.setOnClickListener(view -> sortDefense());
+
+        binding.exportWebButton.setOnClickListener(view -> export());
+        binding.clipboardClear.setOnClickListener(view -> clearClip());
+        binding.exportWebButtonQueue.setOnClickListener(view -> addToQueue());
+        binding.shareWithOtherApp.setOnClickListener(view -> shareScannedPokemonInformation());
     }
 
 
@@ -120,6 +111,7 @@ public class MovesetFraction extends MovableFraction implements ReactiveColorLis
     @Override
     public void onDestroy() {
         GUIColorFromPokeType.getInstance().removeListener(this);
+        binding = null;
     }
 
     @Override
@@ -132,14 +124,13 @@ public class MovesetFraction extends MovableFraction implements ReactiveColorLis
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 56, displayMetrics);
     }
 
-    @OnTouch({R.id.positionHandler, R.id.movesetHeader})
     boolean positionHandlerTouchEvent(View v, MotionEvent event) {
         return super.onTouch(v, event);
     }
 
     private void sortBy(Comparator<MovesetData> comparator) {
         currentComparator = comparator;
-        Collections.sort(movesets, currentComparator);
+        movesets.sort(currentComparator);
 
         // Rebuild table
         buildTable();
@@ -148,27 +139,27 @@ public class MovesetFraction extends MovableFraction implements ReactiveColorLis
         Drawable none = ContextCompat.getDrawable(pokefly, R.drawable.ic_sort_none);
         if (atkComparator.equals(currentComparator)) {
             Drawable desc = ContextCompat.getDrawable(pokefly, R.drawable.ic_sort_desc);
-            headerAttackSortIcon.setImageDrawable(desc);
-            headerDefenseSortIcon.setImageDrawable(none);
+            binding.headerIconAttack.setImageDrawable(desc);
+            binding.headerIconDefense.setImageDrawable(none);
         } else if (reverseAtkComparator.equals(currentComparator)) {
             Drawable asc = ContextCompat.getDrawable(pokefly, R.drawable.ic_sort_asc);
-            headerAttackSortIcon.setImageDrawable(asc);
-            headerDefenseSortIcon.setImageDrawable(none);
+            binding.headerIconAttack.setImageDrawable(asc);
+            binding.headerIconDefense.setImageDrawable(none);
         } else if (defComparator.equals(currentComparator)) {
             Drawable desc = ContextCompat.getDrawable(pokefly, R.drawable.ic_sort_desc);
-            headerAttackSortIcon.setImageDrawable(none);
-            headerDefenseSortIcon.setImageDrawable(desc);
+            binding.headerIconAttack.setImageDrawable(none);
+            binding.headerIconDefense.setImageDrawable(desc);
         } else if (reverseDefComparator.equals(currentComparator)) {
             Drawable asc = ContextCompat.getDrawable(pokefly, R.drawable.ic_sort_asc);
-            headerAttackSortIcon.setImageDrawable(none);
-            headerDefenseSortIcon.setImageDrawable(asc);
+            binding.headerIconAttack.setImageDrawable(none);
+            binding.headerIconDefense.setImageDrawable(asc);
         }
     }
 
     private void buildTable() {
         for (int i = 0; i < movesets.size(); i++) {
             MovesetData moveset = movesets.get(i);
-            buildRow(moveset, (TableRow) tableLayout.getChildAt(i + 1));
+            buildRow(moveset, (TableRow) binding.tableLayout.getChildAt(i + 1));
         }
     }
 
@@ -179,16 +170,18 @@ public class MovesetFraction extends MovableFraction implements ReactiveColorLis
             row = recycle;
             holder = (RowViewHolder) row.getTag();
         } else {
-            row = (TableRow) LayoutInflater.from(pokefly)
-                    .inflate(R.layout.table_row_moveset, tableLayout, false);
-            holder = new RowViewHolder();
+            TableRowMovesetBinding rowBinding = TableRowMovesetBinding.inflate(LayoutInflater.from(pokefly),
+                    binding.tableLayout, false);
+            row = (TableRow) rowBinding.getRoot();
+            holder = new RowViewHolder(rowBinding);
+
             row.setTag(holder);
         }
 
-        holder.bind(row, move);
+        holder.setMovesetData(move);
 
         if (row.getParent() == null) {
-            tableLayout.addView(row);
+            binding.tableLayout.addView(row);
         }
     }
 
@@ -221,27 +214,22 @@ public class MovesetFraction extends MovableFraction implements ReactiveColorLis
         return Color.parseColor("#d84315");
     }
 
-    @OnClick(R.id.powerUpButton)
     void onPowerUp() {
         pokefly.navigateToPowerUpFraction();
     }
 
-    @OnClick(R.id.ivButton)
     void onMoveset() {
         pokefly.navigateToIVResultFraction();
     }
 
-    @OnClick(R.id.btnBack)
     void onBack() {
         pokefly.navigateToPreferredStartFraction();
     }
 
-    @OnClick(R.id.btnClose)
     void onClose() {
         pokefly.closeInfoDialog();
     }
 
-    @OnClick(R.id.header_attack)
     void sortAttack() {
         if (atkComparator.equals(currentComparator)) {
             sortBy(reverseAtkComparator);
@@ -250,7 +238,6 @@ public class MovesetFraction extends MovableFraction implements ReactiveColorLis
         }
     }
 
-    @OnClick(R.id.header_defense)
     void sortDefense() {
         if (defComparator.equals(currentComparator)) {
             sortBy(reverseDefComparator);
@@ -259,7 +246,6 @@ public class MovesetFraction extends MovableFraction implements ReactiveColorLis
         }
     }
 
-    @OnClick(R.id.exportWebButton)
     void export() {
         String exportString = ExportPokemonQueue.getExportString();
         ClipboardManager clipboard = (ClipboardManager) pokefly.getSystemService(Context.CLIPBOARD_SERVICE);
@@ -276,8 +262,6 @@ public class MovesetFraction extends MovableFraction implements ReactiveColorLis
         pokefly.closeInfoDialog();
     }
 
-
-    @OnClick(R.id.clipboardClear)
     void clearClip() {
         ExportPokemonQueue.clear();
 
@@ -286,8 +270,6 @@ public class MovesetFraction extends MovableFraction implements ReactiveColorLis
         toast.show();
     }
 
-
-    @OnClick(R.id.exportWebButtonQueue)
     void addToQueue() {
         ExportPokemonQueue.add(Pokefly.scanResult);
 
@@ -301,7 +283,6 @@ public class MovesetFraction extends MovableFraction implements ReactiveColorLis
     /**
      * Creates an intent to share the result of the pokemon scan, and closes the overlay.
      */
-    @OnClick({R.id.shareWithOtherApp})
     void shareScannedPokemonInformation() {
         PokemonShareHandler communicator = new PokemonShareHandler();
         communicator.spreadResultIntent(pokefly);
@@ -310,70 +291,68 @@ public class MovesetFraction extends MovableFraction implements ReactiveColorLis
 
     @Override public void updateGuiColors() {
         int c = GUIColorFromPokeType.getInstance().getColor();
-        powerUpButton.setBackgroundColor(c);
-        ivButton.setBackgroundColor(c);
-        top_navigation.setBackgroundColor(c);
+        binding.powerUpButton.setBackgroundColor(c);
+        binding.ivButton.setBackgroundColor(c);
+        binding.topNavigation.setBackgroundColor(c);
     }
 
     public class RowViewHolder {
-        private RowViewHolder() {
-        }
+
+        private final TableRowMovesetBinding binding;
 
         private MovesetData data;
 
-        @BindView(R.id.text_fast)
-        TextView fast;
-        @BindView(R.id.text_charge)
-        TextView charge;
-        @BindView(R.id.text_attack)
-        TextView attack;
-        @BindView(R.id.text_defense)
-        TextView defense;
+        private RowViewHolder(@NonNull TableRowMovesetBinding binding) {
+            this.binding = binding;
+        }
 
-        public void bind(@NonNull View v, MovesetData data) {
-            ButterKnife.bind(this, v);
+        public void setMovesetData(MovesetData data) {
             this.data = data;
 
             // Fast move
-            fast.setTextColor(getMoveColor(data.isFastIsLegacy()));
-            fast.setText(data.getFast());
+            binding.textFast.setTextColor(getMoveColor(data.isFastIsLegacy()));
+            binding.textFast.setText(data.getFast());
             if (data.equals(Pokefly.scanResult.selectedMoveset)) {
-                fast.setTypeface(null, Typeface.BOLD);
+                binding.textFast.setTypeface(null, Typeface.BOLD);
             } else {
-                fast.setTypeface(null, Typeface.NORMAL);
+                binding.textFast.setTypeface(null, Typeface.NORMAL);
             }
 
             // Charge move
-            charge.setTextColor(getMoveColor(data.isChargeIsLegacy()));
-            charge.setText(data.getCharge());
+            binding.textCharge.setTextColor(getMoveColor(data.isChargeIsLegacy()));
+            binding.textCharge.setText(data.getCharge());
             if (data.equals(Pokefly.scanResult.selectedMoveset)) {
-                charge.setTypeface(null, Typeface.BOLD);
+                binding.textCharge.setTypeface(null, Typeface.BOLD);
             } else {
-                charge.setTypeface(null, Typeface.NORMAL);
+                binding.textCharge.setTypeface(null, Typeface.NORMAL);
             }
 
             // Attack score
             if (data.getAtkScore() != null) {
-                attack.setTextColor(getPowerColor(data.getAtkScore()));
-                attack.setText(scoreFormat.format(data.getAtkScore()));
+                binding.textAttack.setTextColor(getPowerColor(data.getAtkScore()));
+                binding.textAttack.setText(scoreFormat.format(data.getAtkScore()));
             } else {
-                attack.setTextColor(Color.parseColor("#d84315"));
-                attack.setText("<");
+                binding.textAttack.setTextColor(Color.parseColor("#d84315"));
+                binding.textAttack.setText("<");
             }
 
 
             // Defense score
 
             if (data.getDefScore() != null) {
-                defense.setTextColor(getPowerColor(data.getDefScore()));
-                defense.setText(scoreFormat.format(data.getDefScore()));
+                binding.textDefense.setTextColor(getPowerColor(data.getDefScore()));
+                binding.textDefense.setText(scoreFormat.format(data.getDefScore()));
             } else {
-                defense.setTextColor(Color.parseColor("#d84315"));
-                defense.setText("<");
+                binding.textDefense.setTextColor(Color.parseColor("#d84315"));
+                binding.textDefense.setText("<");
             }
+
+            binding.textFast.setOnClickListener(view -> onRowClick());
+            binding.textCharge.setOnClickListener(view -> onRowClick());
+            binding.textAttack.setOnClickListener(view -> onRowClick());
+            binding.textDefense.setOnClickListener(view -> onRowClick());
         }
 
-        @OnClick({R.id.text_fast, R.id.text_charge, R.id.text_attack, R.id.text_defense})
         void onRowClick() {
             Pokefly.scanResult.selectedMoveset = data;
             buildTable();

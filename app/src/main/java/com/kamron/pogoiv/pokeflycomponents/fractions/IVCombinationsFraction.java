@@ -1,56 +1,48 @@
 package com.kamron.pogoiv.pokeflycomponents.fractions;
 
-
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.DisplayMetrics;
-import android.view.View;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 
 import com.kamron.pogoiv.Pokefly;
-import com.kamron.pogoiv.R;
+import com.kamron.pogoiv.databinding.FractionIvCombinationsBinding;
 import com.kamron.pogoiv.utils.fractions.Fraction;
 import com.kamron.pogoiv.widgets.recyclerviews.adapters.IVResultsAdapter;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-
 public class IVCombinationsFraction extends Fraction {
 
-    @BindView(R.id.rvResults)
-    RecyclerView rvResults;
+    private final Context context;
+    private final Pokefly pokefly;
 
-
-    private Context context;
-    private Pokefly pokefly;
-
+    private FractionIvCombinationsBinding binding;
 
     public IVCombinationsFraction(@NonNull Pokefly pokefly) {
         this.context = pokefly;
         this.pokefly = pokefly;
     }
 
-
     @Override
-    public int getLayoutResId() {
-        return R.layout.fraction_iv_combinations;
-    }
-
-    @Override public void onCreate(@NonNull View rootView) {
-        ButterKnife.bind(this, rootView);
+    public void onCreate(LayoutInflater inflater, ViewGroup parent, boolean attachToParent) {
+        binding = FractionIvCombinationsBinding.inflate(inflater, parent, attachToParent);
 
         // All IV combinations RecyclerView
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
-        rvResults.setLayoutManager(layoutManager);
-        rvResults.setHasFixedSize(true);
+        binding.rvResults.setLayoutManager(layoutManager);
+        binding.rvResults.setHasFixedSize(true);
         Pokefly.scanResult.sortIVCombinations();
-        rvResults.setAdapter(new IVResultsAdapter(Pokefly.scanResult, pokefly));
+        binding.rvResults.setAdapter(new IVResultsAdapter(Pokefly.scanResult, pokefly));
+
+        binding.btnBack.setOnClickListener(view -> onBack());
+        binding.btnClose.setOnClickListener(view -> onClose());
     }
 
-    @Override public void onDestroy() {
+    @Override
+    public void onDestroy() {
+        binding = null;
         // Nothing to do
     }
 
@@ -64,15 +56,12 @@ public class IVCombinationsFraction extends Fraction {
         return 0;
     }
 
-    @OnClick(R.id.btnBack)
     void onBack() {
         pokefly.navigateToIVResultFraction();
     }
 
-    @OnClick(R.id.btnClose)
     void onClose() {
         pokefly.closeInfoDialog();
     }
-
 }
 
