@@ -245,6 +245,8 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
                 binding.param1Text.setText("Radius");
                 binding.param2Text.setText("-");
 
+                //prevent any previous installed listeners being called
+                binding.param1Seekbar.setOnSeekBarChangeListener(null);
                 binding.param1Seekbar.setMax(screenshot.getWidth() / 2);
                 binding.param1Seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     @Override public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -331,7 +333,8 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
                 binding.param1Text.setText("Width");
                 binding.param2Text.setText("Height");
 
-                binding.param2Seekbar.setEnabled(true);
+                //prevent any previous installed listeners being called
+                binding.param1Seekbar.setOnSeekBarChangeListener(null);
                 binding.param1Seekbar.setMax(screenshot.getWidth());
                 binding.param1Seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     @Override public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -349,6 +352,8 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
                 });
 
                 binding.param2Seekbar.setEnabled(true);
+                //prevent any previous installed listeners being called
+                binding.param2Seekbar.setOnSeekBarChangeListener(null);
                 binding.param2Seekbar.setMax(screenshot.getHeight());
                 binding.param2Seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     @Override public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
