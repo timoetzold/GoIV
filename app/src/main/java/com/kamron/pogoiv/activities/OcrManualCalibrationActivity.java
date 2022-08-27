@@ -248,6 +248,7 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
                 //prevent any previous installed listeners being called
                 binding.param1Seekbar.setOnSeekBarChangeListener(null);
                 binding.param1Seekbar.setMax(screenshot.getWidth() / 2);
+                binding.param1Seekbar.setProgress(sfr.arcRadius);
                 binding.param1Seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     @Override public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                         ViewGroup.LayoutParams params = arcViewLayout.getLayoutParams();
@@ -265,6 +266,9 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
                 });
 
                 binding.param2Seekbar.setEnabled(false);
+                //prevent any previous installed listeners being called
+                binding.param2Seekbar.setOnSeekBarChangeListener(null);
+                binding.param2Seekbar.setProgress(0);
 
                 binding.fieldExplanationHead.setText("Level Arc");
                 binding.fieldExplanation.setText("The half-circle that fills more the higher the pokemon level is. It's "
@@ -336,6 +340,7 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
                 //prevent any previous installed listeners being called
                 binding.param1Seekbar.setOnSeekBarChangeListener(null);
                 binding.param1Seekbar.setMax(screenshot.getWidth());
+                binding.param1Seekbar.setProgress(area.width);
                 binding.param1Seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     @Override public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                         ViewGroup.LayoutParams params = draggableView.getLayoutParams();
@@ -355,6 +360,7 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
                 //prevent any previous installed listeners being called
                 binding.param2Seekbar.setOnSeekBarChangeListener(null);
                 binding.param2Seekbar.setMax(screenshot.getHeight());
+                binding.param2Seekbar.setProgress(area.height);
                 binding.param2Seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     @Override public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                         ViewGroup.LayoutParams params = draggableView.getLayoutParams();
