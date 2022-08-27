@@ -13,7 +13,6 @@ public class Data {
     public static final int MAXIMUM_POKEMON_LEVEL = 50;
     public static final int MAXIMUM_WILD_POKEMON_LEVEL = 35;
 
-    private static final int ADDITIONAL_POKEMON_LEVEL_BOUNDARY = 40;
     private static final int ADDITIONAL_POKEMON_LEVEL = 10;
 
 
@@ -155,15 +154,16 @@ public class Data {
     }
 
     /**
-     * Maximum pokemon level for a trainer, from the trainer level. It can be 10 levels above the
-     * trainer level, but at most level 40 if the trainer level is below 40 and at most level 50
-     * otherwise (so basically, if level 40 is reached every level is unlocked). Before the Beyond
-     * update in December 2020 the maximum level was 40 and the maximum number of levels above were
-     * 2 levels. Previously it was changed from 1.5 levels to 2 levels around December 2017.
+     * Maximum pokemon level for a trainer, from the trainer level. It can be 10 levels above the trainer level, but
+     * at most level 50.
+     *
+     * Before the Season of Go in June 2022 a player needed to reach level 40 to unlock level 40+.
+     * Before the Beyond update in December 2020 the maximum level was 40 and the maximum number of levels above were
+     * 2 levels.
+     * Previously it was changed from 1.5 levels to 2 levels around December 2017.
      */
     public static double trainerLevelToMaxPokeLevel(int trainerLevel) {
-        int maxLevel = trainerLevel < ADDITIONAL_POKEMON_LEVEL_BOUNDARY ? ADDITIONAL_POKEMON_LEVEL_BOUNDARY : MAXIMUM_POKEMON_LEVEL;
-        return Math.min(trainerLevel + ADDITIONAL_POKEMON_LEVEL, maxLevel);
+        return Math.min(trainerLevel + ADDITIONAL_POKEMON_LEVEL, MAXIMUM_POKEMON_LEVEL);
     }
 
     // should be pretty fast https://en.wikibooks.org/wiki/Algorithm_Implementation/Strings/Levenshtein_distance#Java
