@@ -3,16 +3,17 @@ package com.kamron.pogoiv.activities;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
+import androidx.core.view.WindowCompat;
+
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -21,10 +22,10 @@ import android.widget.Toast;
 import com.kamron.pogoiv.GoIVSettings;
 import com.kamron.pogoiv.Pokefly;
 import com.kamron.pogoiv.R;
+import com.kamron.pogoiv.databinding.ActivityOcrManualCalibrationBinding;
 import com.kamron.pogoiv.pokeflycomponents.ocrhelper.ScanArea;
 import com.kamron.pogoiv.pokeflycomponents.ocrhelper.ScanFieldResults;
 import com.kamron.pogoiv.pokeflycomponents.ocrhelper.ScanPoint;
-
 
 /**
  * An activity which receives a bitmap of a pokemon screen, and a ScanFieldResult. The activity will populate
@@ -33,18 +34,7 @@ import com.kamron.pogoiv.pokeflycomponents.ocrhelper.ScanPoint;
  */
 public class OcrManualCalibrationActivity extends AppCompatActivity {
 
-    ImageView screenshotImageView;
-    TextView debugText;
-    TextView fieldExplanation;
-    TextView fieldExplanationHead;
-    FrameLayout frameContainer;
-    Button saveManualCalibrationButton;
-    CardView floatingEditField;
-    TextView param1Text;
-    TextView param2Text;
-    SeekBar param1Seekbar;
-    SeekBar param2Seekbar;
-
+    private ActivityOcrManualCalibrationBinding binding;
 
     public static ScanFieldResults sfrTemp;
     ScanFieldResults sfr;
@@ -55,7 +45,9 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ocr_manual_calibration);
+
+        binding = ActivityOcrManualCalibrationBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         receiveInfoFromOtherActivity();
         setAllUnknownFieldValuesToZero();
@@ -64,11 +56,21 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
 
         pauseGoIV();
 
-        screenshotImageView.setImageBitmap(screenshot);
+        binding.screenshotImageView.setImageBitmap(screenshot);
 
+        binding.floatingEditField.bringToFront();
+    }
 
-        floatingEditField.bringToFront();
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            getWindow().getAttributes().layoutInDisplayCutoutMode =
+                    WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
+        }
+
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
     }
 
     private void pauseGoIV() {
@@ -82,7 +84,6 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
      * Sets null values in the current ScanfieldResults to default 0 values.
      */
     private void setAllUnknownFieldValuesToZero() {
-
         //The default placement positions are not important nor functional, just to give an approx guide to the user
         // while making it more clear that there are several fields (avoid having them all appear stacked in same spot)
         if (sfr.pokemonNameArea == null) {
@@ -205,8 +206,6 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
 
         //The level arc
         addArcCalibrationView(sfr);
-
-
     }
 
     /**
@@ -224,7 +223,6 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
         arcViewLayout.setBackgroundColor(Color.parseColor("#40000000"));
         arcViewLayout.setAlpha(1f);
 
-
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 sfr.arcRadius * 2, sfr.arcRadius);
         arcViewLayout.setLayoutParams(params);
@@ -237,21 +235,21 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
 
         arcViewLayout.addView(tv);
 
-
         arcViewLayout.setOnTouchListener(new View.OnTouchListener() {
             float dX;
             float dY;
 
             @Override public boolean onTouch(View view, MotionEvent event) {
-
-
                 //Dynamically change the parameter seekbars to match the currently selected area. (could previously
                 // be targeted at the arc or a dot.)
-                param1Text.setText("Radius");
-                param2Text.setText("-");
+                binding.param1Text.setText("Radius");
+                binding.param2Text.setText("-");
 
-                param1Seekbar.setMax(screenshot.getWidth() / 2);
-                param1Seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                //prevent any previous installed listeners being called
+                binding.param1Seekbar.setOnSeekBarChangeListener(null);
+                binding.param1Seekbar.setMax(screenshot.getWidth() / 2);
+                binding.param1Seekbar.setProgress(sfr.arcRadius);
+                binding.param1Seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     @Override public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                         ViewGroup.LayoutParams params = arcViewLayout.getLayoutParams();
                         params.width = i * 2; //width is diameter, diameter is radius*2
@@ -261,23 +259,21 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
                     }
 
                     @Override public void onStartTrackingTouch(SeekBar seekBar) {
-
                     }
 
                     @Override public void onStopTrackingTouch(SeekBar seekBar) {
-
                     }
                 });
 
+                binding.param2Seekbar.setEnabled(false);
+                //prevent any previous installed listeners being called
+                binding.param2Seekbar.setOnSeekBarChangeListener(null);
+                binding.param2Seekbar.setProgress(0);
 
-                param2Seekbar.setEnabled(false);
-
-
-                fieldExplanationHead.setText("Level Arc");
-                fieldExplanation.setText("The half-circle that fills more the higher the pokemon level is. It's "
+                binding.fieldExplanationHead.setText("Level Arc");
+                binding.fieldExplanation.setText("The half-circle that fills more the higher the pokemon level is. It's "
                         + "important that this is configured with high accuracy, as the difference between high level"
                         + " pokemon points is just a few pixels.");
-
 
                 //Move the draggable area if the users swipes it around.
                 switch (event.getAction()) {
@@ -306,25 +302,21 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
 
 
         });
-        frameContainer.addView(arcViewLayout);
+        binding.frameContainer.addView(arcViewLayout);
     }
-
 
     /**
      * Adds a calibration field that can be dragged around, and whose width and height can be changed with seekbars.
      * Useful for fields such as CP, hp, name etc.
      */
     private void addCalibrationView(final ScanArea area, final String title, final String content) {
-
         final LinearLayout draggableView = new LinearLayout(this);
         draggableView.setGravity(Gravity.CENTER);
         draggableView.setBackgroundColor(Color.parseColor("#68000000"));
         //draggableView.setBackgroundColor(Color.BLACK);
         draggableView.setAlpha(1f);
 
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
-                area.width,
-                area.height);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(area.width, area.height);
         draggableView.setLayoutParams(params);
         draggableView.setX(area.xPoint);
         draggableView.setY(area.yPoint);
@@ -335,22 +327,21 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
 
         draggableView.addView(tv);
 
-
         draggableView.setOnTouchListener(new View.OnTouchListener() {
             float dX;
             float dY;
 
             @Override public boolean onTouch(View view, MotionEvent event) {
-
-
                 //Dynamically change the parameter seekbars to match the currently selected area. (could previously
                 // be targeted at the arc or a dot.)
-                param1Text.setText("Width");
-                param2Text.setText("Height");
+                binding.param1Text.setText("Width");
+                binding.param2Text.setText("Height");
 
-                param2Seekbar.setEnabled(true);
-                param1Seekbar.setMax(screenshot.getWidth());
-                param1Seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                //prevent any previous installed listeners being called
+                binding.param1Seekbar.setOnSeekBarChangeListener(null);
+                binding.param1Seekbar.setMax(screenshot.getWidth());
+                binding.param1Seekbar.setProgress(area.width);
+                binding.param1Seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     @Override public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                         ViewGroup.LayoutParams params = draggableView.getLayoutParams();
                         params.width = i;
@@ -359,18 +350,18 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
                     }
 
                     @Override public void onStartTrackingTouch(SeekBar seekBar) {
-
                     }
 
                     @Override public void onStopTrackingTouch(SeekBar seekBar) {
-
                     }
                 });
 
-
-                param2Seekbar.setEnabled(true);
-                param2Seekbar.setMax(screenshot.getHeight());
-                param2Seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                binding.param2Seekbar.setEnabled(true);
+                //prevent any previous installed listeners being called
+                binding.param2Seekbar.setOnSeekBarChangeListener(null);
+                binding.param2Seekbar.setMax(screenshot.getHeight());
+                binding.param2Seekbar.setProgress(area.height);
+                binding.param2Seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     @Override public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                         ViewGroup.LayoutParams params = draggableView.getLayoutParams();
                         params.height = i;
@@ -387,10 +378,8 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
                     }
                 });
 
-
-                fieldExplanationHead.setText(title);
-                fieldExplanation.setText(content);
-
+                binding.fieldExplanationHead.setText(title);
+                binding.fieldExplanation.setText(content);
 
                 //Move the draggable area if the users swipes it around.
                 switch (event.getAction()) {
@@ -416,14 +405,9 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
 
                 return true;
             }
-
-
         });
-        frameContainer.addView(draggableView);
-
-
+        binding.frameContainer.addView(draggableView);
     }
-
 
     /**
      * Get a reference to 'this'. Useful to get a reference from within inner classes.
@@ -438,19 +422,8 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
      * get all the references in the XML, and add any on-click listeners.
      */
     private void initViews() {
-        screenshotImageView = findViewById(R.id.screenshotImageView);
-        fieldExplanation = findViewById(R.id.fieldExplanation);
-        fieldExplanationHead = findViewById(R.id.fieldExplanationHead);
-        frameContainer = findViewById(R.id.frameContainer);
-
-        param1Text = findViewById(R.id.param1Text);
-        param2Text = findViewById(R.id.param2Text);
-        param1Seekbar = findViewById(R.id.param1Seekbar);
-        param2Seekbar = findViewById(R.id.param2Seekbar);
-
         //Create the button for saving & exiting
-        saveManualCalibrationButton = findViewById(R.id.saveManualCalibrationButton);
-        saveManualCalibrationButton.setOnClickListener(view -> {
+        binding.saveManualCalibrationButton.setOnClickListener(view -> {
             if (sfr != null && sfr.isCompleteCalibration()) {
                 GoIVSettings settings = GoIVSettings.getInstance(OcrManualCalibrationActivity.this);
                 settings.saveScreenCalibrationResults(sfr);
@@ -463,13 +436,10 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
         });
 
         //Add the floating UI with the edit tools
-        floatingEditField = findViewById(R.id.floatingEditField);
-        floatingEditField.setOnTouchListener(new View.OnTouchListener() {
+        binding.floatingEditField.setOnTouchListener(new View.OnTouchListener() {
             float dY;
 
             @Override public boolean onTouch(View view, MotionEvent event) {
-
-
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         dY = view.getY() - event.getRawY();
@@ -489,7 +459,6 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
         });
     }
 
-
     /**
      * Read the incomplete calibration data the user got from the auto recalibrate, and get the screenshot
      * which was used.
@@ -505,8 +474,5 @@ public class OcrManualCalibrationActivity extends AppCompatActivity {
          */
         screenshot = screenshotTransferTemp;
         screenshotTransferTemp = null;
-
     }
-
-
 }
