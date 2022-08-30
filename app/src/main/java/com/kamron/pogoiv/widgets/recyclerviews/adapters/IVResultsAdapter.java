@@ -2,15 +2,16 @@ package com.kamron.pogoiv.widgets.recyclerviews.adapters;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
+
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kamron.pogoiv.Pokefly;
-import com.kamron.pogoiv.R;
+import com.kamron.pogoiv.databinding.IvResultsItemBinding;
 import com.kamron.pogoiv.scanlogic.IVCombination;
 import com.kamron.pogoiv.scanlogic.ScanResult;
 import com.kamron.pogoiv.utils.GuiUtil;
@@ -22,17 +23,19 @@ import java.util.List;
  */
 public class IVResultsAdapter extends RecyclerView.Adapter<IVResultsAdapter.ResultsViewHolder> {
     private final List<IVCombination> dataSet;
-    private Pokefly pokefly;
+    private final Pokefly pokefly;
 
     public IVResultsAdapter(ScanResult scanResult, Pokefly pokefly) {
         dataSet = scanResult.getIVCombinations();
         this.pokefly = pokefly;
     }
 
+    @NonNull
     @Override
-    public ResultsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.iv_results_item, parent, false);
-        return new ResultsViewHolder(view);
+    public ResultsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        IvResultsItemBinding binding = IvResultsItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent,
+                false);
+        return new ResultsViewHolder(binding);
     }
 
     @Override
@@ -80,16 +83,16 @@ public class IVResultsAdapter extends RecyclerView.Adapter<IVResultsAdapter.Resu
         final TextView resultPercentage;
         final LinearLayout llRvResult;
 
-        ResultsViewHolder(View itemView) {
-            super(itemView);
+        ResultsViewHolder(IvResultsItemBinding binding) {
+            super(binding.getRoot());
 
-            resultAttack = itemView.findViewById(R.id.resultAttack);
-            resultDefense = itemView.findViewById(R.id.resultDefense);
-            resultHP = itemView.findViewById(R.id.resultHP);
-            resultPercentage = itemView.findViewById(R.id.resultPercentage);
-            llRvResult = itemView.findViewById(R.id.llRvResult);
+            resultAttack = binding.resultAttack;
+            resultDefense = binding.resultDefense;
+            resultHP = binding.resultHP;
+            resultPercentage = binding.resultPercentage;
+            llRvResult = binding.llRvResult;
 
-            itemView.setOnClickListener(v -> {
+            binding.getRoot().setOnClickListener(v -> {
                 pokefly.addSpecificIVClipboard(dataSet.get(getBindingAdapterPosition()));
                 IVResultsAdapter.this.notifyDataSetChanged();
             });
