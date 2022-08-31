@@ -49,6 +49,7 @@ import com.kamron.pogoiv.Pokefly;
 import com.kamron.pogoiv.R;
 import com.kamron.pogoiv.ScreenGrabber;
 import com.kamron.pogoiv.databinding.ActivityMainBinding;
+import com.kamron.pogoiv.databinding.AlertBadgeBinding;
 import com.kamron.pogoiv.pokeflycomponents.StartRecalibrationService;
 import com.kamron.pogoiv.updater.AppUpdate;
 import com.kamron.pogoiv.updater.AppUpdateUtil;
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     private DisplayMetrics rawDisplayMetrics;
     private boolean shouldRestartOnStopComplete;
     private boolean skipStartPogo;
-    private View alertBadgeView;
+    private AlertBadgeBinding alertBadgeBinding;
 
     private final BottomNavigationView.OnItemSelectedListener navigationListener = item -> showSection(item.getItemId());
 
@@ -518,14 +519,14 @@ public class MainActivity extends AppCompatActivity {
     private void initRecalibrationAlertBadge() {
         if (GoIVSettings.getInstance(this).hasUpToDateManualScanCalibration()) {
             // Calibration is up-to-date
-            if (alertBadgeView != null && alertBadgeView.getParent() != null) {
+            if (alertBadgeBinding != null && alertBadgeBinding.getRoot().getParent() != null) {
                 // Remove badge view
-                ((ViewGroup) alertBadgeView.getParent()).removeView(alertBadgeView);
+                ((ViewGroup) alertBadgeBinding.getRoot().getParent()).removeView(alertBadgeBinding.getRoot());
             }
 
         } else {
             // Calibration is outdated: add an alert badge to recalibrate section bottom menu icon
-            if (alertBadgeView == null || alertBadgeView.getParent() == null) {
+            if (alertBadgeBinding == null || alertBadgeBinding.getRoot().getParent() == null) {
                 // Alert badge view is not attached to the layout, add it
                 BottomNavigationMenuView bottomNavigationMenuView =
                         (BottomNavigationMenuView) binding.bottomNavigation.getChildAt(0);
@@ -534,17 +535,17 @@ public class MainActivity extends AppCompatActivity {
                     if (itemView instanceof BottomNavigationItemView) {
                         int itemViewId = ((BottomNavigationItemView) itemView).getItemData().getItemId();
                         if (R.id.menu_recalibrate == itemViewId) {
-                            if (alertBadgeView == null) {
-                                alertBadgeView = LayoutInflater.from(this)
-                                        .inflate(R.layout.alert_badge, (BottomNavigationItemView) itemView, false);
+                            if (alertBadgeBinding == null) {
+                                alertBadgeBinding = AlertBadgeBinding.inflate(LayoutInflater.from(this),
+                                        (BottomNavigationItemView) itemView, false);
                             }
-                            ((BottomNavigationItemView) itemView).addView(alertBadgeView);
+                            ((BottomNavigationItemView) itemView).addView(alertBadgeBinding.getRoot());
                         }
                     }
                 }
             }
             // Animate the exclamation mark to draw user attention
-            startWobbleAnimator(alertBadgeView.findViewById(R.id.exclamationMark));
+            startWobbleAnimator(alertBadgeBinding.exclamationMark);
         }
     }
 

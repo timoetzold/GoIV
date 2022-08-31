@@ -1,7 +1,5 @@
 package com.kamron.pogoiv.activities;
 
-
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,7 +13,6 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.common.base.Strings;
@@ -29,6 +26,7 @@ import com.kamron.pogoiv.clipboardlogic.tokens.CustomSeparatorToken;
 import com.kamron.pogoiv.clipboardlogic.tokens.HasBeenAppraisedToken;
 import com.kamron.pogoiv.clipboardlogic.tokens.PokemonNameToken;
 import com.kamron.pogoiv.clipboardlogic.tokens.SeparatorToken;
+import com.kamron.pogoiv.databinding.EdittextDialogBinding;
 import com.kamron.pogoiv.databinding.FragmentClipboardModifierChildBinding;
 import com.kamron.pogoiv.widgets.recyclerviews.adapters.TokensPreviewAdapter;
 import com.kamron.pogoiv.widgets.recyclerviews.adapters.TokensShowcaseAdapter;
@@ -40,9 +38,7 @@ import java.util.Locale;
 import static androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL;
 
 
-public class ClipboardModifierChildFragment
-        extends Fragment
-        implements ClipboardToken.OnTokenSelectedListener {
+public class ClipboardModifierChildFragment extends Fragment implements ClipboardToken.OnTokenSelectedListener {
 
     private static final String ARG_RESULT_MODE = "a_srm";
 
@@ -166,7 +162,8 @@ public class ClipboardModifierChildFragment
      *
      * @param token Which token to show.
      */
-    @Override public void onTokenSelected(ClipboardToken token, int adapterPosition) {
+    @Override
+    public void onTokenSelected(ClipboardToken token, int adapterPosition) {
         selectedToken = token;
 
         final AppCompatActivity activity = (AppCompatActivity) getActivity();
@@ -202,16 +199,15 @@ public class ClipboardModifierChildFragment
      */
     public void buildCustomSeparatorToken() {
         // The custom separator will be written in this EditText
-        @SuppressLint("InflateParams")
-        final View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.edittext_dialog, null);
-        final EditText editText = (EditText) dialogView.findViewById(R.id.editText);
+        final EdittextDialogBinding dialogBinding = EdittextDialogBinding.inflate(LayoutInflater.from(getContext()),
+                null, false);
 
         // This dialog will implement the user interaction
         new AlertDialog.Builder(getContext())
-                .setView(dialogView)
+                .setView(dialogBinding.getRoot())
                 .setMessage(R.string.token_input_custom_separator)
                 .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
-                    String separator = editText.getText().toString();
+                    String separator = dialogBinding.editText.getText().toString();
                     if (Strings.isNullOrEmpty(separator)) {
                         Toast.makeText(getContext(),
                                 R.string.token_fill_custom_separator, Toast.LENGTH_LONG).show();
@@ -232,16 +228,15 @@ public class ClipboardModifierChildFragment
      */
     public void buildCustomAppraiseToken() {
         // The custom separator will be written in this EditText
-        @SuppressLint("InflateParams")
-        final View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.edittext_dialog, null);
-        final EditText editText = (EditText) dialogView.findViewById(R.id.editText);
+        final EdittextDialogBinding dialogBinding = EdittextDialogBinding.inflate(LayoutInflater.from(getContext()),
+                null, false);
 
         // This dialog will implement the user interaction
         new AlertDialog.Builder(getContext())
-                .setView(dialogView)
+                .setView(dialogBinding.getRoot())
                 .setMessage("Please input two symbols, the first representing appraised, and the second unappraised.")
                 .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
-                    String text = editText.getText().toString();
+                    String text = dialogBinding.editText.getText().toString();
                     if (Strings.isNullOrEmpty(text)) {
                         Toast.makeText(getContext(),
                                "Please input two symbols, the first representing appraised, and the second unappraised.", Toast.LENGTH_LONG).show();
@@ -269,16 +264,15 @@ public class ClipboardModifierChildFragment
      */
     public void buildCustomNameToken() {
         // The custom separator will be written in this EditText
-        @SuppressLint("InflateParams")
-        final View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.edittext_dialog, null);
-        final EditText editText = (EditText) dialogView.findViewById(R.id.editText);
+        final EdittextDialogBinding dialogBinding = EdittextDialogBinding.inflate(LayoutInflater.from(getContext()),
+                null, false);
 
         // This dialog will implement the user interaction
         new AlertDialog.Builder(getContext())
-                .setView(dialogView)
+                .setView(dialogBinding.getRoot())
                 .setMessage("Please input max allowed length of pokemon name. ")
                 .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
-                    String text = editText.getText().toString();
+                    String text = dialogBinding.editText.getText().toString();
                     if (Strings.isNullOrEmpty(text)) {
                         Toast.makeText(getContext(),
                                 "Please input max allowed length of pokemon name.", Toast.LENGTH_LONG).show();
@@ -302,5 +296,4 @@ public class ClipboardModifierChildFragment
                 .setNegativeButton(android.R.string.cancel, (dialogInterface, i) -> dialogInterface.cancel())
                 .show();
     }
-
 }

@@ -34,6 +34,7 @@ import android.widget.TextView;
 import com.google.common.base.Optional;
 import com.kamron.pogoiv.clipboardlogic.ClipboardTokenHandler;
 import com.kamron.pogoiv.databinding.DialogInfoWindowBinding;
+import com.kamron.pogoiv.databinding.GoivToastBinding;
 import com.kamron.pogoiv.pokeflycomponents.AppraisalManager;
 import com.kamron.pogoiv.pokeflycomponents.GoIVNotificationManager;
 import com.kamron.pogoiv.pokeflycomponents.IVPopupButton;
@@ -614,8 +615,9 @@ public class Pokefly extends Service {
      */
     public void showToastOnPoke(String message){
         Context themedContext = new ContextThemeWrapper(this, R.style.AppTheme_Dialog);
-        View v = LayoutInflater.from(themedContext).inflate(R.layout.goiv_toast, null);
-        ((TextView) v.findViewById(R.id.toastText)).setText(message);
+        GoivToastBinding toastBinding = GoivToastBinding.inflate(LayoutInflater.from(themedContext), null, false);
+
+        toastBinding.toastText.setText(message);
 
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.WRAP_CONTENT,
@@ -628,13 +630,13 @@ public class Pokefly extends Service {
         layoutParams.gravity = Gravity.CENTER;
         layoutParams.y = (int) (displayMetrics.heightPixels * -0.26);
 
-        windowManager.addView(v, layoutParams);
+        windowManager.addView(toastBinding.getRoot(), layoutParams);
 
-        v.animate().alpha(1f).setDuration(1000).withEndAction(() -> {
+        toastBinding.getRoot().animate().alpha(1f).setDuration(1000).withEndAction(() -> {
             final Handler handler = new Handler(Looper.getMainLooper());
-            handler.postDelayed(() -> v.animate().alpha(0f).setDuration(1000).withEndAction(() -> {
-                v.setVisibility(View.GONE);
-                windowManager.removeView(v);
+            handler.postDelayed(() -> toastBinding.getRoot().animate().alpha(0f).setDuration(1000).withEndAction(() -> {
+                toastBinding.getRoot().setVisibility(View.GONE);
+                windowManager.removeView(toastBinding.getRoot());
             }).start(), 2000);
         }).start();
     }
