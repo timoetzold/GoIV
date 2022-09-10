@@ -37,8 +37,11 @@ public abstract class AppUpdateUtil {
                 .setFilterByStatus(DownloadManager.STATUS_RUNNING);
         Cursor c = downloadManager.query(q);
         if (c.moveToFirst()) {
-            String fileName = c.getString(c.getColumnIndex(DownloadManager.COLUMN_TITLE));
-            return fileName.equals(DownloadUpdateService.DOWNLOAD_UPDATE_TITLE);
+            int columnIndex = c.getColumnIndex(DownloadManager.COLUMN_TITLE);
+            if (columnIndex >= 0) {
+                String fileName = c.getString(columnIndex);
+                return fileName.equals(DownloadUpdateService.DOWNLOAD_UPDATE_TITLE);
+            }
         }
         return false;
     }

@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.StyleRes;
 
 import android.view.ContextThemeWrapper;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +49,7 @@ public class FractionManager {
         fraction.onCreate(LayoutInflater.from(themedContext), containerView, true);
         currentFraction = fraction;
 
-        layoutParams.gravity = currentFraction.getAnchor().getGravity();
+        layoutParams.gravity = currentFraction.getAnchor().getGravity() == Gravity.TOP ? Gravity.TOP : Gravity.BOTTOM;
         int offset = currentFraction.getVerticalOffset(themedContext.getResources().getDisplayMetrics());
         updateFloatingViewVerticalOffset(offset);
     }

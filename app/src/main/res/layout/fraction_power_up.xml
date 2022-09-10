@@ -218,8 +218,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/fraction_powerup_paragraph_predictedstats"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
-
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/exResultCP"
@@ -399,8 +399,8 @@
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="6dp"
                     android:src="@drawable/star"
-                    android:tint="#6A6A6A"
-                    tools:ignore="ContentDescription"/>
+                    tools:ignore="ContentDescription"
+                    app:tint="#6A6A6A" />
 
                 <TextView
                     android:id="@+id/exResStardust"

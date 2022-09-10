@@ -92,6 +92,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             tools:text="Pokename" />
 
         <TextView
@@ -111,7 +112,8 @@
             android:layout_height="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:scaleType="center"
-            app:srcCompat="@drawable/ic_share_black" />
+            app:srcCompat="@drawable/ic_share_black"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
