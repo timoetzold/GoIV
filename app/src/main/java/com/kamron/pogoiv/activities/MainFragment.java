@@ -152,17 +152,19 @@ public class MainFragment extends Fragment {
      * Initiates the links to reddit and github.
      */
     private void initiateCommunityButtons() {
-        binding.redditButton.setOnClickListener(v -> {
-            Uri uriUrl = Uri.parse("https://www.reddit.com/r/GoIV/");
-            Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-            startActivity(launchBrowser);
-        });
+        binding.redditButton.setOnClickListener(v -> openUrl("https://www.reddit.com/r/GoIV/"));
+        binding.githubButton.setOnClickListener(v -> openUrl("https://github.com/GoIV-Devs/GoIV"));
+    }
 
-        binding.githubButton.setOnClickListener(v -> {
-            Uri uriUrl = Uri.parse("https://github.com/GoIV-Devs/GoIV");
-            Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-            startActivity(launchBrowser);
-        });
+    private void openUrl(String url) {
+        Activity activity = getActivity();
+        if (activity != null) {
+            Uri uriUrl = Uri.parse(url);
+            Intent intent = new Intent(Intent.ACTION_VIEW, uriUrl);
+            if (intent.resolveActivity(activity.getPackageManager()) != null) {
+                startActivity(intent);
+            }
+        }
     }
 
     private void initiateHelpButton() {

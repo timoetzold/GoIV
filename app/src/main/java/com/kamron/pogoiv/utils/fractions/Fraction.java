@@ -16,7 +16,7 @@ public abstract class Fraction {
         TOP(Gravity.TOP),
         BOTTOM(Gravity.BOTTOM);
 
-        private int gravity;
+        private final int gravity;
 
         Anchor(int gravity) {
             this.gravity = gravity;

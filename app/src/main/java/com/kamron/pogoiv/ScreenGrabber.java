@@ -1,5 +1,6 @@
 package com.kamron.pogoiv;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
@@ -27,10 +28,11 @@ public class ScreenGrabber {
 
     private static ScreenGrabber instance = null;
     private ImageReader imageReader;
-    private MediaProjection projection = null;
+    private MediaProjection projection;
     private DisplayMetrics rawDisplayMetrics;
     private VirtualDisplay virtualDisplay;
 
+    @SuppressLint("WrongConstant")
     private ScreenGrabber(MediaProjection mediaProjection, DisplayMetrics raw) {
         rawDisplayMetrics = raw;
         projection = mediaProjection;

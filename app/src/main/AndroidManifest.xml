@@ -82,7 +82,15 @@
     </application>
 
     <queries>
+        <!-- necessary for starting Pokemon GO -->
         <package android:name="com.nianticlabs.pokemongo" />
+
+        <!-- necessary for opening a browser -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
     </queries>
 
 </manifest>
