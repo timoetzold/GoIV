@@ -132,15 +132,21 @@ android {
         abi {
             enable true
             reset()
-            include 'armeabi-v7a'/**, 'arm64-v8a', 'x86', 'x86_64'**/
+            include 'armeabi-v7a', 'arm64-v8a'/*, 'x86', 'x86_64'*/
+            universalApk true
         }
     }
 
     namespace 'com.kamron.pogoiv'
 
     android.applicationVariants.all { variant ->
-        variant.outputs.all {
-            outputFileName = "GoIV-${variant.name}.${variant.versionName}.apk"
+        variant.outputs.all { output ->
+            if (output.filters[0]) {
+                outputFileName = "GoIV-${variant.name}-${variant.versionName}-${output.filters[0].identifier}.apk"
+            } else {
+                outputFileName = "GoIV-${variant.name}-${variant.versionName}-universal.apk"
+            }
+
         }
     }
 }
