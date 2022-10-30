@@ -105,6 +105,9 @@
     <string name="expanded_appraisal_default_setting_summary">Automatically expand the full appraisal checkbox menu</string>
     <string name="showtranslatedpokemonname_setting_title">Show translated monster name</string>
     <string name="showtranslatedpokemonname_setting_summary">Display translated monster name on GoIV but use its English name for OCR. This is for when the game app is in English but user\'s native language is not</string>
+    <string name="language_setting_key">language</string>
+    <string name="language_setting_title">Language</string>
+    <string name="language_setting_summary">Sets the language for the app</string>
     <string name="pause_goiv_notification">Pause</string>
     <string name="clipboard_copy_toast">Copied %s to clipboard</string>
     <string name="no_clipboard_preview">No preview available</string>

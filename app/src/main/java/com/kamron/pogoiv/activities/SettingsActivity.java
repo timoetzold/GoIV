@@ -5,6 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.os.LocaleListCompat;
+import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
@@ -137,6 +141,30 @@ public class SettingsActivity extends AppCompatActivity {
                         return false;
                     }
                     return true;
+                });
+            }
+
+            ListPreference languagePreference = findPreference(getString(R.string.language_setting_key));
+            if (languagePreference != null) {
+                LocaleListCompat applicationLocales = AppCompatDelegate.getApplicationLocales();
+                String currentLocale = applicationLocales.toLanguageTags();
+                Timber.i("Currently Selected Locale: %s", currentLocale);
+                if ("".equals(currentLocale)) {
+                    languagePreference.setValue("system");
+                } else {
+                    languagePreference.setValue(currentLocale);
+                }
+
+                languagePreference.setOnPreferenceChangeListener((preference, newValue) -> {
+                    LocaleListCompat appLocale;
+                    if ("system".equals(newValue)) {
+                        appLocale = LocaleListCompat.getEmptyLocaleList();
+                    } else {
+                        appLocale = LocaleListCompat.forLanguageTags((String) newValue);
+                    }
+                    // Call this on the main thread as it may require Activity.restart()
+                    AppCompatDelegate.setApplicationLocales(appLocale);
+                    return false;
                 });
             }
         }

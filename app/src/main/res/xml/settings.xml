@@ -34,6 +34,14 @@
             android:summary="@string/showtranslatedpokemonname_setting_summary"
             android:title="@string/showtranslatedpokemonname_setting_title"/>
 
+        <ListPreference
+            android:key="@string/language_setting_key"
+            app:iconSpaceReserved="false"
+            android:summary="@string/language_setting_summary"
+            android:title="@string/language_setting_title"
+            android:entries="@array/language_setting_display"
+            android:entryValues="@array/language_setting_values"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
