@@ -9,6 +9,6 @@
     <locale android:name="ja"/>
     <locale android:name="ko"/>
     <locale android:name="pt"/>
-    <locale android:name="zh-rCN"/>
-    <locale android:name="zh-rTW"/>
+    <locale android:name="zh-CN"/>
+    <locale android:name="zh-TW"/>
 </locale-config>
