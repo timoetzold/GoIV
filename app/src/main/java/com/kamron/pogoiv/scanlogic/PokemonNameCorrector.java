@@ -1,7 +1,10 @@
 package com.kamron.pogoiv.scanlogic;
 
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import androidx.annotation.NonNull;
 
@@ -26,26 +29,50 @@ import static com.kamron.pogoiv.scanlogic.Pokemon.Type;
  * Created by pgiarrusso on 5/9/2016.
  */
 public class PokemonNameCorrector {
+
     private static PokemonNameCorrector instance;
-    private final PokeInfoCalculator pokeInfoCalculator;
-    private final Map<String, Pokemon> normalizedPokemonNameMap;
-    private final Map<String, Pokemon> normalizedCandyPokemons;
-    private final Map<Pokemon.Type, String> normalizedTypeNames;
-    private Resources res;
+
     private static String nidoFemale;
     private static String nidoMale;
     private static String nidoUngendered;
 
+    private final PokeInfoCalculator pokeInfoCalculator;
+    private final Resources res;
+
+    private Map<String, Pokemon> normalizedPokemonNameMap;
+    private Map<String, Pokemon> normalizedCandyPokemons;
+    private Map<Pokemon.Type, String> normalizedTypeNames;
+
     private PokemonNameCorrector(Context context) {
         this.pokeInfoCalculator = PokeInfoCalculator.getInstance(context);
-
-        // create and cache the pokedex pokemons collection with normalized their names as keys
-        Map<String, Pokemon> pokemap = new HashMap<>();
-        for (PokemonBase pokemon : pokeInfoCalculator.getPokedex()) {
-            pokemap.put(StringUtils.normalize(pokemon.name), pokemon.forms.get(0));
-        }
-        this.normalizedPokemonNameMap = pokemap;
         this.res = context.getResources();
+
+        init();
+
+        BroadcastReceiver localeChangedReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                init();
+            }
+        };
+
+        context.registerReceiver(localeChangedReceiver, new IntentFilter(Intent.ACTION_LOCALE_CHANGED));
+    }
+
+    public static PokemonNameCorrector getInstance(Context context) {
+        if (instance == null) {
+            instance = new PokemonNameCorrector(context);
+        }
+
+        return instance;
+    }
+
+    private void init() {
+        // create and cache the pokedex pokemons collection with normalized their names as keys
+        normalizedPokemonNameMap = new HashMap<>();
+        for (PokemonBase pokemon : pokeInfoCalculator.getPokedex()) {
+            normalizedPokemonNameMap.put(StringUtils.normalize(pokemon.name), pokemon.forms.get(0));
+        }
 
         nidoFemale = StringUtils.normalize(pokeInfoCalculator.get(28).name);
         nidoMale = StringUtils.normalize(pokeInfoCalculator.get(31).name);
@@ -63,14 +90,6 @@ public class PokemonNameCorrector {
         for (PokemonBase pokemon : pokeInfoCalculator.getCandyPokemons()) {
             this.normalizedCandyPokemons.put(StringUtils.normalize(pokemon.name), pokemon.forms.get(0));
         }
-    }
-
-    public static PokemonNameCorrector getInstance(Context context) {
-        if (instance == null) {
-            instance = new PokemonNameCorrector(context);
-        }
-
-        return instance;
     }
 
     /**
