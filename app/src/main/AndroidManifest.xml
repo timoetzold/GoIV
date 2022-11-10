@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".PoGoApplication"
@@ -13,7 +14,8 @@
         android:roundIcon="@mipmap/adaptive_icon_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:localeConfig="@xml/locales_config">
         <activity
             android:name=".activities.MainActivity"
             android:configChanges="orientation"
@@ -79,6 +81,15 @@
             android:label="@string/manual_calibration_label"
             android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar.fullscreen"/>
+
+        <service
+            android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
+            android:enabled="false"
+            android:exported="false">
+            <meta-data
+                android:name="autoStoreLocales"
+                android:value="true" />
+        </service>
     </application>
 
     <queries>

@@ -14,6 +14,7 @@ import android.content.pm.PackageManager;
 import android.media.projection.MediaProjection;
 import android.media.projection.MediaProjectionManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String ACTION_RESTART_POKEFLY = "com.kamron.pogoiv.ACTION_RESTART_POKEFLY";
 
     private static final int WRITE_STORAGE_REQ_CODE = 1236;
+    private static final int POST_NOTIFICATIONS_REQ_CODE = 1237;
 
     private ActivityMainBinding binding;
 
@@ -130,12 +132,21 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
         if (GoIVSettings.getInstance(this).isManualScreenshotModeEnabled()) {
-            int writePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-            if (writePermission == PackageManager.PERMISSION_DENIED) {
+            if (!hasPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                return false;
+            }
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (!hasPermission(Manifest.permission.POST_NOTIFICATIONS)) {
                 return false;
             }
         }
         return true;
+    }
+
+    private boolean hasPermission(String permission) {
+        int notificationPermission = ContextCompat.checkSelfPermission(this,permission);
+        return notificationPermission == PackageManager.PERMISSION_GRANTED;
     }
 
     @Override
@@ -326,10 +337,15 @@ public class MainActivity extends AppCompatActivity {
         }
         if (GoIVSettings.getInstance(this).isManualScreenshotModeEnabled()) {
             // In manual screenshot mode external storage write permission is needed
-            int writePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-            if (writePermission == PackageManager.PERMISSION_DENIED) {
+            if (!hasPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_STORAGE_REQ_CODE);
+            }
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (!hasPermission(Manifest.permission.POST_NOTIFICATIONS)) {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.POST_NOTIFICATIONS}, POST_NOTIFICATIONS_REQ_CODE);
             }
         }
     }
@@ -446,7 +462,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("MissingSuperCall")
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
-        if (requestCode == WRITE_STORAGE_REQ_CODE) {
+        if (requestCode == WRITE_STORAGE_REQ_CODE || requestCode == POST_NOTIFICATIONS_REQ_CODE) {
             updateLaunchButtonText(false, null);
         }
     }

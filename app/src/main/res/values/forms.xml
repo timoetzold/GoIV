@@ -3,7 +3,7 @@
 <integer-array name="formsCount">
  <item>2</item> <!-- Rattata -->
  <item>2</item> <!-- Raticate -->
- <item>9</item> <!-- Pikachu -->
+ <item>15</item> <!-- Pikachu -->
  <item>2</item> <!-- Raichu -->
  <item>2</item> <!-- Sandshrew -->
  <item>2</item> <!-- Sandslash -->
@@ -112,7 +112,7 @@
 <string-array name="formNames">
  <item>Normal Form</item> <item>Alola Form</item> <!-- Rattata -->
  <item>Normal Form</item> <item>Alola Form</item> <!-- Raticate -->
- <item>Normal Form</item> <item>Costume 2020 Form</item> <item>Adventure Hat 2020 Form</item> <item>Winter 2020 Form</item> <item>Kariyushi Form</item> <item>Pop Star Form</item> <item>Rock Star Form</item> <item>Flying 5th Anniv Form</item> <item>Flying Okinawa Form</item> <!-- Pikachu -->
+ <item>Normal Form</item> <item>Costume 2020 Form</item> <item>Adventure Hat 2020 Form</item> <item>Winter 2020 Form</item> <item>Kariyushi Form</item> <item>Pop Star Form</item> <item>Rock Star Form</item> <item>Flying 5th Anniv Form</item> <item>Flying Okinawa Form</item> <item>Gofest 2022 Form</item> <item>Wcs 2022 Form</item> <item>Tshirt 01 Form</item> <item>Tshirt 02 Form</item> <item>Flying 01 Form</item> <item>Flying 02 Form</item> <!-- Pikachu -->
  <item>Normal Form</item> <item>Alola Form</item> <!-- Raichu -->
  <item>Normal Form</item> <item>Alola Form</item> <!-- Sandshrew -->
  <item>Normal Form</item> <item>Alola Form</item> <!-- Sandslash -->
@@ -235,6 +235,12 @@
  <item>112</item> <!-- Rock Star Form -->
  <item>112</item> <!-- Flying 5th Anniv Form -->
  <item>112</item> <!-- Flying Okinawa Form -->
+ <item>112</item> <!-- Gofest 2022 Form -->
+ <item>112</item> <!-- Wcs 2022 Form -->
+ <item>112</item> <!-- Tshirt 01 Form -->
+ <item>112</item> <!-- Tshirt 02 Form -->
+ <item>112</item> <!-- Flying 01 Form -->
+ <item>112</item> <!-- Flying 02 Form -->
  <!-- Raichu -->
  <item>193</item> <!-- Normal Form -->
  <item>201</item> <!-- Alola Form -->
@@ -697,6 +703,12 @@
  <item>96</item> <!-- Rock Star Form -->
  <item>96</item> <!-- Flying 5th Anniv Form -->
  <item>96</item> <!-- Flying Okinawa Form -->
+ <item>96</item> <!-- Gofest 2022 Form -->
+ <item>96</item> <!-- Wcs 2022 Form -->
+ <item>96</item> <!-- Tshirt 01 Form -->
+ <item>96</item> <!-- Tshirt 02 Form -->
+ <item>96</item> <!-- Flying 01 Form -->
+ <item>96</item> <!-- Flying 02 Form -->
  <!-- Raichu -->
  <item>151</item> <!-- Normal Form -->
  <item>154</item> <!-- Alola Form -->
@@ -1159,6 +1171,12 @@
  <item>111</item> <!-- Rock Star Form -->
  <item>111</item> <!-- Flying 5th Anniv Form -->
  <item>111</item> <!-- Flying Okinawa Form -->
+ <item>111</item> <!-- Gofest 2022 Form -->
+ <item>111</item> <!-- Wcs 2022 Form -->
+ <item>111</item> <!-- Tshirt 01 Form -->
+ <item>111</item> <!-- Tshirt 02 Form -->
+ <item>111</item> <!-- Flying 01 Form -->
+ <item>111</item> <!-- Flying 02 Form -->
  <!-- Raichu -->
  <item>155</item> <!-- Normal Form -->
  <item>155</item> <!-- Alola Form -->

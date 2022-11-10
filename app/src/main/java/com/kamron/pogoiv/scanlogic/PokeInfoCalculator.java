@@ -1,7 +1,10 @@
 package com.kamron.pogoiv.scanlogic;
 
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import androidx.annotation.NonNull;
@@ -20,30 +23,27 @@ import java.util.Locale;
  * A class which interprets pokemon information
  */
 public class PokeInfoCalculator {
+
     private static PokeInfoCalculator instance;
 
-    private ArrayList<PokemonBase> pokedex = new ArrayList<>();
-    private List<Pokemon> formVariantPokemons;
-    private String[] pokeNamesWithForm = {};
+    private final GoIVSettings goIVSettings;
+    private final Resources resources;
 
-    //public static final int MELTAN_INDEX_OFFSET = 7;
-    //public static final int MELMETAL_INDEX_OFFSET = 6;
-    //public static final int OBSTAGOON_INDEX_OFFSET = 5;
-    //public static final int PERRSERKER_INDEX_OFFSET = 4;
-    //public static final int SIRFETCHD_INDEX_OFFSET = 3;
-    //public static final int MRRIME_INDEX_OFFSET = 2;
-    //public static final int RUNERIGUS_INDEX_OFFSET = 1;
+    private List<PokemonBase> pokedex;
+
+    private List<Pokemon> formVariantPokemons;
+    private String[] pokeNamesWithForm;
 
     /**
      * Pokemons who's name appears as a type of candy.
      * For most, this is the basePokemon (ie: Pidgey candies)
      * For some, this is an original Gen1 Pokemon (ie: Magmar candies, instead of Magby candies)
      */
-    private ArrayList<PokemonBase> candyPokemons = new ArrayList<>();
+    private List<PokemonBase> candyPokemons;
 
     protected static synchronized @NonNull PokeInfoCalculator getInstance(@NonNull Context context) {
         if (instance == null) {
-            instance = new PokeInfoCalculator(GoIVSettings.getInstance(context), context.getResources());
+            instance = new PokeInfoCalculator(context);
         }
         return instance;
     }
@@ -60,11 +60,29 @@ public class PokeInfoCalculator {
     /**
      * Creates a pokemon info calculator with the pokemon as argument.
      *
-     * @param settings Settings instance
-     * @param res      System resources
+     * @param context System context
      */
-    private PokeInfoCalculator(@NonNull GoIVSettings settings, @NonNull Resources res) {
-        populatePokemon(settings, res);
+    private PokeInfoCalculator(@NonNull Context context) {
+        this.goIVSettings = GoIVSettings.getInstance(context);
+        this.resources = context.getResources();
+
+        init();
+
+        BroadcastReceiver localeChangedReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                init();
+            }
+        };
+
+        context.registerReceiver(localeChangedReceiver, new IntentFilter(Intent.ACTION_LOCALE_CHANGED));
+    }
+
+    private void init() {
+        pokedex = new ArrayList<>();
+        candyPokemons = new ArrayList<>();
+
+        populatePokemon(goIVSettings, resources);
 
         // create and cache the full pokemon display name list
         ArrayList<String> pokemonNamesArray = new ArrayList<>();
@@ -74,7 +92,7 @@ public class PokeInfoCalculator {
             }
         }
 
-        pokeNamesWithForm = pokemonNamesArray.toArray(new String[pokemonNamesArray.size()]);
+        pokeNamesWithForm = pokemonNamesArray.toArray(new String[0]);
     }
 
     public List<PokemonBase> getPokedex() {
