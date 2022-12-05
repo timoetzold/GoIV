@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
+
 import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.common.base.Optional;
 
@@ -56,7 +58,8 @@ public class PokemonNameCorrector {
             }
         };
 
-        context.registerReceiver(localeChangedReceiver, new IntentFilter(Intent.ACTION_LOCALE_CHANGED));
+        LocalBroadcastManager.getInstance(context).registerReceiver(localeChangedReceiver,
+                new IntentFilter(PokeInfoCalculator.ACTION_REINITIALIZED));
     }
 
     public static PokemonNameCorrector getInstance(Context context) {

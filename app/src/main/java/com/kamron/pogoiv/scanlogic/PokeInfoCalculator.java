@@ -9,6 +9,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.kamron.pogoiv.GoIVSettings;
 import com.kamron.pogoiv.R;
@@ -23,6 +24,8 @@ import java.util.Locale;
  * A class which interprets pokemon information
  */
 public class PokeInfoCalculator {
+
+    public static final String ACTION_REINITIALIZED = "com.kamron.pogoiv.POKEINFO_REINITIALIZED";
 
     private static PokeInfoCalculator instance;
 
@@ -72,6 +75,10 @@ public class PokeInfoCalculator {
             @Override
             public void onReceive(Context context, Intent intent) {
                 init();
+
+                Intent reinitialized = new Intent();
+                reinitialized.setAction(ACTION_REINITIALIZED);
+                LocalBroadcastManager.getInstance(context).sendBroadcast(reinitialized);
             }
         };
 

@@ -3508,9 +3508,9 @@
  <item>-1</item> <!-- Tapu Bulu -->
  <item>-1</item> <!-- Tapu Fini -->
  <item>-1</item> <!-- Cosmog -->
- <item>-1</item> <!-- Cosmoem -->
- <item>-1</item> <!-- Solgaleo -->
- <item>-1</item> <!-- Lunala -->
+ <item>788</item> <!-- Cosmoem -->
+ <item>789</item> <!-- Solgaleo -->
+ <item>789</item> <!-- Lunala -->
  <item>-1</item> <!-- Nihilego -->
  <item>-1</item> <!-- Buzzwole -->
  <item>-1</item> <!-- Pheromosa -->
@@ -4413,8 +4413,8 @@
  <item>-1</item> <!-- Tapu Lele -->
  <item>-1</item> <!-- Tapu Bulu -->
  <item>-1</item> <!-- Tapu Fini -->
- <item>-1</item> <!-- Cosmog -->
- <item>-1</item> <!-- Cosmoem -->
+ <item>25</item> <!-- Cosmog -->
+ <item>100</item> <!-- Cosmoem -->
  <item>-1</item> <!-- Solgaleo -->
  <item>-1</item> <!-- Lunala -->
  <item>-1</item> <!-- Nihilego -->
