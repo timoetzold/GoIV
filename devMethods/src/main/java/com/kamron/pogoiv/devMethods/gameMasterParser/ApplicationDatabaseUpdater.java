@@ -486,7 +486,13 @@ public class ApplicationDatabaseUpdater {
      */
     private static String formName(String form, String pokemon) {
         form = form.replaceFirst("MEWTWO_A", "MEWTWO_Armored"); // For some reason Mewtwo is weird
-        String simpleName = form.substring(pokemon.length() + 1); // Skip past pokemon name and underscore
+        String simpleName;
+        if (form.startsWith(pokemon)) {
+            simpleName = form.substring(pokemon.length() + 1); // Skip past pokemon name and underscore
+        } else {
+            //some newer Forms are just numbers (e.g. "PIKACHU" with Form "3012"
+            simpleName = form;
+        }
         return titleCase(simpleName) + " Form";
     }
 

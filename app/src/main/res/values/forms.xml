@@ -3,7 +3,7 @@
 <integer-array name="formsCount">
  <item>2</item> <!-- Rattata -->
  <item>2</item> <!-- Raticate -->
- <item>15</item> <!-- Pikachu -->
+ <item>23</item> <!-- Pikachu -->
  <item>2</item> <!-- Raichu -->
  <item>2</item> <!-- Sandshrew -->
  <item>2</item> <!-- Sandslash -->
@@ -33,6 +33,7 @@
  <item>2</item> <!-- Weezing -->
  <item>2</item> <!-- Mr Mime -->
  <item>2</item> <!-- Lapras -->
+ <item>2</item> <!-- Aerodactyl -->
  <item>2</item> <!-- Articuno -->
  <item>2</item> <!-- Zapdos -->
  <item>2</item> <!-- Moltres -->
@@ -52,6 +53,8 @@
  <item>2</item> <!-- Sableye -->
  <item>20</item> <!-- Spinda -->
  <item>4</item> <!-- Castform -->
+ <item>2</item> <!-- Latias -->
+ <item>2</item> <!-- Latios -->
  <item>4</item> <!-- Deoxys -->
  <item>3</item> <!-- Burmy -->
  <item>3</item> <!-- Wormadam -->
@@ -71,6 +74,7 @@
  <item>2</item> <!-- Frillish -->
  <item>2</item> <!-- Jellicent -->
  <item>2</item> <!-- Cubchoo -->
+ <item>2</item> <!-- Beartic -->
  <item>2</item> <!-- Stunfisk -->
  <item>2</item> <!-- Braviary -->
  <item>2</item> <!-- Tornadus -->
@@ -80,6 +84,9 @@
  <item>2</item> <!-- Keldeo -->
  <item>2</item> <!-- Meloetta -->
  <item>5</item> <!-- Genesect -->
+ <item>20</item> <!-- Scatterbug -->
+ <item>20</item> <!-- Spewpa -->
+ <item>20</item> <!-- Vivillon -->
  <item>2</item> <!-- Pyroar -->
  <item>5</item> <!-- Flabebe -->
  <item>5</item> <!-- Floette -->
@@ -88,6 +95,8 @@
  <item>2</item> <!-- Meowstic -->
  <item>4</item> <!-- Pumpkaboo -->
  <item>4</item> <!-- Gourgeist -->
+ <item>2</item> <!-- Avalugg -->
+ <item>5</item> <!-- Zygarde -->
  <item>2</item> <!-- Hoopa -->
  <item>4</item> <!-- Oricorio -->
  <item>3</item> <!-- Lycanroc -->
@@ -112,7 +121,7 @@
 <string-array name="formNames">
  <item>Normal Form</item> <item>Alola Form</item> <!-- Rattata -->
  <item>Normal Form</item> <item>Alola Form</item> <!-- Raticate -->
- <item>Normal Form</item> <item>Costume 2020 Form</item> <item>Adventure Hat 2020 Form</item> <item>Winter 2020 Form</item> <item>Kariyushi Form</item> <item>Pop Star Form</item> <item>Rock Star Form</item> <item>Flying 5th Anniv Form</item> <item>Flying Okinawa Form</item> <item>Gofest 2022 Form</item> <item>Wcs 2022 Form</item> <item>Tshirt 01 Form</item> <item>Tshirt 02 Form</item> <item>Flying 01 Form</item> <item>Flying 02 Form</item> <!-- Pikachu -->
+ <item>Normal Form</item> <item>Costume 2020 Form</item> <item>Adventure Hat 2020 Form</item> <item>Winter 2020 Form</item> <item>Kariyushi Form</item> <item>Pop Star Form</item> <item>Rock Star Form</item> <item>Flying 5th Anniv Form</item> <item>Flying Okinawa Form</item> <item>Gofest 2022 Form</item> <item>Wcs 2022 Form</item> <item>Tshirt 01 Form</item> <item>Tshirt 02 Form</item> <item>Flying 01 Form</item> <item>Flying 02 Form</item> <item>Summer 2023 A Form</item> <item>Summer 2023 B Form</item> <item>Summer 2023 C Form</item> <item>Summer 2023 D Form</item> <item>Summer 2023 E Form</item> <item>3012 Form</item> <item>3011 Form</item> <item>3014 Form</item> <!-- Pikachu -->
  <item>Normal Form</item> <item>Alola Form</item> <!-- Raichu -->
  <item>Normal Form</item> <item>Alola Form</item> <!-- Sandshrew -->
  <item>Normal Form</item> <item>Alola Form</item> <!-- Sandslash -->
@@ -142,6 +151,7 @@
  <item>Normal Form</item> <item>Galarian Form</item> <!-- Weezing -->
  <item>Normal Form</item> <item>Galarian Form</item> <!-- Mr Mime -->
  <item>Normal Form</item> <item>Costume 2020 Form</item> <!-- Lapras -->
+ <item>Normal Form</item> <item>Summer 2023 Form</item> <!-- Aerodactyl -->
  <item>Normal Form</item> <item>Galarian Form</item> <!-- Articuno -->
  <item>Normal Form</item> <item>Galarian Form</item> <!-- Zapdos -->
  <item>Normal Form</item> <item>Galarian Form</item> <!-- Moltres -->
@@ -161,6 +171,8 @@
  <item>Normal Form</item> <item>Costume 2020 Form</item> <!-- Sableye -->
  <item>00 Form</item> <item>01 Form</item> <item>02 Form</item> <item>03 Form</item> <item>04 Form</item> <item>05 Form</item> <item>06 Form</item> <item>07 Form</item> <item>08 Form</item> <item>09 Form</item> <item>10 Form</item> <item>11 Form</item> <item>12 Form</item> <item>13 Form</item> <item>14 Form</item> <item>15 Form</item> <item>16 Form</item> <item>17 Form</item> <item>18 Form</item> <item>19 Form</item> <!-- Spinda -->
  <item>Normal Form</item> <item>Sunny Form</item> <item>Rainy Form</item> <item>Snowy Form</item> <!-- Castform -->
+ <item>Normal Form</item> <item>S Form</item> <!-- Latias -->
+ <item>Normal Form</item> <item>S Form</item> <!-- Latios -->
  <item>Normal Form</item> <item>Attack Form</item> <item>Defense Form</item> <item>Speed Form</item> <!-- Deoxys -->
  <item>Plant Form</item> <item>Sandy Form</item> <item>Trash Form</item> <!-- Burmy -->
  <item>Plant Form</item> <item>Sandy Form</item> <item>Trash Form</item> <!-- Wormadam -->
@@ -180,6 +192,7 @@
  <item>Normal Form</item> <item>Female Form</item> <!-- Frillish -->
  <item>Normal Form</item> <item>Female Form</item> <!-- Jellicent -->
  <item>Normal Form</item> <item>Winter 2020 Form</item> <!-- Cubchoo -->
+ <item>Normal Form</item> <item>Winter 2020 Form</item> <!-- Beartic -->
  <item>Normal Form</item> <item>Galarian Form</item> <!-- Stunfisk -->
  <item>Normal Form</item> <item>Hisuian Form</item> <!-- Braviary -->
  <item>Incarnate Form</item> <item>Therian Form</item> <!-- Tornadus -->
@@ -189,6 +202,9 @@
  <item>Ordinary Form</item> <item>Resolute Form</item> <!-- Keldeo -->
  <item>Aria Form</item> <item>Pirouette Form</item> <!-- Meloetta -->
  <item>Normal Form</item> <item>Douse Form</item> <item>Shock Form</item> <item>Burn Form</item> <item>Chill Form</item> <!-- Genesect -->
+ <item>Archipelago Form</item> <item>Continental Form</item> <item>Elegant Form</item> <item>Fancy Form</item> <item>Garden Form</item> <item>High Plains Form</item> <item>Icy Snow Form</item> <item>Jungle Form</item> <item>Marine Form</item> <item>Meadow Form</item> <item>Modern Form</item> <item>Monsoon Form</item> <item>Ocean Form</item> <item>Pokeball Form</item> <item>Polar Form</item> <item>River Form</item> <item>Sandstorm Form</item> <item>Savanna Form</item> <item>Sun Form</item> <item>Tundra Form</item> <!-- Scatterbug -->
+ <item>Archipelago Form</item> <item>Continental Form</item> <item>Elegant Form</item> <item>Fancy Form</item> <item>Garden Form</item> <item>High Plains Form</item> <item>Icy Snow Form</item> <item>Jungle Form</item> <item>Marine Form</item> <item>Meadow Form</item> <item>Modern Form</item> <item>Monsoon Form</item> <item>Ocean Form</item> <item>Pokeball Form</item> <item>Polar Form</item> <item>River Form</item> <item>Sandstorm Form</item> <item>Savanna Form</item> <item>Sun Form</item> <item>Tundra Form</item> <!-- Spewpa -->
+ <item>Archipelago Form</item> <item>Continental Form</item> <item>Elegant Form</item> <item>Fancy Form</item> <item>Garden Form</item> <item>High Plains Form</item> <item>Icy Snow Form</item> <item>Jungle Form</item> <item>Marine Form</item> <item>Meadow Form</item> <item>Modern Form</item> <item>Monsoon Form</item> <item>Ocean Form</item> <item>Pokeball Form</item> <item>Polar Form</item> <item>River Form</item> <item>Sandstorm Form</item> <item>Savanna Form</item> <item>Sun Form</item> <item>Tundra Form</item> <!-- Vivillon -->
  <item>Normal Form</item> <item>Female Form</item> <!-- Pyroar -->
  <item>Red Form</item> <item>Blue Form</item> <item>Orange Form</item> <item>Yellow Form</item> <item>White Form</item> <!-- Flabebe -->
  <item>Red Form</item> <item>Blue Form</item> <item>Orange Form</item> <item>Yellow Form</item> <item>White Form</item> <!-- Floette -->
@@ -197,6 +213,8 @@
  <item>Normal Form</item> <item>Female Form</item> <!-- Meowstic -->
  <item>Small Form</item> <item>Average Form</item> <item>Large Form</item> <item>Super Form</item> <!-- Pumpkaboo -->
  <item>Small Form</item> <item>Average Form</item> <item>Large Form</item> <item>Super Form</item> <!-- Gourgeist -->
+ <item>Normal Form</item> <item>Hisuian Form</item> <!-- Avalugg -->
+ <item>Ten Percent Form</item> <item>Fifty Percent Form</item> <item>Complete Form</item> <item>Complete Ten Percent Form</item> <item>Complete Fifty Percent Form</item> <!-- Zygarde -->
  <item>Confined Form</item> <item>Unbound Form</item> <!-- Hoopa -->
  <item>Baile Form</item> <item>Pompom Form</item> <item>Pau Form</item> <item>Sensu Form</item> <!-- Oricorio -->
  <item>Midday Form</item> <item>Midnight Form</item> <item>Dusk Form</item> <!-- Lycanroc -->
@@ -241,6 +259,14 @@
  <item>112</item> <!-- Tshirt 02 Form -->
  <item>112</item> <!-- Flying 01 Form -->
  <item>112</item> <!-- Flying 02 Form -->
+ <item>112</item> <!-- Summer 2023 A Form -->
+ <item>112</item> <!-- Summer 2023 B Form -->
+ <item>112</item> <!-- Summer 2023 C Form -->
+ <item>112</item> <!-- Summer 2023 D Form -->
+ <item>112</item> <!-- Summer 2023 E Form -->
+ <item>112</item> <!-- 3012 Form -->
+ <item>112</item> <!-- 3011 Form -->
+ <item>112</item> <!-- 3014 Form -->
  <!-- Raichu -->
  <item>193</item> <!-- Normal Form -->
  <item>201</item> <!-- Alola Form -->
@@ -331,6 +357,9 @@
  <!-- Lapras -->
  <item>165</item> <!-- Normal Form -->
  <item>165</item> <!-- Costume 2020 Form -->
+ <!-- Aerodactyl -->
+ <item>221</item> <!-- Normal Form -->
+ <item>221</item> <!-- Summer 2023 Form -->
  <!-- Articuno -->
  <item>192</item> <!-- Normal Form -->
  <item>250</item> <!-- Galarian Form -->
@@ -435,6 +464,12 @@
  <item>139</item> <!-- Sunny Form -->
  <item>139</item> <!-- Rainy Form -->
  <item>139</item> <!-- Snowy Form -->
+ <!-- Latias -->
+ <item>228</item> <!-- Normal Form -->
+ <item>228</item> <!-- S Form -->
+ <!-- Latios -->
+ <item>268</item> <!-- Normal Form -->
+ <item>268</item> <!-- S Form -->
  <!-- Deoxys -->
  <item>345</item> <!-- Normal Form -->
  <item>414</item> <!-- Attack Form -->
@@ -522,6 +557,9 @@
  <!-- Cubchoo -->
  <item>128</item> <!-- Normal Form -->
  <item>128</item> <!-- Winter 2020 Form -->
+ <!-- Beartic -->
+ <item>233</item> <!-- Normal Form -->
+ <item>233</item> <!-- Winter 2020 Form -->
  <!-- Stunfisk -->
  <item>144</item> <!-- Normal Form -->
  <item>144</item> <!-- Galarian Form -->
@@ -553,6 +591,69 @@
  <item>252</item> <!-- Shock Form -->
  <item>252</item> <!-- Burn Form -->
  <item>252</item> <!-- Chill Form -->
+ <!-- Scatterbug -->
+ <item>63</item> <!-- Archipelago Form -->
+ <item>63</item> <!-- Continental Form -->
+ <item>63</item> <!-- Elegant Form -->
+ <item>63</item> <!-- Fancy Form -->
+ <item>63</item> <!-- Garden Form -->
+ <item>63</item> <!-- High Plains Form -->
+ <item>63</item> <!-- Icy Snow Form -->
+ <item>63</item> <!-- Jungle Form -->
+ <item>63</item> <!-- Marine Form -->
+ <item>63</item> <!-- Meadow Form -->
+ <item>63</item> <!-- Modern Form -->
+ <item>63</item> <!-- Monsoon Form -->
+ <item>63</item> <!-- Ocean Form -->
+ <item>63</item> <!-- Pokeball Form -->
+ <item>63</item> <!-- Polar Form -->
+ <item>63</item> <!-- River Form -->
+ <item>63</item> <!-- Sandstorm Form -->
+ <item>63</item> <!-- Savanna Form -->
+ <item>63</item> <!-- Sun Form -->
+ <item>63</item> <!-- Tundra Form -->
+ <!-- Spewpa -->
+ <item>48</item> <!-- Archipelago Form -->
+ <item>48</item> <!-- Continental Form -->
+ <item>48</item> <!-- Elegant Form -->
+ <item>48</item> <!-- Fancy Form -->
+ <item>48</item> <!-- Garden Form -->
+ <item>48</item> <!-- High Plains Form -->
+ <item>48</item> <!-- Icy Snow Form -->
+ <item>48</item> <!-- Jungle Form -->
+ <item>48</item> <!-- Marine Form -->
+ <item>48</item> <!-- Meadow Form -->
+ <item>48</item> <!-- Modern Form -->
+ <item>48</item> <!-- Monsoon Form -->
+ <item>48</item> <!-- Ocean Form -->
+ <item>48</item> <!-- Pokeball Form -->
+ <item>48</item> <!-- Polar Form -->
+ <item>48</item> <!-- River Form -->
+ <item>48</item> <!-- Sandstorm Form -->
+ <item>48</item> <!-- Savanna Form -->
+ <item>48</item> <!-- Sun Form -->
+ <item>48</item> <!-- Tundra Form -->
+ <!-- Vivillon -->
+ <item>176</item> <!-- Archipelago Form -->
+ <item>176</item> <!-- Continental Form -->
+ <item>176</item> <!-- Elegant Form -->
+ <item>176</item> <!-- Fancy Form -->
+ <item>176</item> <!-- Garden Form -->
+ <item>176</item> <!-- High Plains Form -->
+ <item>176</item> <!-- Icy Snow Form -->
+ <item>176</item> <!-- Jungle Form -->
+ <item>176</item> <!-- Marine Form -->
+ <item>176</item> <!-- Meadow Form -->
+ <item>176</item> <!-- Modern Form -->
+ <item>176</item> <!-- Monsoon Form -->
+ <item>176</item> <!-- Ocean Form -->
+ <item>176</item> <!-- Pokeball Form -->
+ <item>176</item> <!-- Polar Form -->
+ <item>176</item> <!-- River Form -->
+ <item>176</item> <!-- Sandstorm Form -->
+ <item>176</item> <!-- Savanna Form -->
+ <item>176</item> <!-- Sun Form -->
+ <item>176</item> <!-- Tundra Form -->
  <!-- Pyroar -->
  <item>221</item> <!-- Normal Form -->
  <item>221</item> <!-- Female Form -->
@@ -598,6 +699,15 @@
  <item>175</item> <!-- Average Form -->
  <item>179</item> <!-- Large Form -->
  <item>182</item> <!-- Super Form -->
+ <!-- Avalugg -->
+ <item>196</item> <!-- Normal Form -->
+ <item>214</item> <!-- Hisuian Form -->
+ <!-- Zygarde -->
+ <item>205</item> <!-- Ten Percent Form -->
+ <item>203</item> <!-- Fifty Percent Form -->
+ <item>184</item> <!-- Complete Form -->
+ <item>205</item> <!-- Complete Ten Percent Form -->
+ <item>203</item> <!-- Complete Fifty Percent Form -->
  <!-- Hoopa -->
  <item>261</item> <!-- Confined Form -->
  <item>311</item> <!-- Unbound Form -->
@@ -709,6 +819,14 @@
  <item>96</item> <!-- Tshirt 02 Form -->
  <item>96</item> <!-- Flying 01 Form -->
  <item>96</item> <!-- Flying 02 Form -->
+ <item>96</item> <!-- Summer 2023 A Form -->
+ <item>96</item> <!-- Summer 2023 B Form -->
+ <item>96</item> <!-- Summer 2023 C Form -->
+ <item>96</item> <!-- Summer 2023 D Form -->
+ <item>96</item> <!-- Summer 2023 E Form -->
+ <item>96</item> <!-- 3012 Form -->
+ <item>96</item> <!-- 3011 Form -->
+ <item>96</item> <!-- 3014 Form -->
  <!-- Raichu -->
  <item>151</item> <!-- Normal Form -->
  <item>154</item> <!-- Alola Form -->
@@ -799,6 +917,9 @@
  <!-- Lapras -->
  <item>174</item> <!-- Normal Form -->
  <item>174</item> <!-- Costume 2020 Form -->
+ <!-- Aerodactyl -->
+ <item>159</item> <!-- Normal Form -->
+ <item>159</item> <!-- Summer 2023 Form -->
  <!-- Articuno -->
  <item>236</item> <!-- Normal Form -->
  <item>197</item> <!-- Galarian Form -->
@@ -903,6 +1024,12 @@
  <item>139</item> <!-- Sunny Form -->
  <item>139</item> <!-- Rainy Form -->
  <item>139</item> <!-- Snowy Form -->
+ <!-- Latias -->
+ <item>246</item> <!-- Normal Form -->
+ <item>246</item> <!-- S Form -->
+ <!-- Latios -->
+ <item>212</item> <!-- Normal Form -->
+ <item>212</item> <!-- S Form -->
  <!-- Deoxys -->
  <item>115</item> <!-- Normal Form -->
  <item>46</item> <!-- Attack Form -->
@@ -990,6 +1117,9 @@
  <!-- Cubchoo -->
  <item>74</item> <!-- Normal Form -->
  <item>74</item> <!-- Winter 2020 Form -->
+ <!-- Beartic -->
+ <item>152</item> <!-- Normal Form -->
+ <item>152</item> <!-- Winter 2020 Form -->
  <!-- Stunfisk -->
  <item>171</item> <!-- Normal Form -->
  <item>171</item> <!-- Galarian Form -->
@@ -1021,6 +1151,69 @@
  <item>199</item> <!-- Shock Form -->
  <item>199</item> <!-- Burn Form -->
  <item>199</item> <!-- Chill Form -->
+ <!-- Scatterbug -->
+ <item>63</item> <!-- Archipelago Form -->
+ <item>63</item> <!-- Continental Form -->
+ <item>63</item> <!-- Elegant Form -->
+ <item>63</item> <!-- Fancy Form -->
+ <item>63</item> <!-- Garden Form -->
+ <item>63</item> <!-- High Plains Form -->
+ <item>63</item> <!-- Icy Snow Form -->
+ <item>63</item> <!-- Jungle Form -->
+ <item>63</item> <!-- Marine Form -->
+ <item>63</item> <!-- Meadow Form -->
+ <item>63</item> <!-- Modern Form -->
+ <item>63</item> <!-- Monsoon Form -->
+ <item>63</item> <!-- Ocean Form -->
+ <item>63</item> <!-- Pokeball Form -->
+ <item>63</item> <!-- Polar Form -->
+ <item>63</item> <!-- River Form -->
+ <item>63</item> <!-- Sandstorm Form -->
+ <item>63</item> <!-- Savanna Form -->
+ <item>63</item> <!-- Sun Form -->
+ <item>63</item> <!-- Tundra Form -->
+ <!-- Spewpa -->
+ <item>89</item> <!-- Archipelago Form -->
+ <item>89</item> <!-- Continental Form -->
+ <item>89</item> <!-- Elegant Form -->
+ <item>89</item> <!-- Fancy Form -->
+ <item>89</item> <!-- Garden Form -->
+ <item>89</item> <!-- High Plains Form -->
+ <item>89</item> <!-- Icy Snow Form -->
+ <item>89</item> <!-- Jungle Form -->
+ <item>89</item> <!-- Marine Form -->
+ <item>89</item> <!-- Meadow Form -->
+ <item>89</item> <!-- Modern Form -->
+ <item>89</item> <!-- Monsoon Form -->
+ <item>89</item> <!-- Ocean Form -->
+ <item>89</item> <!-- Pokeball Form -->
+ <item>89</item> <!-- Polar Form -->
+ <item>89</item> <!-- River Form -->
+ <item>89</item> <!-- Sandstorm Form -->
+ <item>89</item> <!-- Savanna Form -->
+ <item>89</item> <!-- Sun Form -->
+ <item>89</item> <!-- Tundra Form -->
+ <!-- Vivillon -->
+ <item>103</item> <!-- Archipelago Form -->
+ <item>103</item> <!-- Continental Form -->
+ <item>103</item> <!-- Elegant Form -->
+ <item>103</item> <!-- Fancy Form -->
+ <item>103</item> <!-- Garden Form -->
+ <item>103</item> <!-- High Plains Form -->
+ <item>103</item> <!-- Icy Snow Form -->
+ <item>103</item> <!-- Jungle Form -->
+ <item>103</item> <!-- Marine Form -->
+ <item>103</item> <!-- Meadow Form -->
+ <item>103</item> <!-- Modern Form -->
+ <item>103</item> <!-- Monsoon Form -->
+ <item>103</item> <!-- Ocean Form -->
+ <item>103</item> <!-- Pokeball Form -->
+ <item>103</item> <!-- Polar Form -->
+ <item>103</item> <!-- River Form -->
+ <item>103</item> <!-- Sandstorm Form -->
+ <item>103</item> <!-- Savanna Form -->
+ <item>103</item> <!-- Sun Form -->
+ <item>103</item> <!-- Tundra Form -->
  <!-- Pyroar -->
  <item>149</item> <!-- Normal Form -->
  <item>149</item> <!-- Female Form -->
@@ -1066,6 +1259,15 @@
  <item>213</item> <!-- Average Form -->
  <item>206</item> <!-- Large Form -->
  <item>200</item> <!-- Super Form -->
+ <!-- Avalugg -->
+ <item>240</item> <!-- Normal Form -->
+ <item>238</item> <!-- Hisuian Form -->
+ <!-- Zygarde -->
+ <item>173</item> <!-- Ten Percent Form -->
+ <item>232</item> <!-- Fifty Percent Form -->
+ <item>207</item> <!-- Complete Form -->
+ <item>173</item> <!-- Complete Ten Percent Form -->
+ <item>232</item> <!-- Complete Fifty Percent Form -->
  <!-- Hoopa -->
  <item>187</item> <!-- Confined Form -->
  <item>191</item> <!-- Unbound Form -->
@@ -1177,6 +1379,14 @@
  <item>111</item> <!-- Tshirt 02 Form -->
  <item>111</item> <!-- Flying 01 Form -->
  <item>111</item> <!-- Flying 02 Form -->
+ <item>111</item> <!-- Summer 2023 A Form -->
+ <item>111</item> <!-- Summer 2023 B Form -->
+ <item>111</item> <!-- Summer 2023 C Form -->
+ <item>111</item> <!-- Summer 2023 D Form -->
+ <item>111</item> <!-- Summer 2023 E Form -->
+ <item>111</item> <!-- 3012 Form -->
+ <item>111</item> <!-- 3011 Form -->
+ <item>111</item> <!-- 3014 Form -->
  <!-- Raichu -->
  <item>155</item> <!-- Normal Form -->
  <item>155</item> <!-- Alola Form -->
@@ -1267,6 +1477,9 @@
  <!-- Lapras -->
  <item>277</item> <!-- Normal Form -->
  <item>277</item> <!-- Costume 2020 Form -->
+ <!-- Aerodactyl -->
+ <item>190</item> <!-- Normal Form -->
+ <item>190</item> <!-- Summer 2023 Form -->
  <!-- Articuno -->
  <item>207</item> <!-- Normal Form -->
  <item>207</item> <!-- Galarian Form -->
@@ -1371,6 +1584,12 @@
  <item>172</item> <!-- Sunny Form -->
  <item>172</item> <!-- Rainy Form -->
  <item>172</item> <!-- Snowy Form -->
+ <!-- Latias -->
+ <item>190</item> <!-- Normal Form -->
+ <item>190</item> <!-- S Form -->
+ <!-- Latios -->
+ <item>190</item> <!-- Normal Form -->
+ <item>190</item> <!-- S Form -->
  <!-- Deoxys -->
  <item>137</item> <!-- Normal Form -->
  <item>137</item> <!-- Attack Form -->
@@ -1458,6 +1677,9 @@
  <!-- Cubchoo -->
  <item>146</item> <!-- Normal Form -->
  <item>146</item> <!-- Winter 2020 Form -->
+ <!-- Beartic -->
+ <item>216</item> <!-- Normal Form -->
+ <item>216</item> <!-- Winter 2020 Form -->
  <!-- Stunfisk -->
  <item>240</item> <!-- Normal Form -->
  <item>240</item> <!-- Galarian Form -->
@@ -1489,6 +1711,69 @@
  <item>174</item> <!-- Shock Form -->
  <item>174</item> <!-- Burn Form -->
  <item>174</item> <!-- Chill Form -->
+ <!-- Scatterbug -->
+ <item>116</item> <!-- Archipelago Form -->
+ <item>116</item> <!-- Continental Form -->
+ <item>116</item> <!-- Elegant Form -->
+ <item>116</item> <!-- Fancy Form -->
+ <item>116</item> <!-- Garden Form -->
+ <item>116</item> <!-- High Plains Form -->
+ <item>116</item> <!-- Icy Snow Form -->
+ <item>116</item> <!-- Jungle Form -->
+ <item>116</item> <!-- Marine Form -->
+ <item>116</item> <!-- Meadow Form -->
+ <item>116</item> <!-- Modern Form -->
+ <item>116</item> <!-- Monsoon Form -->
+ <item>116</item> <!-- Ocean Form -->
+ <item>116</item> <!-- Pokeball Form -->
+ <item>116</item> <!-- Polar Form -->
+ <item>116</item> <!-- River Form -->
+ <item>116</item> <!-- Sandstorm Form -->
+ <item>116</item> <!-- Savanna Form -->
+ <item>116</item> <!-- Sun Form -->
+ <item>116</item> <!-- Tundra Form -->
+ <!-- Spewpa -->
+ <item>128</item> <!-- Archipelago Form -->
+ <item>128</item> <!-- Continental Form -->
+ <item>128</item> <!-- Elegant Form -->
+ <item>128</item> <!-- Fancy Form -->
+ <item>128</item> <!-- Garden Form -->
+ <item>128</item> <!-- High Plains Form -->
+ <item>128</item> <!-- Icy Snow Form -->
+ <item>128</item> <!-- Jungle Form -->
+ <item>128</item> <!-- Marine Form -->
+ <item>128</item> <!-- Meadow Form -->
+ <item>128</item> <!-- Modern Form -->
+ <item>128</item> <!-- Monsoon Form -->
+ <item>128</item> <!-- Ocean Form -->
+ <item>128</item> <!-- Pokeball Form -->
+ <item>128</item> <!-- Polar Form -->
+ <item>128</item> <!-- River Form -->
+ <item>128</item> <!-- Sandstorm Form -->
+ <item>128</item> <!-- Savanna Form -->
+ <item>128</item> <!-- Sun Form -->
+ <item>128</item> <!-- Tundra Form -->
+ <!-- Vivillon -->
+ <item>190</item> <!-- Archipelago Form -->
+ <item>190</item> <!-- Continental Form -->
+ <item>190</item> <!-- Elegant Form -->
+ <item>190</item> <!-- Fancy Form -->
+ <item>190</item> <!-- Garden Form -->
+ <item>190</item> <!-- High Plains Form -->
+ <item>190</item> <!-- Icy Snow Form -->
+ <item>190</item> <!-- Jungle Form -->
+ <item>190</item> <!-- Marine Form -->
+ <item>190</item> <!-- Meadow Form -->
+ <item>190</item> <!-- Modern Form -->
+ <item>190</item> <!-- Monsoon Form -->
+ <item>190</item> <!-- Ocean Form -->
+ <item>190</item> <!-- Pokeball Form -->
+ <item>190</item> <!-- Polar Form -->
+ <item>190</item> <!-- River Form -->
+ <item>190</item> <!-- Sandstorm Form -->
+ <item>190</item> <!-- Savanna Form -->
+ <item>190</item> <!-- Sun Form -->
+ <item>190</item> <!-- Tundra Form -->
  <!-- Pyroar -->
  <item>200</item> <!-- Normal Form -->
  <item>200</item> <!-- Female Form -->
@@ -1534,6 +1819,15 @@
  <item>163</item> <!-- Average Form -->
  <item>181</item> <!-- Large Form -->
  <item>198</item> <!-- Super Form -->
+ <!-- Avalugg -->
+ <item>216</item> <!-- Normal Form -->
+ <item>216</item> <!-- Hisuian Form -->
+ <!-- Zygarde -->
+ <item>144</item> <!-- Ten Percent Form -->
+ <item>239</item> <!-- Fifty Percent Form -->
+ <item>389</item> <!-- Complete Form -->
+ <item>144</item> <!-- Complete Ten Percent Form -->
+ <item>239</item> <!-- Complete Fifty Percent Form -->
  <!-- Hoopa -->
  <item>173</item> <!-- Confined Form -->
  <item>173</item> <!-- Unbound Form -->
