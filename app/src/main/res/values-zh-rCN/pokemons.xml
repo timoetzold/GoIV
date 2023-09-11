@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="pokemon">
-        <item>妙蛙種子</item>
+        <item>妙蛙种子</item>
         <item>妙蛙草</item>
         <item>妙蛙花</item>
-        <item>小火龍</item>
-        <item>火恐龍</item>
-        <item>噴火龍</item>
-        <item>傑尼龜</item>
-        <item>卡咪龜</item>
-        <item>水箭龜</item>
-        <item>綠毛蟲</item>
-        <item>鐵甲蛹</item>
+        <item>小火龙</item>
+        <item>火恐龙</item>
+        <item>喷火龙</item>
+        <item>杰尼龟</item>
+        <item>卡咪龟</item>
+        <item>水箭龟</item>
+        <item>绿毛虫</item>
+        <item>铁甲蛹</item>
         <item>巴大蝶</item>
-        <item>獨角蟲</item>
-        <item>鐵殼蛹</item>
-        <item>大針蜂</item>
+        <item>独角虫</item>
+        <item>铁壳蛹</item>
+        <item>大针蜂</item>
         <item>波波</item>
-        <item>比比鳥</item>
-        <item>大比鳥</item>
-        <item>小拉達</item>
-        <item>拉達</item>
+        <item>比比鸟</item>
+        <item>大比鸟</item>
+        <item>小拉达</item>
+        <item>拉达</item>
         <item>烈雀</item>
         <item>大嘴雀</item>
         <item>阿柏蛇</item>
@@ -29,11 +29,11 @@
         <item>雷丘</item>
         <item>穿山鼠</item>
         <item>穿山王</item>
-        <item>尼多蘭</item>
+        <item>尼多兰</item>
         <item>尼多娜</item>
         <item>尼多后</item>
         <item>尼多朗</item>
-        <item>尼多力諾</item>
+        <item>尼多力诺</item>
         <item>尼多王</item>
         <item>皮皮</item>
         <item>皮可西</item>
@@ -49,21 +49,21 @@
         <item>派拉斯</item>
         <item>派拉斯特</item>
         <item>毛球</item>
-        <item>摩魯蛾</item>
+        <item>摩鲁蛾</item>
         <item>地鼠</item>
         <item>三地鼠</item>
         <item>喵喵</item>
-        <item>貓老大</item>
-        <item>可達鴨</item>
-        <item>哥達鴨</item>
+        <item>猫老大</item>
+        <item>可达鸭</item>
+        <item>哥达鸭</item>
         <item>猴怪</item>
         <item>火爆猴</item>
         <item>卡蒂狗</item>
-        <item>風速狗</item>
+        <item>风速狗</item>
         <item>蚊香蝌蚪</item>
         <item>蚊香君</item>
         <item>蚊香泳士</item>
-        <item>凱西</item>
+        <item>凯西</item>
         <item>勇基拉</item>
         <item>胡地</item>
         <item>腕力</item>
@@ -72,175 +72,175 @@
         <item>喇叭芽</item>
         <item>口呆花</item>
         <item>大食花</item>
-        <item>瑪瑙水母</item>
+        <item>玛瑙水母</item>
         <item>毒刺水母</item>
         <item>小拳石</item>
         <item>隆隆石</item>
         <item>隆隆岩</item>
-        <item>小火馬</item>
-        <item>烈焰馬</item>
-        <item>呆呆獸</item>
-        <item>呆殼獸</item>
+        <item>小火马</item>
+        <item>烈焰马</item>
+        <item>呆呆兽</item>
+        <item>呆壳兽</item>
         <item>小磁怪</item>
         <item>三合一磁怪</item>
-        <item>大蔥鴨</item>
+        <item>大葱鸭</item>
         <item>嘟嘟</item>
         <item>嘟嘟利</item>
-        <item>小海獅</item>
-        <item>白海獅</item>
+        <item>小海狮</item>
+        <item>白海狮</item>
         <item>臭泥</item>
         <item>臭臭泥</item>
-        <item>大舌貝</item>
-        <item>刺甲貝</item>
+        <item>大舌贝</item>
+        <item>刺甲贝</item>
         <item>鬼斯</item>
         <item>鬼斯通</item>
         <item>耿鬼</item>
         <item>大岩蛇</item>
         <item>催眠貘</item>
-        <item>引夢貘人</item>
-        <item>大鉗蟹</item>
-        <item>巨鉗蟹</item>
-        <item>霹靂電球</item>
-        <item>頑皮雷彈</item>
+        <item>引梦貘人</item>
+        <item>大钳蟹</item>
+        <item>巨钳蟹</item>
+        <item>霹雳电球</item>
+        <item>顽皮雷弹</item>
         <item>蛋蛋</item>
-        <item>椰蛋樹</item>
+        <item>椰蛋树</item>
         <item>卡拉卡拉</item>
         <item>嘎啦嘎啦</item>
-        <item>飛腿郎</item>
+        <item>飞腿郎</item>
         <item>快拳郎</item>
-        <item>大舌頭</item>
-        <item>瓦斯彈</item>
-        <item>雙彈瓦斯</item>
-        <item>獨角犀牛</item>
-        <item>鑽角犀獸</item>
+        <item>大舌头</item>
+        <item>瓦斯弹</item>
+        <item>双弹瓦斯</item>
+        <item>独角犀牛</item>
+        <item>钻角犀兽</item>
         <item>吉利蛋</item>
         <item>蔓藤怪</item>
-        <item>袋獸</item>
-        <item>墨海馬</item>
-        <item>海刺龍</item>
-        <item>角金魚</item>
-        <item>金魚王</item>
+        <item>袋兽</item>
+        <item>墨海马</item>
+        <item>海刺龙</item>
+        <item>角金鱼</item>
+        <item>金鱼王</item>
         <item>海星星</item>
-        <item>寶石海星</item>
-        <item>魔牆人偶</item>
-        <item>飛天螳螂</item>
+        <item>宝石海星</item>
+        <item>魔墙人偶</item>
+        <item>飞天螳螂</item>
         <item>迷唇姐</item>
-        <item>電擊獸</item>
-        <item>鴨嘴火獸</item>
-        <item>凱羅斯</item>
-        <item>肯泰羅</item>
-        <item>鯉魚王</item>
-        <item>暴鯉龍</item>
+        <item>电击兽</item>
+        <item>鸭嘴火兽</item>
+        <item>凯罗斯</item>
+        <item>肯泰罗</item>
+        <item>鲤鱼王</item>
+        <item>暴鲤龙</item>
         <item>拉普拉斯</item>
-        <item>百變怪</item>
+        <item>百变怪</item>
         <item>伊布</item>
         <item>水伊布</item>
         <item>雷伊布</item>
         <item>火伊布</item>
-        <item>多邊獸</item>
-        <item>菊石獸</item>
-        <item>多刺菊石獸</item>
+        <item>多边兽</item>
+        <item>菊石兽</item>
+        <item>多刺菊石兽</item>
         <item>化石盔</item>
-        <item>鐮刀盔</item>
-        <item>化石翼龍</item>
-        <item>卡比獸</item>
-        <item>急凍鳥</item>
-        <item>閃電鳥</item>
-        <item>火焰鳥</item>
-        <item>迷你龍</item>
-        <item>哈克龍</item>
-        <item>快龍</item>
-        <item>超夢</item>
-        <item>夢幻</item>
-        <item>菊草葉</item>
-        <item>月桂葉</item>
+        <item>镰刀盔</item>
+        <item>化石翼龙</item>
+        <item>卡比兽</item>
+        <item>急冻鸟</item>
+        <item>闪电鸟</item>
+        <item>火焰鸟</item>
+        <item>迷你龙</item>
+        <item>哈克龙</item>
+        <item>快龙</item>
+        <item>超梦</item>
+        <item>梦幻</item>
+        <item>菊草叶</item>
+        <item>月桂叶</item>
         <item>大竺葵</item>
         <item>火球鼠</item>
         <item>火岩鼠</item>
-        <item>火爆獸</item>
-        <item>小鋸鱷</item>
-        <item>藍鱷</item>
-        <item>大力鱷</item>
+        <item>火暴兽</item>
+        <item>小锯鳄</item>
+        <item>蓝鳄</item>
+        <item>大力鳄</item>
         <item>尾立</item>
         <item>大尾立</item>
         <item>咕咕</item>
-        <item>貓頭夜鷹</item>
-        <item>芭瓢蟲</item>
-        <item>安瓢蟲</item>
-        <item>圓絲蛛</item>
+        <item>猫头夜鹰</item>
+        <item>芭瓢虫</item>
+        <item>安瓢虫</item>
+        <item>圆丝蛛</item>
         <item>阿利多斯</item>
         <item>叉字蝠</item>
-        <item>燈籠魚</item>
-        <item>電燈怪</item>
+        <item>灯笼鱼</item>
+        <item>电灯怪</item>
         <item>皮丘</item>
-        <item>皮寶寶</item>
-        <item>寶寶丁</item>
+        <item>皮宝宝</item>
+        <item>宝宝丁</item>
         <item>波克比</item>
         <item>波克基古</item>
         <item>天然雀</item>
-        <item>天然鳥</item>
+        <item>天然鸟</item>
         <item>咩利羊</item>
         <item>茸茸羊</item>
-        <item>電龍</item>
-        <item>美麗花</item>
-        <item>瑪力露</item>
-        <item>瑪力露麗</item>
-        <item>樹才怪</item>
+        <item>电龙</item>
+        <item>美丽花</item>
+        <item>玛力露</item>
+        <item>玛力露丽</item>
+        <item>树才怪</item>
         <item>蚊香蛙皇</item>
         <item>毽子草</item>
         <item>毽子花</item>
         <item>毽子棉</item>
-        <item>長尾怪手</item>
-        <item>向日種子</item>
+        <item>长尾怪手</item>
+        <item>向日种子</item>
         <item>向日花怪</item>
         <item>蜻蜻蜓</item>
-        <item>烏波</item>
+        <item>乌波</item>
         <item>沼王</item>
-        <item>太陽伊布</item>
+        <item>太阳伊布</item>
         <item>月亮伊布</item>
-        <item>黑暗鴉</item>
+        <item>黑暗鸦</item>
         <item>呆呆王</item>
-        <item>夢妖</item>
-        <item>未知圖騰</item>
+        <item>梦妖</item>
+        <item>未知图腾</item>
         <item>果然翁</item>
         <item>麒麟奇</item>
         <item>榛果球</item>
         <item>佛烈托斯</item>
-        <item>土龍弟弟</item>
-        <item>天蠍</item>
-        <item>大鋼蛇</item>
-        <item>布魯</item>
-        <item>布魯皇</item>
-        <item>千針魚</item>
-        <item>巨鉗螳螂</item>
-        <item>壺壺</item>
-        <item>赫拉克羅斯</item>
+        <item>土龙弟弟</item>
+        <item>天蝎</item>
+        <item>大钢蛇</item>
+        <item>布鲁</item>
+        <item>布鲁皇</item>
+        <item>千针鱼</item>
+        <item>巨钳螳螂</item>
+        <item>壶壶</item>
+        <item>赫拉克罗斯</item>
         <item>狃拉</item>
-        <item>熊寶寶</item>
+        <item>熊宝宝</item>
         <item>圈圈熊</item>
-        <item>熔岩蟲</item>
-        <item>熔岩蝸牛</item>
-        <item>小山豬</item>
-        <item>長毛豬</item>
-        <item>太陽珊瑚</item>
-        <item>鐵炮魚</item>
-        <item>章魚桶</item>
-        <item>信使鳥</item>
-        <item>巨翅飛魚</item>
-        <item>盔甲鳥</item>
-        <item>戴魯比</item>
-        <item>黑魯加</item>
-        <item>刺龍王</item>
+        <item>熔岩虫</item>
+        <item>熔岩蜗牛</item>
+        <item>小山猪</item>
+        <item>长毛猪</item>
+        <item>太阳珊瑚</item>
+        <item>铁炮鱼</item>
+        <item>章鱼桶</item>
+        <item>信使鸟</item>
+        <item>巨翅飞鱼</item>
+        <item>盔甲鸟</item>
+        <item>戴鲁比</item>
+        <item>黑鲁加</item>
+        <item>刺龙王</item>
         <item>小小象</item>
-        <item>頓甲</item>
-        <item>多邊獸Ⅱ</item>
-        <item>驚角鹿</item>
-        <item>圖圖犬</item>
-        <item>無畏小子</item>
-        <item>戰舞郎</item>
+        <item>顿甲</item>
+        <item>多边兽Ⅱ</item>
+        <item>惊角鹿</item>
+        <item>图图犬</item>
+        <item>无畏小子</item>
+        <item>战舞郎</item>
         <item>迷唇娃</item>
-        <item>電擊怪</item>
-        <item>鴨嘴寶寶</item>
+        <item>电击怪</item>
+        <item>鸭嘴宝宝</item>
         <item>大奶罐</item>
         <item>幸福蛋</item>
         <item>雷公</item>
@@ -249,267 +249,267 @@
         <item>幼基拉斯</item>
         <item>沙基拉斯</item>
         <item>班基拉斯</item>
-        <item>洛奇亞</item>
-        <item>鳳王</item>
-        <item>時拉比</item>
-        <item>木守宮</item>
+        <item>洛奇亚</item>
+        <item>凤王</item>
+        <item>时拉比</item>
+        <item>木守宫</item>
         <item>森林蜥蜴</item>
         <item>蜥蜴王</item>
-        <item>火稚雞</item>
-        <item>力壯雞</item>
-        <item>火焰雞</item>
-        <item>水躍魚</item>
-        <item>沼躍魚</item>
+        <item>火稚鸡</item>
+        <item>力壮鸡</item>
+        <item>火焰鸡</item>
+        <item>水跃鱼</item>
+        <item>沼跃鱼</item>
         <item>巨沼怪</item>
         <item>土狼犬</item>
         <item>大狼犬</item>
-        <item>蛇紋熊</item>
-        <item>直衝熊</item>
-        <item>刺尾蟲</item>
-        <item>甲殼繭</item>
-        <item>狩獵鳳蝶</item>
-        <item>盾甲繭</item>
+        <item>蛇纹熊</item>
+        <item>直冲熊</item>
+        <item>刺尾虫</item>
+        <item>甲壳茧</item>
+        <item>狩猎凤蝶</item>
+        <item>盾甲茧</item>
         <item>毒粉蛾</item>
-        <item>蓮葉童子</item>
-        <item>蓮帽小童</item>
-        <item>樂天河童</item>
-        <item>橡實果</item>
-        <item>長鼻葉</item>
+        <item>莲叶童子</item>
+        <item>莲帽小童</item>
+        <item>乐天河童</item>
+        <item>橡实果</item>
+        <item>长鼻叶</item>
         <item>狡猾天狗</item>
         <item>傲骨燕</item>
         <item>大王燕</item>
-        <item>長翅鷗</item>
-        <item>大嘴鷗</item>
-        <item>拉魯拉絲</item>
-        <item>奇魯莉安</item>
+        <item>长翅鸥</item>
+        <item>大嘴鸥</item>
+        <item>拉鲁拉丝</item>
+        <item>奇鲁莉安</item>
         <item>沙奈朵</item>
         <item>溜溜糖球</item>
         <item>雨翅蛾</item>
         <item>蘑蘑菇</item>
         <item>斗笠菇</item>
-        <item>懶人獺</item>
-        <item>過動猿</item>
-        <item>請假王</item>
+        <item>懒人獭</item>
+        <item>过动猿</item>
+        <item>请假王</item>
         <item>土居忍士</item>
-        <item>鐵面忍者</item>
-        <item>脫殼忍者</item>
+        <item>铁面忍者</item>
+        <item>脱壳忍者</item>
         <item>咕妞妞</item>
-        <item>吼爆彈</item>
+        <item>吼爆弹</item>
         <item>爆音怪</item>
         <item>幕下力士</item>
-        <item>鐵掌力士</item>
-        <item>露力麗</item>
+        <item>铁掌力士</item>
+        <item>露力丽</item>
         <item>朝北鼻</item>
         <item>向尾喵</item>
-        <item>優雅貓</item>
+        <item>优雅猫</item>
         <item>勾魂眼</item>
         <item>大嘴娃</item>
         <item>可可多拉</item>
         <item>可多拉</item>
         <item>波士可多拉</item>
-        <item>瑪沙那</item>
+        <item>玛沙那</item>
         <item>恰雷姆</item>
-        <item>落雷獸</item>
-        <item>雷電獸</item>
-        <item>正電拍拍</item>
-        <item>負電拍拍</item>
-        <item>電螢蟲</item>
-        <item>甜甜螢</item>
-        <item>毒薔薇</item>
-        <item>溶食獸</item>
-        <item>吞食獸</item>
-        <item>利牙魚</item>
-        <item>巨牙鯊</item>
-        <item>吼吼鯨</item>
-        <item>吼鯨王</item>
-        <item>呆火駝</item>
-        <item>噴火駝</item>
-        <item>煤炭龜</item>
-        <item>跳跳豬</item>
-        <item>噗噗豬</item>
+        <item>落雷兽</item>
+        <item>雷电兽</item>
+        <item>正电拍拍</item>
+        <item>负电拍拍</item>
+        <item>电萤虫</item>
+        <item>甜甜萤</item>
+        <item>毒蔷薇</item>
+        <item>溶食兽</item>
+        <item>吞食兽</item>
+        <item>利牙鱼</item>
+        <item>巨牙鲨</item>
+        <item>吼吼鲸</item>
+        <item>吼鲸王</item>
+        <item>呆火驼</item>
+        <item>喷火驼</item>
+        <item>煤炭龟</item>
+        <item>跳跳猪</item>
+        <item>噗噗猪</item>
         <item>晃晃斑</item>
-        <item>大顎蟻</item>
-        <item>超音波幼蟲</item>
+        <item>大颚蚁</item>
+        <item>超音波幼虫</item>
         <item>沙漠蜻蜓</item>
         <item>刺球仙人掌</item>
-        <item>夢歌仙人掌</item>
-        <item>青綿鳥</item>
-        <item>七夕青鳥</item>
-        <item>貓鼬斬</item>
-        <item>飯匙蛇</item>
+        <item>梦歌仙人掌</item>
+        <item>青绵鸟</item>
+        <item>七夕青鸟</item>
+        <item>猫鼬斩</item>
+        <item>饭匙蛇</item>
         <item>月石</item>
-        <item>太陽岩</item>
-        <item>泥泥鰍</item>
-        <item>鯰魚王</item>
-        <item>龍蝦小兵</item>
-        <item>鐵螯龍蝦</item>
+        <item>太阳岩</item>
+        <item>泥泥鳅</item>
+        <item>鲶鱼王</item>
+        <item>龙虾小兵</item>
+        <item>铁螯龙虾</item>
         <item>天秤偶</item>
         <item>念力土偶</item>
-        <item>觸手百合</item>
-        <item>搖籃百合</item>
-        <item>太古羽蟲</item>
+        <item>触手百合</item>
+        <item>摇篮百合</item>
+        <item>太古羽虫</item>
         <item>太古盔甲</item>
-        <item>醜醜魚</item>
-        <item>美納斯</item>
-        <item>飄浮泡泡</item>
-        <item>變隱龍</item>
+        <item>丑丑鱼</item>
+        <item>美纳斯</item>
+        <item>飘浮泡泡</item>
+        <item>变隐龙</item>
         <item>怨影娃娃</item>
-        <item>詛咒娃娃</item>
-        <item>夜巡靈</item>
-        <item>彷徨夜靈</item>
-        <item>熱帶龍</item>
-        <item>風鈴鈴</item>
-        <item>阿勃梭魯</item>
+        <item>诅咒娃娃</item>
+        <item>夜巡灵</item>
+        <item>彷徨夜灵</item>
+        <item>热带龙</item>
+        <item>风铃铃</item>
+        <item>阿勃梭鲁</item>
         <item>小果然</item>
         <item>雪童子</item>
-        <item>冰鬼護</item>
+        <item>冰鬼护</item>
         <item>海豹球</item>
-        <item>海魔獅</item>
-        <item>帝牙海獅</item>
-        <item>珍珠貝</item>
-        <item>獵斑魚</item>
-        <item>櫻花魚</item>
-        <item>古空棘魚</item>
-        <item>愛心魚</item>
-        <item>寶貝龍</item>
-        <item>甲殼龍</item>
-        <item>暴飛龍</item>
-        <item>鐵啞鈴</item>
-        <item>金屬怪</item>
+        <item>海魔狮</item>
+        <item>帝牙海狮</item>
+        <item>珍珠贝</item>
+        <item>猎斑鱼</item>
+        <item>樱花鱼</item>
+        <item>古空棘鱼</item>
+        <item>爱心鱼</item>
+        <item>宝贝龙</item>
+        <item>甲壳龙</item>
+        <item>暴飞龙</item>
+        <item>铁哑铃</item>
+        <item>金属怪</item>
         <item>巨金怪</item>
         <item>雷吉洛克</item>
         <item>雷吉艾斯</item>
-        <item>雷吉斯奇魯</item>
-        <item>拉帝亞斯</item>
-        <item>拉帝歐斯</item>
-        <item>蓋歐卡</item>
+        <item>雷吉斯奇鲁</item>
+        <item>拉帝亚斯</item>
+        <item>拉帝欧斯</item>
+        <item>盖欧卡</item>
         <item>固拉多</item>
         <item>烈空坐</item>
         <item>基拉祈</item>
-        <item>代歐奇希斯</item>
-        <item>草苗龜</item>
-        <item>樹林龜</item>
-        <item>土台龜</item>
+        <item>代欧奇希斯</item>
+        <item>草苗龟</item>
+        <item>树林龟</item>
+        <item>土台龟</item>
         <item>小火焰猴</item>
         <item>猛火猴</item>
         <item>烈焰猴</item>
         <item>波加曼</item>
         <item>波皇子</item>
         <item>帝王拿波</item>
-        <item>姆克兒</item>
-        <item>姆克鳥</item>
-        <item>姆克鷹</item>
+        <item>姆克儿</item>
+        <item>姆克鸟</item>
+        <item>姆克鹰</item>
         <item>大牙狸</item>
         <item>大尾狸</item>
-        <item>圓法師</item>
+        <item>圆法师</item>
         <item>音箱蟀</item>
-        <item>小貓怪</item>
-        <item>勒克貓</item>
-        <item>倫琴貓</item>
+        <item>小猫怪</item>
+        <item>勒克猫</item>
+        <item>伦琴猫</item>
         <item>含羞苞</item>
-        <item>羅絲雷朵</item>
-        <item>頭蓋龍</item>
-        <item>戰槌龍</item>
-        <item>盾甲龍</item>
-        <item>護城龍</item>
-        <item>結草兒</item>
-        <item>結草貴婦</item>
-        <item>紳士蛾</item>
+        <item>罗丝雷朵</item>
+        <item>头盖龙</item>
+        <item>战槌龙</item>
+        <item>盾甲龙</item>
+        <item>护城龙</item>
+        <item>结草儿</item>
+        <item>结草贵妇</item>
+        <item>绅士蛾</item>
         <item>三蜜蜂</item>
         <item>蜂女王</item>
-        <item>帕奇利茲</item>
+        <item>帕奇利兹</item>
         <item>泳圈鼬</item>
-        <item>浮潛鼬</item>
-        <item>櫻花寶</item>
-        <item>櫻花兒</item>
-        <item>無殼海兔</item>
-        <item>海兔獸</item>
-        <item>雙尾怪手</item>
-        <item>飄飄球</item>
-        <item>隨風球</item>
-        <item>捲捲耳</item>
-        <item>長耳兔</item>
-        <item>夢妖魔</item>
-        <item>烏鴉頭頭</item>
+        <item>浮潜鼬</item>
+        <item>樱花宝</item>
+        <item>樱花儿</item>
+        <item>无壳海兔</item>
+        <item>海兔兽</item>
+        <item>双尾怪手</item>
+        <item>飘飘球</item>
+        <item>随风球</item>
+        <item>卷卷耳</item>
+        <item>长耳兔</item>
+        <item>梦妖魔</item>
+        <item>乌鸦头头</item>
         <item>魅力喵</item>
-        <item>東施喵</item>
-        <item>鈴鐺響</item>
+        <item>东施喵</item>
+        <item>铃铛响</item>
         <item>臭鼬噗</item>
         <item>坦克臭鼬</item>
-        <item>銅鏡怪</item>
-        <item>青銅鐘</item>
+        <item>铜镜怪</item>
+        <item>青铜钟</item>
         <item>盆才怪</item>
         <item>魔尼尼</item>
         <item>小福蛋</item>
-        <item>聒噪鳥</item>
+        <item>聒噪鸟</item>
         <item>花岩怪</item>
-        <item>圓陸鯊</item>
-        <item>尖牙陸鯊</item>
-        <item>烈咬陸鯊</item>
-        <item>小卡比獸</item>
-        <item>利歐路</item>
-        <item>路卡利歐</item>
-        <item>沙河馬</item>
-        <item>河馬獸</item>
-        <item>鉗尾蠍</item>
-        <item>龍王蠍</item>
+        <item>圆陆鲨</item>
+        <item>尖牙陆鲨</item>
+        <item>烈咬陆鲨</item>
+        <item>小卡比兽</item>
+        <item>利欧路</item>
+        <item>路卡利欧</item>
+        <item>沙河马</item>
+        <item>河马兽</item>
+        <item>钳尾蝎</item>
+        <item>龙王蝎</item>
         <item>不良蛙</item>
         <item>毒骷蛙</item>
-        <item>尖牙籠</item>
-        <item>螢光魚</item>
-        <item>霓虹魚</item>
-        <item>小球飛魚</item>
+        <item>尖牙笼</item>
+        <item>荧光鱼</item>
+        <item>霓虹鱼</item>
+        <item>小球飞鱼</item>
         <item>雪笠怪</item>
         <item>暴雪王</item>
-        <item>瑪狃拉</item>
+        <item>玛狃拉</item>
         <item>自爆磁怪</item>
         <item>大舌舔</item>
         <item>超甲狂犀</item>
         <item>巨蔓藤</item>
-        <item>電擊魔獸</item>
-        <item>鴨嘴炎獸</item>
+        <item>电击魔兽</item>
+        <item>鸭嘴炎兽</item>
         <item>波克基斯</item>
-        <item>遠古巨蜓</item>
-        <item>葉伊布</item>
+        <item>远古巨蜓</item>
+        <item>叶伊布</item>
         <item>冰伊布</item>
-        <item>天蠍王</item>
-        <item>象牙豬</item>
-        <item>多邊獸Ｚ</item>
+        <item>天蝎王</item>
+        <item>象牙猪</item>
+        <item>多边兽Ｚ</item>
         <item>艾路雷朵</item>
         <item>大朝北鼻</item>
-        <item>黑夜魔靈</item>
+        <item>黑夜魔灵</item>
         <item>雪妖女</item>
         <item>洛托姆</item>
         <item>由克希</item>
         <item>艾姆利多</item>
-        <item>亞克諾姆</item>
-        <item>帝牙盧卡</item>
-        <item>帕路奇亞</item>
-        <item>席多藍恩</item>
+        <item>亚克诺姆</item>
+        <item>帝牙卢卡</item>
+        <item>帕路奇亚</item>
+        <item>席多蓝恩</item>
         <item>雷吉奇卡斯</item>
-        <item>騎拉帝納</item>
-        <item>克雷色利亞</item>
-        <item>霏歐納</item>
-        <item>瑪納霏</item>
-        <item>達克萊伊</item>
-        <item>謝米</item>
-        <item>阿爾宙斯</item>
+        <item>骑拉帝纳</item>
+        <item>克雷色利亚</item>
+        <item>霏欧纳</item>
+        <item>玛纳霏</item>
+        <item>达克莱伊</item>
+        <item>谢米</item>
+        <item>阿尔宙斯</item>
         <item>比克提尼</item>
         <item>藤藤蛇</item>
         <item>青藤蛇</item>
         <item>君主蛇</item>
-        <item>暖暖豬</item>
-        <item>炒炒豬</item>
+        <item>暖暖猪</item>
+        <item>炒炒猪</item>
         <item>炎武王</item>
-        <item>水水獺</item>
-        <item>雙刃丸</item>
-        <item>大劍鬼</item>
+        <item>水水獭</item>
+        <item>双刃丸</item>
+        <item>大剑鬼</item>
         <item>探探鼠</item>
         <item>步哨鼠</item>
-        <item>小約克</item>
-        <item>哈約克</item>
-        <item>長毛狗</item>
-        <item>扒手貓</item>
+        <item>小约克</item>
+        <item>哈约克</item>
+        <item>长毛狗</item>
+        <item>扒手猫</item>
         <item>酷豹</item>
         <item>花椰猴</item>
         <item>花椰猿</item>
@@ -517,166 +517,166 @@
         <item>爆香猿</item>
         <item>冷水猴</item>
         <item>冷水猿</item>
-        <item>食夢夢</item>
-        <item>夢夢蝕</item>
-        <item>豆豆鴿</item>
-        <item>咕咕鴿</item>
-        <item>高傲雉雞</item>
-        <item>斑斑馬</item>
-        <item>雷電斑馬</item>
+        <item>食梦梦</item>
+        <item>梦梦蚀</item>
+        <item>豆豆鸽</item>
+        <item>咕咕鸽</item>
+        <item>高傲雉鸡</item>
+        <item>斑斑马</item>
+        <item>雷电斑马</item>
         <item>石丸子</item>
         <item>地幔岩</item>
-        <item>龐岩怪</item>
-        <item>滾滾蝙蝠</item>
+        <item>庞岩怪</item>
+        <item>滚滚蝙蝠</item>
         <item>心蝙蝠</item>
-        <item>螺釘地鼠</item>
-        <item>龍頭地鼠</item>
+        <item>螺钉地鼠</item>
+        <item>龙头地鼠</item>
         <item>差不多娃娃</item>
-        <item>搬運小匠</item>
-        <item>鐵骨土人</item>
+        <item>搬运小匠</item>
+        <item>铁骨土人</item>
         <item>修建老匠</item>
-        <item>圓蝌蚪</item>
-        <item>藍蟾蜍</item>
+        <item>圆蝌蚪</item>
+        <item>蓝蟾蜍</item>
         <item>蟾蜍王</item>
         <item>投摔鬼</item>
-        <item>打擊鬼</item>
-        <item>蟲寶包</item>
-        <item>寶包繭</item>
-        <item>保母蟲</item>
+        <item>打击鬼</item>
+        <item>虫宝包</item>
+        <item>宝包茧</item>
+        <item>保姆虫</item>
         <item>百足蜈蚣</item>
-        <item>車輪毬</item>
+        <item>车轮球</item>
         <item>蜈蚣王</item>
         <item>木棉球</item>
-        <item>風妖精</item>
+        <item>风妖精</item>
         <item>百合根娃娃</item>
-        <item>裙兒小姐</item>
-        <item>野蠻鱸魚</item>
-        <item>黑眼鱷</item>
-        <item>混混鱷</item>
-        <item>流氓鱷</item>
-        <item>火紅不倒翁</item>
-        <item>達摩狒狒</item>
-        <item>沙鈴仙人掌</item>
+        <item>裙儿小姐</item>
+        <item>野蛮鲈鱼</item>
+        <item>黑眼鳄</item>
+        <item>混混鳄</item>
+        <item>流氓鳄</item>
+        <item>火红不倒翁</item>
+        <item>达摩狒狒</item>
+        <item>沙铃仙人掌</item>
         <item>石居蟹</item>
         <item>岩殿居蟹</item>
         <item>滑滑小子</item>
-        <item>頭巾混混</item>
-        <item>象徵鳥</item>
+        <item>头巾混混</item>
+        <item>象征鸟</item>
         <item>哭哭面具</item>
         <item>死神棺</item>
-        <item>原蓋海龜</item>
-        <item>肋骨海龜</item>
-        <item>始祖小鳥</item>
-        <item>始祖大鳥</item>
+        <item>原盖海龟</item>
+        <item>肋骨海龟</item>
+        <item>始祖小鸟</item>
+        <item>始祖大鸟</item>
         <item>破破袋</item>
-        <item>灰塵山</item>
-        <item>索羅亞</item>
-        <item>索羅亞克</item>
+        <item>灰尘山</item>
+        <item>索罗亚</item>
+        <item>索罗亚克</item>
         <item>泡沫栗鼠</item>
-        <item>奇諾栗鼠</item>
-        <item>哥德寶寶</item>
+        <item>奇诺栗鼠</item>
+        <item>哥德宝宝</item>
         <item>哥德小童</item>
         <item>哥德小姐</item>
-        <item>單卵細胞球</item>
-        <item>雙卵細胞球</item>
-        <item>人造細胞卵</item>
-        <item>鴨寶寶</item>
-        <item>舞天鵝</item>
+        <item>单卵细胞球</item>
+        <item>双卵细胞球</item>
+        <item>人造细胞卵</item>
+        <item>鸭宝宝</item>
+        <item>舞天鹅</item>
         <item>迷你冰</item>
         <item>多多冰</item>
-        <item>雙倍多多冰</item>
+        <item>双倍多多冰</item>
         <item>四季鹿</item>
         <item>萌芽鹿</item>
-        <item>電飛鼠</item>
-        <item>蓋蓋蟲</item>
-        <item>騎士蝸牛</item>
+        <item>电飞鼠</item>
+        <item>盖盖虫</item>
+        <item>骑士蜗牛</item>
         <item>哎呀球菇</item>
-        <item>敗露球菇</item>
-        <item>輕飄飄</item>
+        <item>败露球菇</item>
+        <item>轻飘飘</item>
         <item>胖嘟嘟</item>
-        <item>保母曼波</item>
-        <item>電電蟲</item>
-        <item>電蜘蛛</item>
-        <item>種子鐵球</item>
-        <item>堅果啞鈴</item>
-        <item>齒輪兒</item>
-        <item>齒輪組</item>
-        <item>齒輪怪</item>
-        <item>麻麻小魚</item>
-        <item>麻麻鰻</item>
-        <item>麻麻鰻魚王</item>
+        <item>保姆曼波</item>
+        <item>电电虫</item>
+        <item>电蜘蛛</item>
+        <item>种子铁球</item>
+        <item>坚果哑铃</item>
+        <item>齿轮儿</item>
+        <item>齿轮组</item>
+        <item>齿轮怪</item>
+        <item>麻麻小鱼</item>
+        <item>麻麻鳗</item>
+        <item>麻麻鳗鱼王</item>
         <item>小灰怪</item>
         <item>大宇怪</item>
-        <item>燭光靈</item>
-        <item>燈火幽靈</item>
-        <item>水晶燈火靈</item>
+        <item>烛光灵</item>
+        <item>灯火幽灵</item>
+        <item>水晶灯火灵</item>
         <item>牙牙</item>
-        <item>斧牙龍</item>
-        <item>雙斧戰龍</item>
-        <item>噴嚏熊</item>
-        <item>凍原熊</item>
-        <item>幾何雪花</item>
-        <item>小嘴蝸</item>
-        <item>敏捷蟲</item>
-        <item>泥巴魚</item>
+        <item>斧牙龙</item>
+        <item>双斧战龙</item>
+        <item>喷嚏熊</item>
+        <item>冻原熊</item>
+        <item>几何雪花</item>
+        <item>小嘴蜗</item>
+        <item>敏捷虫</item>
+        <item>泥巴鱼</item>
         <item>功夫鼬</item>
-        <item>師父鼬</item>
-        <item>赤面龍</item>
+        <item>师父鼬</item>
+        <item>赤面龙</item>
         <item>泥偶小人</item>
         <item>泥偶巨人</item>
-        <item>駒刀小兵</item>
-        <item>劈斬司令</item>
-        <item>爆炸頭水牛</item>
-        <item>毛頭小鷹</item>
-        <item>勇士雄鷹</item>
-        <item>禿鷹丫頭</item>
-        <item>禿鷹娜</item>
-        <item>熔蟻獸</item>
-        <item>鐵蟻</item>
-        <item>單首龍</item>
-        <item>雙首暴龍</item>
-        <item>三首惡龍</item>
-        <item>燃燒蟲</item>
+        <item>驹刀小兵</item>
+        <item>劈斩司令</item>
+        <item>爆炸头水牛</item>
+        <item>毛头小鹰</item>
+        <item>勇士雄鹰</item>
+        <item>秃鹰丫头</item>
+        <item>秃鹰娜</item>
+        <item>熔蚁兽</item>
+        <item>铁蚁</item>
+        <item>单首龙</item>
+        <item>双首暴龙</item>
+        <item>三首恶龙</item>
+        <item>燃烧虫</item>
         <item>火神蛾</item>
         <item>勾帕路翁</item>
         <item>代拉基翁</item>
-        <item>畢力吉翁</item>
-        <item>龍捲雲</item>
-        <item>雷電雲</item>
-        <item>萊希拉姆</item>
-        <item>捷克羅姆</item>
-        <item>土地雲</item>
+        <item>毕力吉翁</item>
+        <item>龙卷云</item>
+        <item>雷电云</item>
+        <item>莱希拉姆</item>
+        <item>捷克罗姆</item>
+        <item>土地云</item>
         <item>酋雷姆</item>
-        <item>凱路迪歐</item>
+        <item>凯路迪欧</item>
         <item>美洛耶塔</item>
-        <item>蓋諾賽克特</item>
+        <item>盖诺赛克特</item>
         <item>哈力栗</item>
         <item>胖胖哈力</item>
         <item>布里卡隆</item>
         <item>火狐狸</item>
-        <item>長尾火狐</item>
-        <item>妖火紅狐</item>
+        <item>长尾火狐</item>
+        <item>妖火红狐</item>
         <item>呱呱泡蛙</item>
-        <item>呱頭蛙</item>
-        <item>甲賀忍蛙</item>
+        <item>呱头蛙</item>
+        <item>甲贺忍蛙</item>
         <item>掘掘兔</item>
         <item>掘地兔</item>
         <item>小箭雀</item>
         <item>火箭雀</item>
-        <item>烈箭鷹</item>
-        <item>粉蝶蟲</item>
+        <item>烈箭鹰</item>
+        <item>粉蝶虫</item>
         <item>粉蝶蛹</item>
         <item>彩粉蝶</item>
-        <item>小獅獅</item>
-        <item>火炎獅</item>
+        <item>小狮狮</item>
+        <item>火炎狮</item>
         <item>花蓓蓓</item>
-        <item>花葉蒂</item>
-        <item>花潔夫人</item>
-        <item>坐騎小羊</item>
-        <item>坐騎山羊</item>
-        <item>頑皮熊貓</item>
-        <item>流氓熊貓</item>
-        <item>多麗米亞</item>
+        <item>花叶蒂</item>
+        <item>花洁夫人</item>
+        <item>坐骑小羊</item>
+        <item>坐骑山羊</item>
+        <item>顽皮熊猫</item>
+        <item>流氓熊猫</item>
+        <item>多丽米亚</item>
         <item>妙喵</item>
         <item>超能妙喵</item>
         <item>Placeholder</item>
@@ -684,287 +684,287 @@
         <item>Placeholder</item>
         <item>粉香香</item>
         <item>芳香精</item>
-        <item>綿綿泡芙</item>
+        <item>绵绵泡芙</item>
         <item>胖甜妮</item>
-        <item>好啦魷</item>
-        <item>烏賊王</item>
-        <item>龜腳腳</item>
-        <item>龜足巨鎧</item>
+        <item>好啦鱿</item>
+        <item>乌贼王</item>
+        <item>龟脚脚</item>
+        <item>龟足巨铠</item>
         <item>垃垃藻</item>
-        <item>毒藻龍</item>
-        <item>鐵臂槍蝦</item>
-        <item>鋼炮臂蝦</item>
-        <item>傘電蜥</item>
-        <item>光電傘蜥</item>
-        <item>寶寶暴龍</item>
-        <item>怪顎龍</item>
-        <item>冰雪龍</item>
-        <item>冰雪巨龍</item>
+        <item>毒藻龙</item>
+        <item>铁臂枪虾</item>
+        <item>钢炮臂虾</item>
+        <item>伞电蜥</item>
+        <item>光电伞蜥</item>
+        <item>宝宝暴龙</item>
+        <item>怪颚龙</item>
+        <item>冰雪龙</item>
+        <item>冰雪巨龙</item>
         <item>仙子伊布</item>
-        <item>摔角鷹人</item>
+        <item>摔角鹰人</item>
         <item>咚咚鼠</item>
-        <item>小碎鑽</item>
-        <item>黏黏寶</item>
-        <item>黏美兒</item>
-        <item>黏美龍</item>
-        <item>鑰圈兒</item>
-        <item>小木靈</item>
+        <item>小碎钻</item>
+        <item>黏黏宝</item>
+        <item>黏美儿</item>
+        <item>黏美龙</item>
+        <item>钥圈儿</item>
+        <item>小木灵</item>
         <item>朽木妖</item>
         <item>南瓜精</item>
         <item>南瓜怪人</item>
-        <item>冰寶</item>
+        <item>冰宝</item>
         <item>冰岩怪</item>
         <item>嗡蝠</item>
-        <item>音波龍</item>
-        <item>哲爾尼亞斯</item>
-        <item>伊裴爾塔爾</item>
-        <item>基格爾德</item>
+        <item>音波龙</item>
+        <item>哲尔尼亚斯</item>
+        <item>伊裴尔塔尔</item>
+        <item>基格尔德</item>
         <item>蒂安希</item>
         <item>胡帕</item>
-        <item>波爾凱尼恩</item>
-        <item>木木梟</item>
-        <item>投羽梟</item>
-        <item>狙射樹梟</item>
+        <item>波尔凯尼恩</item>
+        <item>木木枭</item>
+        <item>投羽枭</item>
+        <item>狙射树枭</item>
         <item>火斑喵</item>
-        <item>炎熱喵</item>
-        <item>熾焰咆哮虎</item>
-        <item>球球海獅</item>
-        <item>花漾海獅</item>
-        <item>西獅海壬</item>
-        <item>小篤兒</item>
-        <item>喇叭啄鳥</item>
-        <item>銃嘴大鳥</item>
-        <item>貓鼬少</item>
-        <item>貓鼬探長</item>
-        <item>強顎雞母蟲</item>
-        <item>蟲電寶</item>
-        <item>鍬農炮蟲</item>
-        <item>好勝蟹</item>
-        <item>好勝毛蟹</item>
-        <item>花舞鳥</item>
+        <item>炎热喵</item>
+        <item>炽焰咆哮虎</item>
+        <item>球球海狮</item>
+        <item>花漾海狮</item>
+        <item>西狮海壬</item>
+        <item>小笃儿</item>
+        <item>喇叭啄鸟</item>
+        <item>铳嘴大鸟</item>
+        <item>猫鼬少</item>
+        <item>猫鼬探长</item>
+        <item>强颚鸡母虫</item>
+        <item>虫电宝</item>
+        <item>锹农炮虫</item>
+        <item>好胜蟹</item>
+        <item>好胜毛蟹</item>
+        <item>花舞鸟</item>
         <item>萌虻</item>
-        <item>蝶結萌虻</item>
+        <item>蝶结萌虻</item>
         <item>岩狗狗</item>
         <item>鬃岩狼人</item>
-        <item>弱丁魚</item>
-        <item>好壞星</item>
-        <item>超壞星</item>
-        <item>泥驢仔</item>
-        <item>重泥挽馬</item>
+        <item>弱丁鱼</item>
+        <item>好坏星</item>
+        <item>超坏星</item>
+        <item>泥驴仔</item>
+        <item>重泥挽马</item>
         <item>滴蛛</item>
         <item>滴蛛霸</item>
-        <item>偽螳草</item>
-        <item>蘭螳花</item>
+        <item>伪螳草</item>
+        <item>兰螳花</item>
         <item>睡睡菇</item>
-        <item>燈罩夜菇</item>
-        <item>夜盜火蜥</item>
+        <item>灯罩夜菇</item>
+        <item>夜盗火蜥</item>
         <item>焰后蜥</item>
         <item>童偶熊</item>
-        <item>穿著熊</item>
+        <item>穿着熊</item>
         <item>甜竹竹</item>
         <item>甜舞妮</item>
         <item>甜冷美后</item>
-        <item>花療環環</item>
-        <item>智揮猩</item>
-        <item>投擲猴</item>
-        <item>膽小蟲</item>
+        <item>花疗环环</item>
+        <item>智挥猩</item>
+        <item>投掷猴</item>
+        <item>胆小虫</item>
         <item>具甲武者</item>
         <item>沙丘娃</item>
-        <item>噬沙堡爺</item>
+        <item>噬沙堡爷</item>
         <item>拳海參</item>
-        <item>屬性：空</item>
-        <item>銀伴戰獸</item>
-        <item>小隕星</item>
-        <item>樹枕尾熊</item>
-        <item>爆焰龜獸</item>
-        <item>托戈德瑪爾</item>
-        <item>謎擬Ｑ</item>
-        <item>磨牙彩皮魚</item>
-        <item>老翁龍</item>
-        <item>破破舵輪</item>
-        <item>心鱗寶</item>
-        <item>鱗甲龍</item>
-        <item>杖尾鱗甲龍</item>
-        <item>卡璞・鳴鳴</item>
+        <item>属性：空</item>
+        <item>银伴战兽</item>
+        <item>小陨星</item>
+        <item>树枕尾熊</item>
+        <item>爆焰龟兽</item>
+        <item>托戈德玛尔</item>
+        <item>谜拟Ｑ</item>
+        <item>磨牙彩皮鱼</item>
+        <item>老翁龙</item>
+        <item>破破舵轮</item>
+        <item>心鳞宝</item>
+        <item>鳞甲龙</item>
+        <item>杖尾鳞甲龙</item>
+        <item>卡璞・鸣鸣</item>
         <item>卡璞・蝶蝶</item>
         <item>卡璞・哞哞</item>
-        <item>卡璞・鰭鰭</item>
+        <item>卡璞・鳍鳍</item>
         <item>科斯莫古</item>
         <item>科斯莫姆</item>
-        <item>索爾迦雷歐</item>
+        <item>索尔迦雷欧</item>
         <item>露奈雅拉</item>
-        <item>虛吾伊德</item>
+        <item>虚吾伊德</item>
         <item>爆肌蚊</item>
-        <item>費洛美螂</item>
-        <item>電束木</item>
-        <item>鐵火輝夜</item>
-        <item>紙禦劍</item>
-        <item>惡食大王</item>
-        <item>奈克洛茲瑪</item>
-        <item>瑪機雅娜</item>
-        <item>瑪夏多</item>
-        <item>毒貝比</item>
-        <item>四顎針龍</item>
-        <item>壘磊石</item>
-        <item>砰頭小丑</item>
-        <item>捷拉奧拉</item>
-        <item>美錄坦</item>
-        <item>美錄梅塔</item>
+        <item>费洛美螂</item>
+        <item>电束木</item>
+        <item>铁火辉夜</item>
+        <item>纸御剑</item>
+        <item>恶食大王</item>
+        <item>奈克洛兹玛</item>
+        <item>玛机雅娜</item>
+        <item>玛夏多</item>
+        <item>毒贝比</item>
+        <item>四颚针龙</item>
+        <item>垒磊石</item>
+        <item>砰头小丑</item>
+        <item>捷拉奥拉</item>
+        <item>美录坦</item>
+        <item>美录梅塔</item>
         <item>敲音猴</item>
         <item>啪咚猴</item>
-        <item>轟擂金剛猩</item>
-        <item>炎兔兒</item>
-        <item>騰蹴小將</item>
-        <item>閃焰王牌</item>
-        <item>淚眼蜥</item>
-        <item>變澀蜥</item>
+        <item>轰擂金刚猩</item>
+        <item>炎兔儿</item>
+        <item>腾蹴小将</item>
+        <item>闪焰王牌</item>
+        <item>泪眼蜥</item>
+        <item>变涩蜥</item>
         <item>千面避役</item>
-        <item>貪心栗鼠</item>
-        <item>藏飽栗鼠</item>
+        <item>贪心栗鼠</item>
+        <item>藏饱栗鼠</item>
         <item>稚山雀</item>
-        <item>藍鴉</item>
-        <item>鋼鎧鴉</item>
-        <item>索偵蟲</item>
-        <item>天罩蟲</item>
-        <item>以歐路普</item>
-        <item>偷兒狐</item>
-        <item>狐大盜</item>
+        <item>蓝鸦</item>
+        <item>钢铠鸦</item>
+        <item>索侦虫</item>
+        <item>天罩虫</item>
+        <item>以欧路普</item>
+        <item>偷儿狐</item>
+        <item>狐大盗</item>
         <item>幼棉棉</item>
         <item>白蓬蓬</item>
-        <item>毛辮羊</item>
+        <item>毛辫羊</item>
         <item>毛毛角羊</item>
-        <item>咬咬龜</item>
-        <item>暴噬龜</item>
-        <item>來電汪</item>
-        <item>逐電犬</item>
+        <item>咬咬龟</item>
+        <item>暴噬龟</item>
+        <item>来电汪</item>
+        <item>逐电犬</item>
         <item>小炭仔</item>
-        <item>大炭車</item>
+        <item>大炭车</item>
         <item>巨炭山</item>
-        <item>啃果蟲</item>
-        <item>蘋裹龍</item>
-        <item>豐蜜龍</item>
+        <item>啃果虫</item>
+        <item>苹裹龙</item>
+        <item>丰蜜龙</item>
         <item>沙包蛇</item>
         <item>沙螺蟒</item>
-        <item>古月鳥</item>
-        <item>刺梭魚</item>
+        <item>古月鸟</item>
+        <item>刺梭鱼</item>
         <item>戽斗尖梭</item>
-        <item>毒電嬰</item>
-        <item>顫弦蠑螈</item>
-        <item>燒火蚣</item>
+        <item>毒电婴</item>
+        <item>颤弦蝾螈</item>
+        <item>烧火蚣</item>
         <item>焚焰蚣</item>
         <item>拳拳蛸</item>
-        <item>八爪武師</item>
-        <item>來悲茶</item>
-        <item>怖思壺</item>
+        <item>八爪武师</item>
+        <item>来悲茶</item>
+        <item>怖思壶</item>
         <item>迷布莉姆</item>
         <item>提布莉姆</item>
-        <item>布莉姆溫</item>
-        <item>搗蛋小妖</item>
-        <item>詐唬魔</item>
-        <item>長毛巨魔</item>
-        <item>堵攔熊</item>
-        <item>喵頭目</item>
-        <item>魔靈珊瑚</item>
-        <item>蔥遊兵</item>
+        <item>布莉姆温</item>
+        <item>捣蛋小妖</item>
+        <item>诈唬魔</item>
+        <item>长毛巨魔</item>
+        <item>堵拦熊</item>
+        <item>喵头目</item>
+        <item>魔灵珊瑚</item>
+        <item>葱游兵</item>
         <item>踏冰人偶</item>
         <item>死神板</item>
         <item>小仙奶</item>
         <item>霜奶仙</item>
-        <item>列陣兵</item>
-        <item>啪嚓海膽</item>
-        <item>雪吞蟲</item>
-        <item>雪絨蛾</item>
+        <item>列阵兵</item>
+        <item>啪嚓海胆</item>
+        <item>雪吞虫</item>
+        <item>雪绒蛾</item>
         <item>巨石丁</item>
-        <item>冰砌鵝</item>
-        <item>愛管侍</item>
-        <item>莫魯貝可</item>
-        <item>銅象</item>
-        <item>大王銅象</item>
-        <item>雷鳥龍</item>
-        <item>雷鳥海獸</item>
-        <item>鰓魚龍</item>
-        <item>鰓魚海獸</item>
-        <item>鋁鋼龍</item>
-        <item>多龍梅西亞</item>
-        <item>多龍奇</item>
-        <item>多龍巴魯托</item>
-        <item>蒼響</item>
-        <item>藏瑪然特</item>
-        <item>無極汰那</item>
+        <item>冰砌鹅</item>
+        <item>爱管侍</item>
+        <item>莫鲁贝可</item>
+        <item>铜象</item>
+        <item>大王铜象</item>
+        <item>雷鸟龙</item>
+        <item>雷鸟海兽</item>
+        <item>鳃鱼龙</item>
+        <item>鳃鱼海兽</item>
+        <item>铝钢龙</item>
+        <item>多龙梅西亚</item>
+        <item>多龙奇</item>
+        <item>多龙巴鲁托</item>
+        <item>苍响</item>
+        <item>藏玛然特</item>
+        <item>无极汰那</item>
         <item>熊徒弟</item>
-        <item>武道熊師</item>
-        <item>薩戮德</item>
+        <item>武道熊师</item>
+        <item>萨戮德</item>
         <item>雷吉艾勒奇</item>
-        <item>雷吉鐸拉戈</item>
-        <item>雪暴馬</item>
-        <item>靈幽馬</item>
+        <item>雷吉铎拉戈</item>
+        <item>雪暴马</item>
+        <item>灵幽马</item>
         <item>蕾冠王</item>
         <item>Placeholder</item>
         <item>劈斧螳螂</item>
         <item>月月熊</item>
         <item>Placeholder</item>
         <item>大狃拉</item>
-        <item>萬針魚</item>
+        <item>万针鱼</item>
         <item>Placeholder</item>
-        <item>新葉喵</item>
+        <item>新叶喵</item>
         <item>蒂蕾喵</item>
         <item>魔幻假面喵</item>
-        <item>呆火鱷</item>
-        <item>炙燙鱷</item>
-        <item>骨紋巨聲鱷</item>
-        <item>潤水鴨</item>
-        <item>湧躍鴨</item>
-        <item>狂歡浪舞鴨</item>
-        <item>愛吃豚</item>
-        <item>飄香豚</item>
-        <item>團珠蛛</item>
+        <item>呆火鳄</item>
+        <item>炙烫鳄</item>
+        <item>骨纹巨声鳄</item>
+        <item>润水鸭</item>
+        <item>涌跃鸭</item>
+        <item>狂欢浪舞鸭</item>
+        <item>爱吃豚</item>
+        <item>飘香豚</item>
+        <item>团珠蛛</item>
         <item>操陷蛛</item>
         <item>豆蟋蟀</item>
         <item>烈腿蝗</item>
-        <item>布撥</item>
-        <item>布土撥</item>
-        <item>巴布土撥</item>
-        <item>一對鼠</item>
+        <item>布拨</item>
+        <item>布土拨</item>
+        <item>巴布土拨</item>
+        <item>一对鼠</item>
         <item>一家鼠</item>
         <item>狗仔包</item>
         <item>麻花犬</item>
         <item>迷你芙</item>
-        <item>奧利紐</item>
-        <item>奧利瓦</item>
-        <item>怒鸚哥</item>
-        <item>鹽石寶</item>
-        <item>鹽石壘</item>
-        <item>鹽石巨靈</item>
+        <item>奥利纽</item>
+        <item>奥利瓦</item>
+        <item>怒鹦哥</item>
+        <item>盐石宝</item>
+        <item>盐石垒</item>
+        <item>盐石巨灵</item>
         <item>炭小侍</item>
-        <item>紅蓮鎧騎</item>
-        <item>蒼炎刃鬼</item>
+        <item>红莲铠骑</item>
+        <item>苍炎刃鬼</item>
         <item>光蚪仔</item>
-        <item>電肚蛙</item>
-        <item>電海燕</item>
-        <item>大電海燕</item>
+        <item>电肚蛙</item>
+        <item>电海燕</item>
+        <item>大电海燕</item>
         <item>偶叫獒</item>
         <item>獒教父</item>
-        <item>滋汁鼴</item>
-        <item>塗標客</item>
-        <item>納噬草</item>
-        <item>怖納噬草</item>
+        <item>滋汁鼹</item>
+        <item>涂标客</item>
+        <item>纳噬草</item>
+        <item>怖纳噬草</item>
         <item>原野水母</item>
-        <item>陸地水母</item>
+        <item>陆地水母</item>
         <item>毛崖蟹</item>
-        <item>熱辣娃</item>
+        <item>热辣娃</item>
         <item>狠辣椒</item>
-        <item>蟲滾泥</item>
-        <item>蟲甲聖</item>
-        <item>飄飄雛</item>
-        <item>超能豔鴕</item>
-        <item>小鍛匠</item>
-        <item>巧鍛匠</item>
-        <item>巨鍛匠</item>
+        <item>虫滚泥</item>
+        <item>虫甲圣</item>
+        <item>飘飘雏</item>
+        <item>超能艳鸵</item>
+        <item>小锻匠</item>
+        <item>巧锻匠</item>
+        <item>巨锻匠</item>
         <item>海地鼠</item>
         <item>三海地鼠</item>
-        <item>下石鳥</item>
+        <item>下石鸟</item>
         <item>波普海豚</item>
-        <item>海豚俠</item>
+        <item>海豚侠</item>
         <item>噗隆隆</item>
         <item>普隆隆姆</item>
         <item>摩托蜥</item>
@@ -972,42 +972,42 @@
         <item>晶光芽</item>
         <item>晶光花</item>
         <item>墓仔狗</item>
-        <item>墓揚犬</item>
-        <item>纏紅鶴</item>
-        <item>走鯨</item>
-        <item>浩大鯨</item>
-        <item>輕身鱈</item>
+        <item>墓扬犬</item>
+        <item>缠红鹤</item>
+        <item>走鲸</item>
+        <item>浩大鲸</item>
+        <item>轻身鳕</item>
         <item>吃吼霸</item>
-        <item>米立龍</item>
-        <item>棄世猴</item>
+        <item>米立龙</item>
+        <item>弃世猴</item>
         <item>土王</item>
         <item>奇麒麟</item>
-        <item>土龍節節</item>
-        <item>仆斬將軍</item>
-        <item>雄偉牙</item>
+        <item>土龙节节</item>
+        <item>仆刀将军</item>
+        <item>雄伟牙</item>
         <item>吼叫尾</item>
-        <item>猛惡菇</item>
-        <item>振翼髮</item>
+        <item>猛恶菇</item>
+        <item>振翼发</item>
         <item>爬地翅</item>
-        <item>沙鐵皮</item>
-        <item>鐵轍跡</item>
-        <item>鐵包袱</item>
-        <item>鐵臂膀</item>
-        <item>鐵脖頸</item>
-        <item>鐵毒蛾</item>
-        <item>鐵荊棘</item>
-        <item>涼脊龍</item>
-        <item>凍脊龍</item>
-        <item>戟脊龍</item>
-        <item>索財靈</item>
-        <item>賽富豪</item>
-        <item>古簡蝸</item>
-        <item>古劍豹</item>
+        <item>沙铁皮</item>
+        <item>铁辙迹</item>
+        <item>铁包袱</item>
+        <item>铁臂膀</item>
+        <item>铁脖颈</item>
+        <item>铁毒蛾</item>
+        <item>铁荆棘</item>
+        <item>凉脊龙</item>
+        <item>冻脊龙</item>
+        <item>戟脊龙</item>
+        <item>索财灵</item>
+        <item>赛富豪</item>
+        <item>古简蜗</item>
+        <item>古剑豹</item>
         <item>古鼎鹿</item>
-        <item>古玉魚</item>
-        <item>轟鳴月</item>
-        <item>鐵武者</item>
-        <item>故勒頓</item>
-        <item>密勒頓</item>
+        <item>古玉鱼</item>
+        <item>轰鸣月</item>
+        <item>铁武者</item>
+        <item>故勒顿</item>
+        <item>密勒顿</item>
     </string-array>
 </resources>
