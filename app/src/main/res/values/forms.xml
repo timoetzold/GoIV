@@ -117,6 +117,12 @@
  <item>2</item> <!-- Eternatus -->
  <item>2</item> <!-- Urshifu -->
  <item>3</item> <!-- Calyrex -->
+ <item>2</item> <!-- Oinkologne -->
+ <item>2</item> <!-- Maushold -->
+ <item>4</item> <!-- Squawkabilly -->
+ <item>2</item> <!-- Palafin -->
+ <item>3</item> <!-- Tatsugiri -->
+ <item>2</item> <!-- Dudunsparce -->
 </integer-array>
 <string-array name="formNames">
  <item>Normal Form</item> <item>Alola Form</item> <!-- Rattata -->
@@ -235,6 +241,12 @@
  <item>Normal Form</item> <item>Eternamax Form</item> <!-- Eternatus -->
  <item>Single Strike Form</item> <item>Rapid Strike Form</item> <!-- Urshifu -->
  <item>Normal Form</item> <item>Ice Rider Form</item> <item>Shadow Rider Form</item> <!-- Calyrex -->
+ <item>Normal Form</item> <item>Female Form</item> <!-- Oinkologne -->
+ <item>Family Of Three Form</item> <item>Family Of Four Form</item> <!-- Maushold -->
+ <item>Green Form</item> <item>Blue Form</item> <item>Yellow Form</item> <item>White Form</item> <!-- Squawkabilly -->
+ <item>Zero Form</item> <item>Hero Form</item> <!-- Palafin -->
+ <item>Curly Form</item> <item>Droopy Form</item> <item>Stretchy Form</item> <!-- Tatsugiri -->
+ <item>Two Form</item> <item>Three Form</item> <!-- Dudunsparce -->
 </string-array>
 <integer-array name="formAttack">
  <!-- Rattata -->
@@ -795,6 +807,27 @@
  <item>162</item> <!-- Normal Form -->
  <item>268</item> <!-- Ice Rider Form -->
  <item>324</item> <!-- Shadow Rider Form -->
+ <!-- Oinkologne -->
+ <item>186</item> <!-- Normal Form -->
+ <item>169</item> <!-- Female Form -->
+ <!-- Maushold -->
+ <item>159</item> <!-- Family Of Three Form -->
+ <item>159</item> <!-- Family Of Four Form -->
+ <!-- Squawkabilly -->
+ <item>185</item> <!-- Green Form -->
+ <item>185</item> <!-- Blue Form -->
+ <item>185</item> <!-- Yellow Form -->
+ <item>185</item> <!-- White Form -->
+ <!-- Palafin -->
+ <item>143</item> <!-- Zero Form -->
+ <item>322</item> <!-- Hero Form -->
+ <!-- Tatsugiri -->
+ <item>226</item> <!-- Curly Form -->
+ <item>226</item> <!-- Droopy Form -->
+ <item>226</item> <!-- Stretchy Form -->
+ <!-- Dudunsparce -->
+ <item>188</item> <!-- Two Form -->
+ <item>188</item> <!-- Three Form -->
 </integer-array>
 <integer-array name="formDefense">
  <!-- Rattata -->
@@ -1355,6 +1388,27 @@
  <item>162</item> <!-- Normal Form -->
  <item>246</item> <!-- Ice Rider Form -->
  <item>194</item> <!-- Shadow Rider Form -->
+ <!-- Oinkologne -->
+ <item>153</item> <!-- Normal Form -->
+ <item>162</item> <!-- Female Form -->
+ <!-- Maushold -->
+ <item>157</item> <!-- Family Of Three Form -->
+ <item>157</item> <!-- Family Of Four Form -->
+ <!-- Squawkabilly -->
+ <item>105</item> <!-- Green Form -->
+ <item>105</item> <!-- Blue Form -->
+ <item>105</item> <!-- Yellow Form -->
+ <item>105</item> <!-- White Form -->
+ <!-- Palafin -->
+ <item>144</item> <!-- Zero Form -->
+ <item>196</item> <!-- Hero Form -->
+ <!-- Tatsugiri -->
+ <item>166</item> <!-- Curly Form -->
+ <item>166</item> <!-- Droopy Form -->
+ <item>166</item> <!-- Stretchy Form -->
+ <!-- Dudunsparce -->
+ <item>150</item> <!-- Two Form -->
+ <item>150</item> <!-- Three Form -->
 </integer-array>
 <integer-array name="formStamina">
  <!-- Rattata -->
@@ -1915,5 +1969,26 @@
  <item>225</item> <!-- Normal Form -->
  <item>205</item> <!-- Ice Rider Form -->
  <item>205</item> <!-- Shadow Rider Form -->
+ <!-- Oinkologne -->
+ <item>242</item> <!-- Normal Form -->
+ <item>251</item> <!-- Female Form -->
+ <!-- Maushold -->
+ <item>179</item> <!-- Family Of Three Form -->
+ <item>179</item> <!-- Family Of Four Form -->
+ <!-- Squawkabilly -->
+ <item>193</item> <!-- Green Form -->
+ <item>193</item> <!-- Blue Form -->
+ <item>193</item> <!-- Yellow Form -->
+ <item>193</item> <!-- White Form -->
+ <!-- Palafin -->
+ <item>225</item> <!-- Zero Form -->
+ <item>225</item> <!-- Hero Form -->
+ <!-- Tatsugiri -->
+ <item>169</item> <!-- Curly Form -->
+ <item>169</item> <!-- Droopy Form -->
+ <item>169</item> <!-- Stretchy Form -->
+ <!-- Dudunsparce -->
+ <item>268</item> <!-- Two Form -->
+ <item>268</item> <!-- Three Form -->
 </integer-array>
 </resources>
